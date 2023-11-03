@@ -8,7 +8,7 @@ namespace mouahrarasModuleCollection.Utilities
 		public int	ArcadeGamesPayToPlayCoinPerJotPKGame = 1;
 		public int	ArcadeGamesPayToPlayCoinPerJKGame = 1;
 		public bool	ArcadeGamesPayToPlayKonamiCode = true;
-		public bool	ArcadeGamesPayToPlayNotRealisticLeaderboard = true;
+		public bool	ArcadeGamesPayToPlayNonRealisticLeaderboard = true;
 		public bool	ClintsShopSimultaneousServices = true;
 		public bool	ClintsShopGeodesAutoProcess = true;
 		public int ClintsShopGeodesAutoProcessSpeedMultiplier = 2;
@@ -133,9 +133,9 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
-				pageId: "Arcade games - Not realistic leaderboard",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.SubModules.NotRealisticLeaderboard.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.NotRealisticLeaderboard.Tooltip")
+				pageId: "Arcade games - Non-realistic leaderboard",
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.SubModules.NonRealisticLeaderboard.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.NonRealisticLeaderboard.Tooltip")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
@@ -169,11 +169,11 @@ namespace mouahrarasModuleCollection.Utilities
 				getValue: () => ModEntry.Config.ArcadeGamesPayToPlayKonamiCode,
 				setValue: value => ModEntry.Config.ArcadeGamesPayToPlayKonamiCode = value
 			);
-			// Arcade games - Not realistic leaderboard
+			// Arcade games - Non-realistic leaderboard
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
-				pageId: "Arcade games - Not realistic leaderboard",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.NotRealisticLeaderboard.Title")
+				pageId: "Arcade games - Non-realistic leaderboard",
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.NonRealisticLeaderboard.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
@@ -182,18 +182,14 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.NotRealisticLeaderboard.Description")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.NotRealisticLeaderboard.AdditionalInformation")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.NonRealisticLeaderboard.Description")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
 				name: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.Generic.Enabled.Title"),
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.Generic.Enabled.Tooltip"),
-				getValue: () => ModEntry.Config.ArcadeGamesPayToPlayNotRealisticLeaderboard,
-				setValue: value => ModEntry.Config.ArcadeGamesPayToPlayNotRealisticLeaderboard = value
+				getValue: () => ModEntry.Config.ArcadeGamesPayToPlayNonRealisticLeaderboard,
+				setValue: value => ModEntry.Config.ArcadeGamesPayToPlayNonRealisticLeaderboard = value
 			);
 			// Arcade games - Pay-to-play
 			gmcm.AddPage(

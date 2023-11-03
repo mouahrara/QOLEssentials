@@ -26,7 +26,6 @@ namespace mouahrarasModuleCollection.Utilities
 			}
 
 			DisableModules();
-			RebuildJunimoKartLeaderboard();
 			ModEntry.Monitor.Log(ModEntry.Helper.Translation.Get("ConsoleCommands.CompleteUninstallation", new { ModName = ModEntry.ModManifest.Name, ModsFolder = Path.Combine(Path.GetDirectoryName(ModEntry.Helper.GetType().Assembly.Location), "Mods")}), LogLevel.Info);
 		}
 
@@ -34,7 +33,7 @@ namespace mouahrarasModuleCollection.Utilities
 		{
 			ModEntry.Config.ArcadeGamesPayToPlay = false;
 			ModEntry.Config.ArcadeGamesPayToPlayKonamiCode = false;
-			ModEntry.Config.ArcadeGamesPayToPlayNotRealisticLeaderboard = false;
+			ModEntry.Config.ArcadeGamesPayToPlayNonRealisticLeaderboard = false;
 			ModEntry.Config.ClintsShopSimultaneousServices = false;
 			ModEntry.Config.ClintsShopGeodesAutoProcess = false;
 			ModEntry.Config.FestivalsEndTime = false;
@@ -42,28 +41,6 @@ namespace mouahrarasModuleCollection.Utilities
 			ModEntry.Config.FarmViewFastScrolling = false;
 			ModEntry.Config.MarniesShopAnimalPurchase = false;
 			ModEntry.Monitor.Log(ModEntry.Helper.Translation.Get("ConsoleCommands.DisableModulesSuccess"), LogLevel.Info);
-		}
-
-		private static void	RebuildJunimoKartLeaderboard()
-		{
-			List<KeyValuePair<string, int>> leaderbord = Game1.player.team.junimoKartScores.GetScores();
-
-			AddIfNotExists(leaderbord, "Lewis", 50000);
-			AddIfNotExists(leaderbord, "Shane", 25000);
-			AddIfNotExists(leaderbord, "Sam", 10000);
-			AddIfNotExists(leaderbord, "Abigail", 5000);
-			AddIfNotExists(leaderbord, "Vincent", 250);
-			ModEntry.Monitor.Log(ModEntry.Helper.Translation.Get("ConsoleCommands.RebuildJunimoKartLeaderboardSuccess"), LogLevel.Info);
-		}
-
-		private static void AddIfNotExists(List<KeyValuePair<string, int>> leaderbord, string playerName, int score)
-		{
-			foreach (KeyValuePair<string, int> entry in leaderbord)
-			{
-				if (entry.Key == playerName && entry.Value == score)
-					return;
-			}
-			Game1.player.team.junimoKartScores.AddScore(playerName, score);
 		}
 	}
 }

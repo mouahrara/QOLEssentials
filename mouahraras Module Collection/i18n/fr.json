@@ -41,10 +41,9 @@
 	"GMCM.SubModules.KonamiCode.Tooltip": "Saisissez le code secret pour obtenir des vies infinies.",
 	"GMCM.SubModules.KonamiCode.Description": "Ce sous-module vous permet de saisir le code Konami pour obtenir des vies infinies.",
 	"GMCM.SubModules.KonamiCode.AdditionalInformation": "/!\\ En mode vies infinies, les succès et les récompenses spéciales pour avoir terminé des jeux d'arcade sont désactivés.",
-	"GMCM.SubModules.NotRealisticLeaderboard.Title": "Classement non réaliste",
-	"GMCM.SubModules.NotRealisticLeaderboard.Tooltip": "Supprime les multiples records d'un même joueur du classement.",
-	"GMCM.SubModules.NotRealisticLeaderboard.Description": "Ce sous-module supprime les multiples records d'un même joueur du classement.",
-	"GMCM.SubModules.NotRealisticLeaderboard.AdditionalInformation": "/!\\ En raison d'une limitation du jeu, ce sous-module ne cache pas, mais SUPPRIME DÉFINITIVEMENT les entrées multiples d'un même joueur du classement lors de la sauvegarde, ne conservant que le meilleur record. Si vous souhaitez conserver tous vos records, vous devrez désactiver ce sous-module.",
+	"GMCM.SubModules.NonRealisticLeaderboard.Title": "Tableau des scores non réaliste",
+	"GMCM.SubModules.NonRealisticLeaderboard.Tooltip": "Cache les multiples records d'un même joueur du tableau des scores.",
+	"GMCM.SubModules.NonRealisticLeaderboard.Description": "Ce sous-module cache les multiples records d'un même joueur du tableau des scores.",
 	"GMCM.SubModules.PayToPlay.Title": "Payez pour jouer",
 	"GMCM.SubModules.PayToPlay.Tooltip": "Payez pour jouer aux jeux d'arcade.",
 	"GMCM.SubModules.PayToPlay.Description": "Ce sous-module exige que vous payiez pour jouer à des jeux d'arcade.",
@@ -94,8 +93,7 @@
 
 	// Console commands
 	"ConsoleCommands.NoSaveLoaded": "Vous devez charger une partie pour exécuter cette commande.",
-	"ConsoleCommands.NotMasterplayer": "YVous devez être le joueur principal pour exécuter cette commande.",
+	"ConsoleCommands.NotMasterplayer": "Vous devez être le joueur principal pour exécuter cette commande.",
 	"ConsoleCommands.DisableModulesSuccess": "Modules désactivés avec succès.",
-	"ConsoleCommands.RebuildJunimoKartLeaderboardSuccess": "Classement de Junimo Kart reconstruit avec succès.",
 	"ConsoleCommands.CompleteUninstallation": "Pour terminer la désinstallation, veuillez sauvegarder la partie et supprimer le mod {{ModName}} du dossier {{ModsFolder}}."
 }

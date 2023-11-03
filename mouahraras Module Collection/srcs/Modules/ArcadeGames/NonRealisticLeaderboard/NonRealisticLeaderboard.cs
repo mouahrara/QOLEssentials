@@ -1,11 +1,11 @@
 ﻿using System;
 using HarmonyLib;
 using StardewModdingAPI;
-using mouahrarasModuleCollection.ArcadeGames.NotRealisticLeaderboard.Patches;
+using mouahrarasModuleCollection.ArcadeGames.NonRealisticLeaderboard.Patches;
 
 namespace mouahrarasModuleCollection.ArcadeGames.SubModules
 {
-	internal class NotRealisticLeaderboardSubModule
+	internal class NonRealisticLeaderboardSubModule
 	{
 		internal static void Apply(Harmony harmony)
 		{
@@ -17,7 +17,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.SubModules
 			}
 			catch (Exception e)
 			{
-				ModEntry.Monitor.Log($"Issue with Harmony patching of the {typeof(NotRealisticLeaderboardSubModule)} module: {e}", LogLevel.Error);
+				ModEntry.Monitor.Log($"Issue with Harmony patching of the {typeof(NonRealisticLeaderboardSubModule)} module: {e}", LogLevel.Error);
 				return;
 			}
 		}

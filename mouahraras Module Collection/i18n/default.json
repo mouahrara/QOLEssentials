@@ -41,10 +41,9 @@
 	"GMCM.SubModules.KonamiCode.Tooltip": "Enter the secret code to get infinite lives.",
 	"GMCM.SubModules.KonamiCode.Description": "This sub-module allows you to enter the Konami code to get infinite lives.",
 	"GMCM.SubModules.KonamiCode.AdditionalInformation": "/!\\ In infinite lives mode, achievements and special rewards for beating arcade games are disabled.",
-	"GMCM.SubModules.NotRealisticLeaderboard.Title": "Not realistic leaderboard",
-	"GMCM.SubModules.NotRealisticLeaderboard.Tooltip": "Removes multiple high scores of the same player from the leaderboard.",
-	"GMCM.SubModules.NotRealisticLeaderboard.Description": "This sub-module removes multiple high scores of the same player from the leaderboard.",
-	"GMCM.SubModules.NotRealisticLeaderboard.AdditionalInformation": "/!\\ Due to a game limitation, this sub-module does not hide but DEFINITELY DELETES multiple entries of the same player from the leaderboard when saving, keeping only the best high score. If you want to keep all your high scores, you'll need to disable this sub-module.",
+	"GMCM.SubModules.NonRealisticLeaderboard.Title": "Non-realistic leaderboard",
+	"GMCM.SubModules.NonRealisticLeaderboard.Tooltip": "Hides multiple high scores of the same player from the leaderboard.",
+	"GMCM.SubModules.NonRealisticLeaderboard.Description": "This sub-module hides multiple high scores of the same player from the leaderboard.",
 	"GMCM.SubModules.PayToPlay.Title": "Pay-to-play",
 	"GMCM.SubModules.PayToPlay.Tooltip": "Pay to play arcade games.",
 	"GMCM.SubModules.PayToPlay.Description": "This sub-module requires you to pay to play arcade games.",
@@ -96,6 +95,5 @@
 	"ConsoleCommands.NoSaveLoaded": "You must load a save to run this command.",
 	"ConsoleCommands.NotMasterplayer": "You must be the masterplayer to run this command.",
 	"ConsoleCommands.DisableModulesSuccess": "Modules successfully disabled.",
-	"ConsoleCommands.RebuildJunimoKartLeaderboardSuccess": "Junimo Kart leaderboard successfully rebuilt.",
 	"ConsoleCommands.CompleteUninstallation": "To complete the uninstallation, please save the game and delete the {{ModName}} mod from the {{ModsFolder}} folder."
 }

@@ -9,7 +9,7 @@ namespace mouahrarasModuleCollection.Modules
 		{
 			// Apply sub-modules
 			KonamiCodeSubModule.Apply(harmony);
-			NotRealisticLeaderboardSubModule.Apply(harmony);
+			NonRealisticLeaderboardSubModule.Apply(harmony);
 			PayToPlaySubModule.Apply(harmony);
 		}
 	}
