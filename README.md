@@ -71,7 +71,7 @@ This section contains modules that introduce overhauls to various game elements,
 | (in future releases) |               | <ul><li>Enabled</li></ul> |
 
 ## Accessibility
-English and French translations are included in the base mod, and contributions are welcome. To contribute, please submit a pull request on the [GitHub repository](https://github.com/mouahrara/mouahrarasModuleCollection/pulls).  
+Chinese (thanks to **wsphm**), English and French translations are included in the base mod, and contributions are welcome. To contribute, please submit a pull request on the [GitHub repository](https://github.com/mouahrara/mouahrarasModuleCollection/pulls).  
 Note that this mod has controller support.
 
 ## Multiplayer

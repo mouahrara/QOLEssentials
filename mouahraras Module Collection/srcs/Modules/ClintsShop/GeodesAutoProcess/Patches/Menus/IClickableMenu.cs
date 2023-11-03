@@ -1,6 +1,7 @@
 using System;
 using HarmonyLib;
 using Microsoft.Xna.Framework.Input;
+using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Menus;
 using mouahrarasModuleCollection.ClintsShop.GeodesAutoProcess.Utilities;
@@ -27,7 +28,7 @@ namespace mouahrarasModuleCollection.ClintsShop.GeodesAutoProcess.Patches
 
 		private static void PopulateClickableComponentListPostfix(IClickableMenu __instance)
 		{
-			if (!ModEntry.Config.ClintsShopGeodesAutoProcess)
+			if (!Context.IsWorldReady || !ModEntry.Config.ClintsShopGeodesAutoProcess)
 				return;
 
 			if (__instance.GetType() == typeof(GeodeMenu))
@@ -38,7 +39,7 @@ namespace mouahrarasModuleCollection.ClintsShop.GeodesAutoProcess.Patches
 
 		private static bool ReceiveKeyPressPrefix(IClickableMenu __instance, Keys key)
 		{
-			if (!ModEntry.Config.ClintsShopGeodesAutoProcess)
+			if (!Context.IsWorldReady || !ModEntry.Config.ClintsShopGeodesAutoProcess)
 				return true;
 			if (key == 0)
 				return true;
@@ -56,7 +57,7 @@ namespace mouahrarasModuleCollection.ClintsShop.GeodesAutoProcess.Patches
 
 		private static void ExitThisMenuPostfix(IClickableMenu __instance)
 		{
-			if (!ModEntry.Config.ClintsShopGeodesAutoProcess)
+			if (!Context.IsWorldReady || !ModEntry.Config.ClintsShopGeodesAutoProcess)
 				return;
 
 			if (__instance.GetType() == typeof(GeodeMenu))
