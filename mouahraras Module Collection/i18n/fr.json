@@ -22,6 +22,9 @@
 	"GMCM.Modules.ClintsShop.Title": "Boutique de Clint",
 	"GMCM.Modules.ClintsShop.Description": "Ce module ajoute des ajustements mineurs et des fonctionnalités à la boutique de Clint.",
 	"GMCM.Modules.ClintsShop.BackTo": "Retour à Boutique de Clint",
+	"GMCM.Modules.Crystalariums.Title": "Cristalariums",
+	"GMCM.Modules.Crystalariums.Description": "Ce module ajoute des ajustements mineurs et des fonctionnalités aux cristalariums.",
+	"GMCM.Modules.Crystalariums.BackTo": "Retour à Cristalariums",
 	"GMCM.Modules.FarmView.Title": "Vue de la ferme",
 	"GMCM.Modules.FarmView.Description": "Ce module ajoute des ajustements mineurs et des fonctionnalités à la vue de la ferme.",
 	"GMCM.Modules.FarmView.BackTo": "Retour à Vue de la ferme",
@@ -61,6 +64,11 @@
 	"GMCM.SubModules.SimultaneousServices.Title": "Services simultanés",
 	"GMCM.SubModules.SimultaneousServices.Tooltip": "Achetez et ouvrez des géodes même pendant l'amélioration d'outils.",
 	"GMCM.SubModules.SimultaneousServices.Description": "Ce sous-module vous permet d'acheter et d'ouvrir des géodes, même pendant l'amélioration d'outils.",
+
+	// GMCM - Crystalariums - Sub-modules
+	"GMCM.SubModules.SafeReplacement.Title": "Remplacement sécurisé",
+	"GMCM.SubModules.SafeReplacement.Tooltip": "Récupère automatiquement le contenu d'un cristalarium lorsque vous en insérez un nouveau",
+	"GMCM.SubModules.SafeReplacement.Description": "Ce sous-module récupère automatiquement le contenu d'un cristalarium lorsque vous en insérez un nouveau.",
 
 	// GMCM - Farm view - Sub-modules
 	"GMCM.SubModules.FastScrolling.Title": "Défilement rapide",

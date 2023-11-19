@@ -31,6 +31,12 @@ https://github.com/mouahrara/mouahrarasModuleCollection/assets/131559634/3f85a5e
 | Geodes auto-process   | Allows you to automatically and quickly process many geodes.       | <ul><li>Enabled</li><li>Process speed multiplier</li></ul> |
 | Simultaneous services | Allows you to shop and process geodes, even while upgrading tools. | <ul><li>Enabled</li></ul>                                  |
 
+- #### Crystalariums
+
+| Sub-module       | Functionality                                                                    | GMCM options              |
+|------------------|----------------------------------------------------------------------------------|---------------------------|
+| Safe replacement | Automatically retrieves the content of a crystalarium when you insert a new one. | <ul><li>Enabled</li></ul> |
+
 - #### Farm view
 
 https://github.com/mouahrara/mouahrarasModuleCollection/assets/131559634/007d5677-2905-4bb1-8ba4-63d134491dce

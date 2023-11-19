@@ -12,6 +12,7 @@ namespace mouahrarasModuleCollection.Utilities
 		public bool	ClintsShopSimultaneousServices = true;
 		public bool	ClintsShopGeodesAutoProcess = true;
 		public int ClintsShopGeodesAutoProcessSpeedMultiplier = 2;
+		public bool CrystalariumsSafeReplacement = true;
 		public bool	FestivalsEndTime = true;
 		public int	FestivalsEndTimeAdditionalTime = 200;
 		public bool	FarmViewZoom = true;
@@ -68,6 +69,11 @@ namespace mouahrarasModuleCollection.Utilities
 				mod: ModEntry.ModManifest,
 				pageId: "Clint's shop",
 				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Modules.ClintsShop.Title")
+			);
+			gmcm.AddPageLink(
+				mod: ModEntry.ModManifest,
+				pageId: "Crystalariums",
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Modules.Crystalariums.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
@@ -314,6 +320,50 @@ namespace mouahrarasModuleCollection.Utilities
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.Generic.Enabled.Tooltip"),
 				getValue: () => ModEntry.Config.ClintsShopSimultaneousServices,
 				setValue: value => ModEntry.Config.ClintsShopSimultaneousServices = value
+			);
+
+			// Crystalariums
+			gmcm.AddPage(
+				mod: ModEntry.ModManifest,
+				pageId: "Crystalariums",
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Crystalariums.Title")
+			);
+			// gmcm.AddPageLink(
+			// 	mod: ModEntry.ModManifest,
+			// 	pageId: ModEntry.ModManifest.UniqueID,
+			// 	text: () => "@ " + "Back to mouahrara's Module Collection"
+			// );
+			gmcm.AddParagraph(
+				mod: ModEntry.ModManifest,
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Crystalariums.Description")
+			);
+			gmcm.AddPageLink(
+				mod: ModEntry.ModManifest,
+				pageId: "Crystalariums - Safe replacement",
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.SubModules.SafeReplacement.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.SafeReplacement.Tooltip")
+			);
+			// Crystalariums - Safe replacement
+			gmcm.AddPage(
+				mod: ModEntry.ModManifest,
+				pageId: "Crystalariums - Safe replacement",
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.SafeReplacement.Title")
+			);
+			gmcm.AddPageLink(
+				mod: ModEntry.ModManifest,
+				pageId: "Crystalariums",
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.Modules.Crystalariums.BackTo")
+			);
+			gmcm.AddParagraph(
+				mod: ModEntry.ModManifest,
+				text: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.SafeReplacement.Description")
+			);
+			gmcm.AddBoolOption(
+				mod: ModEntry.ModManifest,
+				name: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.Generic.Enabled.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.SubModules.Generic.Enabled.Tooltip"),
+				getValue: () => ModEntry.Config.CrystalariumsSafeReplacement,
+				setValue: value => ModEntry.Config.CrystalariumsSafeReplacement = value
 			);
 
 			// Farm view

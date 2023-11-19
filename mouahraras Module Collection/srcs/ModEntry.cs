@@ -26,6 +26,7 @@ namespace mouahrarasModuleCollection
 			// Apply modules
 			ArcadeGamesModule.Apply(harmony);
 			ClintsShopModule.Apply(harmony);
+			CrystalariumsModule.Apply(harmony);
 			FarmViewModule.Apply(harmony);
 			FestivalsModule.Apply(harmony);
 			MarniesShopModule.Apply(harmony);

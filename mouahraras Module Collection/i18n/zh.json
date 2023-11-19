@@ -22,6 +22,9 @@
 	"GMCM.Modules.ClintsShop.Title": "克林特的店",
 	"GMCM.Modules.ClintsShop.Description": "该模块为克林特的商店添加了一些小的调整和功能..",
 	"GMCM.Modules.ClintsShop.BackTo": "回到克林特的店里",
+	"GMCM.Modules.Crystalariums.Title": "Crystalariums",
+	"GMCM.Modules.Crystalariums.Description": "This module adds minor tweaks and features to Crystalariums.",
+	"GMCM.Modules.Crystalariums.BackTo": "Back to Crystalariums",
 	"GMCM.Modules.FarmView.Title": "农场景观",
 	"GMCM.Modules.FarmView.Description": "此模块为农场视图添加了一些小的调整和功能.",
 	"GMCM.Modules.FarmView.BackTo": "返回农场视图",
@@ -61,6 +64,11 @@
 	"GMCM.SubModules.SimultaneousServices.Title": "同时服务",
 	"GMCM.SubModules.SimultaneousServices.Tooltip": "即使在升级工具时,也要对晶洞进行加工和处理.",
 	"GMCM.SubModules.SimultaneousServices.Description": "此子模块允许您购买和处理晶洞,即使在升级工具时也是如此..",
+
+	// GMCM - Crystalariums - Sub-modules
+	"GMCM.SubModules.SafeReplacement.Title": "Safe replacement",
+	"GMCM.SubModules.SafeReplacement.Tooltip": "Automatically retrieves the content of a crystalarium when you insert a new one",
+	"GMCM.SubModules.SafeReplacement.Description": "This sub-module automatically retrieves the content of a crystalarium when you insert a new one.",
 
 	// GMCM-农场视图-子模块
 	"GMCM.SubModules.FastScrolling.Title": "快速滚动",
