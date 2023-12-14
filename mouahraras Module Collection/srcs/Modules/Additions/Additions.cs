@@ -1,0 +1,13 @@
+﻿using HarmonyLib;
+using mouahrarasModuleCollection.SubSections;
+
+namespace mouahrarasModuleCollection.Sections
+{
+	internal class AdditionsSection
+	{
+		internal static void Apply(Harmony harmony)
+		{
+			// Apply sub-sections
+		}
+	}
+}
