@@ -34,7 +34,6 @@ namespace mouahrarasModuleCollection.Utilities
 			ModEntry.Config.ArcadeGamesPayToPlayKonamiCode = false;
 			ModEntry.Config.ArcadeGamesPayToPlayNonRealisticLeaderboard = false;
 			ModEntry.Config.ShopsBetterAnimalPurchase = false;
-			ModEntry.Config.ShopsSimultaneousServices = false;
 			ModEntry.Config.ShopsGeodesAutoProcess = false;
 			ModEntry.Config.MachinesSafeReplacement = false;
 			ModEntry.Config.UserInterfaceZoom = false;

@@ -5,7 +5,7 @@ using mouahrarasModuleCollection.TweaksAndFeatures.Shops.BetterAnimalPurchase.Pa
 
 namespace mouahrarasModuleCollection.Modules
 {
-	internal class AnimalPurchaseModule
+	internal class BetterAnimalPurchaseModule
 	{
 		internal static void Apply(Harmony harmony)
 		{
@@ -17,7 +17,7 @@ namespace mouahrarasModuleCollection.Modules
 			}
 			catch (Exception e)
 			{
-				ModEntry.Monitor.Log($"Issue with Harmony patching of the {typeof(AnimalPurchaseModule)} module: {e}", LogLevel.Error);
+				ModEntry.Monitor.Log($"Issue with Harmony patching of the {typeof(BetterAnimalPurchaseModule)} module: {e}", LogLevel.Error);
 				return;
 			}
 		}
