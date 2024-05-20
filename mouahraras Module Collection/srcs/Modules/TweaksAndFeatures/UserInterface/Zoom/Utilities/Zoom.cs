@@ -1,21 +1,32 @@
+using System;
 using StardewModdingAPI.Utilities;
+using StardewValley;
 
 namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Utilities
 {
 	internal class ZoomUtility
 	{
-		private static readonly PerScreen<int>	zoomLevel = new(() => 0);
-		private static readonly PerScreen<bool>	zoomLevelMinReached = new(() => false);
+		private static readonly PerScreen<int>		additionalZoom = new(() => 0);
+		private static readonly PerScreen<float>	zoomLevel = new(() => -1f);
+		private static readonly PerScreen<bool>		zoomLevelMinReached = new(() => false);
 
 		internal static void Reset()
 		{
-			zoomLevel.Value = 0;
-			zoomLevelMinReached.Value = false;
+			AdditionalZoom = 0;
+			ZoomLevel = -1f;
+			ZoomLevelMinReached = false;
+			Game1.updateViewportForScreenSizeChange(false, Game1.graphics.PreferredBackBufferWidth, Game1.graphics.PreferredBackBufferHeight);
 		}
 
-		internal static int ZoomLevel
+		internal static int AdditionalZoom
 		{
-			get => zoomLevel.Value;
+			get => additionalZoom.Value;
+			set => additionalZoom.Value = value;
+		}
+
+		internal static float ZoomLevel
+		{
+			get => zoomLevel.Value < 0 ? Game1.options.desiredBaseZoomLevel : zoomLevel.Value;
 			set => zoomLevel.Value = value;
 		}
 
@@ -27,11 +38,25 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Utilit
 
 		internal static void AddZoomLevel(int direction)
 		{
-			if (direction < 0 && zoomLevelMinReached.Value)
-				return;
-			if (direction > 0 && zoomLevel.Value + direction > 0)
-				return;
-			zoomLevel.Value += direction;
+			float min = ModEntry.Config.UserInterfaceZoomMinimumZoomLevel;
+			float max = Game1.options.desiredBaseZoomLevel;
+			int newAdditionalZoom = AdditionalZoom + direction;
+			float newZoomLevel = Game1.options.desiredBaseZoomLevel - (-newAdditionalZoom * ModEntry.Config.UserInterfaceZoomMultiplier / 8000f);
+
+			if (direction < 0 && (ZoomLevelMinReached || newZoomLevel < min))
+			{
+				newZoomLevel = min;
+			}
+			if (direction > 0 && newZoomLevel > max)
+			{
+				newZoomLevel = max;
+			}
+			if (newZoomLevel == min || newZoomLevel == max)
+			{
+				newAdditionalZoom = (int)Math.Round((newZoomLevel - Game1.options.desiredBaseZoomLevel) * 8000f / ModEntry.Config.UserInterfaceZoomMultiplier);
+			}
+			ZoomLevel = newZoomLevel;
+			AdditionalZoom = newAdditionalZoom;
 		}
 	}
 }

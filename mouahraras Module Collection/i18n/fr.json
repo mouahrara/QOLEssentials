@@ -86,6 +86,8 @@
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip": "Une touche secondaire, en plus du défilement de la souris vers le bas, pour zoomer en arrière.",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.SpeedMultiplier.Title": "Multiplicateur de vitesse de zoom",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.SpeedMultiplier.Tooltip": "Un multiplicateur pour ajuster la vitesse de zoom.",
+	"GMCM.TweaksAndFeatures.UserInterface.Zoom.MinimumZoomLevel.Title": "Niveau de zoom minimum",
+	"GMCM.TweaksAndFeatures.UserInterface.Zoom.MinimumZoomLevel.Tooltip": "Le niveau de zoom minimum que vous pouvez atteindre. Cette option permet d'éviter un zoom arrière excessif, susceptible d'entraîner un ralentissement sur les cartes de très grande taille.",
 
 	// GMCM - TweaksAndFeatures - Other - Modules
 	"GMCM.TweaksAndFeatures.Other.FestivalEndTime.Title": "Heure de fin des festivals",

@@ -86,6 +86,8 @@
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip": "A secondary key, in addition to mouse scroll down, for zooming out.",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.SpeedMultiplier.Title": "Zoom speed multiplier",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.SpeedMultiplier.Tooltip": "A multiplier to adjust the zoom speed.",
+	"GMCM.TweaksAndFeatures.UserInterface.Zoom.MinimumZoomLevel.Title": "Minimum zoom level",
+	"GMCM.TweaksAndFeatures.UserInterface.Zoom.MinimumZoomLevel.Tooltip": "The minimum zoom level you can reach. This option helps prevent excessive zooming out, which can cause lag on very large maps.",
 
 	// GMCM - TweaksAndFeatures - Other - Modules
 	"GMCM.TweaksAndFeatures.Other.FestivalEndTime.Title": "Festival end time",

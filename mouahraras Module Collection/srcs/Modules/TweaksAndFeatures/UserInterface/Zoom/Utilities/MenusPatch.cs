@@ -1,13 +1,26 @@
+using StardewModdingAPI.Utilities;
+using StardewValley;
+using StardewValley.Menus;
 using mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Handlers;
 
 namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Utilities
 {
 	internal class MenusPatchUtility
 	{
+		private static readonly PerScreen<int>	afterResetTicks = new(() => -1);
+
+		internal static int AfterResetTicks
+		{
+			get => afterResetTicks.Value;
+			set => afterResetTicks.Value = value;
+		}
+
 		internal static void EnterFarmViewPostfix()
 		{
 			if (!ModEntry.Config.UserInterfaceZoom)
 				return;
+
+			ModEntry.Helper.Events.GameLoop.UpdateTicking -= UpdateTickingHandler.Apply;
 			ModEntry.Helper.Events.GameLoop.UpdateTicking += UpdateTickingHandler.Apply;
 		}
 
@@ -15,8 +28,38 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Utilit
 		{
 			if (!ModEntry.Config.UserInterfaceZoom)
 				return;
+
 			ModEntry.Helper.Events.GameLoop.UpdateTicking -= UpdateTickingHandler.Apply;
-			ZoomUtility.Reset();
+			if (Game1.isWarping && Game1.locationRequest is not null)
+			{
+				Game1.locationRequest.OnLoad += ZoomUtility.Reset;
+			}
+			else
+			{
+				ZoomUtility.Reset();
+			}
+		}
+
+		internal static bool ShouldProcess(IClickableMenu __instance)
+		{
+			if (!ModEntry.Config.UserInterfaceZoom)
+				return false;
+
+			CarpenterMenu carpenterMenu = __instance as CarpenterMenu;
+			PurchaseAnimalsMenu purchaseAnimalsMenu = __instance as PurchaseAnimalsMenu;
+			AnimalQueryMenu animalQueryMenu = __instance as AnimalQueryMenu;
+
+			if (carpenterMenu is null && purchaseAnimalsMenu is null && animalQueryMenu is null)
+				return false;
+			if (carpenterMenu is not null && carpenterMenu.freeze)
+				return false;
+			if (purchaseAnimalsMenu is not null && purchaseAnimalsMenu.freeze)
+				return false;
+			if (Game1.IsFading())
+				return false;
+			if (!__instance.shouldClampGamePadCursor() || !__instance.overrideSnappyMenuCursorMovementBan())
+				return false;
+			return true;
 		}
 	}
 }

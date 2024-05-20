@@ -16,6 +16,10 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Patche
 				original: AccessTools.Method(typeof(AnimalQueryMenu), nameof(AnimalQueryMenu.prepareForReturnFromPlacement)),
 				postfix: new HarmonyMethod(typeof(MenusPatchUtility), nameof(MenusPatchUtility.LeaveFarmViewPostfix))
 			);
+			harmony.Patch(
+				original: AccessTools.Method(typeof(AnimalQueryMenu), nameof(AnimalQueryMenu.finishedPlacingAnimal)),
+				postfix: new HarmonyMethod(typeof(MenusPatchUtility), nameof(MenusPatchUtility.LeaveFarmViewPostfix))
+			);
 		}
 	}
 }

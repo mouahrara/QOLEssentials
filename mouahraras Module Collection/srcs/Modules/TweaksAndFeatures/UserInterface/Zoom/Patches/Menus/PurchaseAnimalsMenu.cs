@@ -26,6 +26,7 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Patche
 		{
 			if (ModEntry.Config.ShopsBetterAnimalPurchase)
 				return;
+
 			MenusPatchUtility.LeaveFarmViewPostfix();
 		}
 	}

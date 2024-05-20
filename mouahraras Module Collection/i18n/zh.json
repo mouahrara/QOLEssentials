@@ -86,6 +86,8 @@
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip": "除了鼠标向下滚动外,还有一个辅助键用于缩小.",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.SpeedMultiplier.Title": "缩放速度倍增器",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.SpeedMultiplier.Tooltip": "用于调整缩放速度的倍增器.",
+	"GMCM.TweaksAndFeatures.UserInterface.Zoom.MinimumZoomLevel.Title": "Minimum zoom level",
+	"GMCM.TweaksAndFeatures.UserInterface.Zoom.MinimumZoomLevel.Tooltip": "The minimum zoom level you can reach. This option helps prevent excessive zooming out, which can cause lag on very large maps.",
 
 	// GMCM - TweaksAndFeatures - Other - Modules
 	"GMCM.TweaksAndFeatures.Other.FestivalEndTime.Title": "Festival end time",

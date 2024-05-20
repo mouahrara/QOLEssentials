@@ -21,6 +21,7 @@ namespace mouahrarasModuleCollection.Utilities
 		public SButton UserInterfaceZoomInKey = SButton.RightTrigger;
 		public SButton UserInterfaceZoomOutKey = SButton.LeftTrigger;
 		public float UserInterfaceZoomMultiplier = 1.0f;
+		public float UserInterfaceZoomMinimumZoomLevel = 0.25f;
 		public bool	UserInterfaceFastScrolling = true;
 		public float UserInterfaceFastScrollingMultiplier = 3.0f;
 	}
@@ -479,6 +480,16 @@ namespace mouahrarasModuleCollection.Utilities
 				min: 0.25f,
 				max: 4.0f,
 				interval: 0.25f
+			);
+			gmcm.AddNumberOption(
+				mod: ModEntry.ModManifest,
+				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.MinimumZoomLevel.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.MinimumZoomLevel.Tooltip"),
+				getValue: () => ModEntry.Config.UserInterfaceZoomMinimumZoomLevel,
+				setValue: value => ModEntry.Config.UserInterfaceZoomMinimumZoomLevel = value,
+				min: 0.0f,
+				max: 0.75f,
+				interval: 0.05f
 			);
 
 			// Other

@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Reflection;
 using HarmonyLib;
-using StardewModdingAPI;
+using StardewValley;
 using StardewValley.Menus;
 using mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Utilities;
 
@@ -19,16 +18,9 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Patche
 
 		private static void ReceiveScrollWheelActionPostfix(IClickableMenu __instance, int direction)
 		{
-			if (!Context.IsWorldReady || !ModEntry.Config.UserInterfaceZoom)
+			if (!MenusPatchUtility.ShouldProcess(__instance))
 				return;
-			if (__instance is not CarpenterMenu && __instance is not PurchaseAnimalsMenu && __instance is not AnimalQueryMenu)
-				return;
-			if (__instance is CarpenterMenu && (__instance as CarpenterMenu).freeze)
-				return;
-			if (__instance is PurchaseAnimalsMenu && (__instance as PurchaseAnimalsMenu).freeze)
-				return;
-			if (!__instance.overrideSnappyMenuCursorMovementBan())
-				return;
+
 			ZoomUtility.AddZoomLevel(direction * 2);
 		}
 	}

@@ -1,4 +1,6 @@
 ﻿using StardewModdingAPI.Events;
+using StardewValley;
+using StardewValley.Menus;
 using mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Utilities;
 
 namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Handlers
@@ -10,17 +12,22 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Handle
 		/// <param name="e">The event data.</param>
 		internal static void Apply(object sender, UpdateTickingEventArgs e)
 		{
-			if (!ModEntry.Config.UserInterfaceZoom)
+			if (!MenusPatchUtility.ShouldProcess(Game1.activeClickableMenu))
 				return;
-			if (ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomInKey))
+
+			bool isZoomInKeyDown = ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomInKey);
+			bool isZoomOutKeyDown = ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomOutKey);
+
+			if (!isZoomInKeyDown || !isZoomOutKeyDown)
 			{
-				ZoomUtility.AddZoomLevel(120);
-				return;
-			}
-			if (ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomOutKey))
-			{
-				ZoomUtility.AddZoomLevel(-120);
-				return;
+				if (isZoomInKeyDown)
+				{
+					ZoomUtility.AddZoomLevel(120);
+				}
+				else if (isZoomOutKeyDown)
+				{
+					ZoomUtility.AddZoomLevel(-120);
+				}
 			}
 		}
 	}

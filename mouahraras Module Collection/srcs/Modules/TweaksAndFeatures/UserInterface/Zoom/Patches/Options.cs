@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Reflection;
 using HarmonyLib;
+using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Menus;
@@ -22,28 +22,31 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Patche
 		{
 			if (!Context.IsWorldReady || !ModEntry.Config.UserInterfaceZoom)
 				return;
-			if (Game1.activeClickableMenu is not CarpenterMenu && Game1.activeClickableMenu is not PurchaseAnimalsMenu && Game1.activeClickableMenu is not AnimalQueryMenu)
+			if (ZoomUtility.AdditionalZoom == 0)
 				return;
-			if (Game1.activeClickableMenu is CarpenterMenu && (Game1.activeClickableMenu as CarpenterMenu).freeze)
-				return;
-			if (Game1.activeClickableMenu is PurchaseAnimalsMenu && (Game1.activeClickableMenu as PurchaseAnimalsMenu).freeze)
+
+			CarpenterMenu carpenterMenu = Game1.activeClickableMenu as CarpenterMenu;
+			PurchaseAnimalsMenu purchaseAnimalsMenu = Game1.activeClickableMenu as PurchaseAnimalsMenu;
+			AnimalQueryMenu animalQueryMenu = Game1.activeClickableMenu as AnimalQueryMenu;
+
+			if (carpenterMenu is null && purchaseAnimalsMenu is null && animalQueryMenu is null)
 				return;
 			if (!Game1.activeClickableMenu.shouldClampGamePadCursor())
 				return;
 
-			float nextZoomLevel = __result + ZoomUtility.ZoomLevel * ModEntry.Config.UserInterfaceZoomMultiplier / 8000f;
+			ClickableTextureComponent cancelButton = (carpenterMenu?.cancelButton) ?? (purchaseAnimalsMenu?.okButton) ?? (animalQueryMenu?.okButton);
 			bool viewportWidthHasOrWillOverflowMapWidth;
 			bool viewportHeightHasOrWillOverflowMapHeight;
 
-			if (nextZoomLevel <= 0)
+			if (ZoomUtility.ZoomLevel <= 0)
 			{
 				viewportWidthHasOrWillOverflowMapWidth = true;
 				viewportHeightHasOrWillOverflowMapHeight = true;
 			}
 			else
 			{
-				int nextViewportWidth = (int) Math.Ceiling(Game1.game1.localMultiplayerWindow.Width * (1.0 / (double) nextZoomLevel));
-				int nextViewportHeight = (int) Math.Ceiling(Game1.game1.localMultiplayerWindow.Height * (1.0 / (double) nextZoomLevel));
+				int nextViewportWidth = (int) Math.Ceiling(Game1.game1.localMultiplayerWindow.Width * (1.0 / (double) ZoomUtility.ZoomLevel));
+				int nextViewportHeight = (int) Math.Ceiling(Game1.game1.localMultiplayerWindow.Height * (1.0 / (double) ZoomUtility.ZoomLevel));
 
 				viewportWidthHasOrWillOverflowMapWidth = Game1.viewport.Size.Width > Game1.currentLocation.Map.DisplayWidth || nextViewportWidth > Game1.currentLocation.Map.DisplayWidth;
 				viewportHeightHasOrWillOverflowMapHeight = Game1.viewport.Size.Height > Game1.currentLocation.Map.DisplayHeight || nextViewportHeight > Game1.currentLocation.Map.DisplayHeight;
@@ -69,9 +72,10 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Patche
 			}
 			else
 			{
-				__result = nextZoomLevel;
+				__result = ZoomUtility.ZoomLevel;
 				ZoomUtility.ZoomLevelMinReached = false;
 			}
+			cancelButton?.setPosition(new Vector2(Game1.uiViewport.Width - cancelButton.bounds.Width - 64, Game1.uiViewport.Height - cancelButton.bounds.Height - 64));
 			Game1.clampViewportToGameMap();
 			Game1.game1.refreshWindowSettings();
 		}
