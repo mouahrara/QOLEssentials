@@ -55,69 +55,37 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 
 			// Main
-			gmcm.AddSectionTitle(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Title")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Description")
-			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.Title")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Machines",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Machines.Title")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Machines.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Shops",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.Title")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Shops.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "User Interface",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Title")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Other",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.Title")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => string.Empty
-			);
-			gmcm.AddSectionTitle(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.Additions.Title")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.Additions.Description")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => string.Empty
-			);
-			gmcm.AddSectionTitle(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.Overhauls.Title")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.Overhauls.Description")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Other.Title")
 			);
 
 			// Arcade games
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.Title")
 			);
 			// gmcm.AddPageLink(
 			// 	mod: ModEntry.ModManifest,
@@ -126,44 +94,44 @@ namespace mouahrarasModuleCollection.Utilities
 			// );
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.Description")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games - Konami code",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.KonamiCode.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.KonamiCode.Tooltip")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Tooltip")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games - Non-realistic leaderboard",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.NonRealisticLeaderboard.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.NonRealisticLeaderboard.Tooltip")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.NonRealisticLeaderboard.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.NonRealisticLeaderboard.Tooltip")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games - Pay-to-play",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.PayToPlay.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.PayToPlay.Tooltip")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.Tooltip")
 			);
 			// Arcade games - Konami code
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games - Konami code",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.KonamiCode.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.BackTo")
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.BackTo")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.KonamiCode.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Description")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.KonamiCode.AdditionalInformation")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.AdditionalInformation")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
@@ -176,16 +144,16 @@ namespace mouahrarasModuleCollection.Utilities
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games - Non-realistic leaderboard",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.NonRealisticLeaderboard.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.NonRealisticLeaderboard.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.BackTo")
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.BackTo")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.NonRealisticLeaderboard.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.NonRealisticLeaderboard.Description")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
@@ -198,16 +166,16 @@ namespace mouahrarasModuleCollection.Utilities
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games - Pay-to-play",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.PayToPlay.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.BackTo")
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.BackTo")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.PayToPlay.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.Description")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
@@ -218,8 +186,8 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddNumberOption(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.PayToPlay.CoinPerJotPKGame.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.PayToPlay.CoinPerJotPKGame.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.CoinPerJotPKGame.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.CoinPerJotPKGame.Tooltip"),
 				getValue: () => ModEntry.Config.ArcadeGamesPayToPlayCoinPerJotPKGame,
 				setValue: value => ModEntry.Config.ArcadeGamesPayToPlayCoinPerJotPKGame = value,
 				min: 1,
@@ -228,8 +196,8 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddNumberOption(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.PayToPlay.CoinPerJKGame.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.ArcadeGames.PayToPlay.CoinPerJKGame.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.CoinPerJKGame.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.CoinPerJKGame.Tooltip"),
 				getValue: () => ModEntry.Config.ArcadeGamesPayToPlayCoinPerJKGame,
 				setValue: value => ModEntry.Config.ArcadeGamesPayToPlayCoinPerJKGame = value,
 				min: 1,
@@ -241,7 +209,7 @@ namespace mouahrarasModuleCollection.Utilities
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Shops",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Shops.Title")
 			);
 			// gmcm.AddPageLink(
 			// 	mod: ModEntry.ModManifest,
@@ -250,34 +218,34 @@ namespace mouahrarasModuleCollection.Utilities
 			// );
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Shops.Description")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Shops - Better animal purchase",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.BetterAnimalPurchase.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.BetterAnimalPurchase.Tooltip")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.Tooltip")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Shops - Geodes auto-process",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.GeodesAutoProcess.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.GeodesAutoProcess.Tooltip")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Shops.GeodesAutoProcess.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Shops.GeodesAutoProcess.Tooltip")
 			);
 			// Shops - Better animal purchase
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Shops - Better animal purchase",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.BetterAnimalPurchase.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Shops",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.BackTo")
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.Shops.BackTo")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.BetterAnimalPurchase.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.Description")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
@@ -288,15 +256,15 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddKeybind(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.BetterAnimalPurchase.SecondaryPreviousKey.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.BetterAnimalPurchase.SecondaryPreviousKey.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.SecondaryPreviousKey.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.SecondaryPreviousKey.Tooltip"),
 				getValue: () => ModEntry.Config.ShopsBetterAnimalPurchasePreviousKey,
 				setValue: value => ModEntry.Config.ShopsBetterAnimalPurchasePreviousKey = value
 			);
 			gmcm.AddKeybind(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.BetterAnimalPurchase.SecondaryNextKey.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.BetterAnimalPurchase.SecondaryNextKey.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.SecondaryNextKey.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.SecondaryNextKey.Tooltip"),
 				getValue: () => ModEntry.Config.ShopsBetterAnimalPurchaseNextKey,
 				setValue: value => ModEntry.Config.ShopsBetterAnimalPurchaseNextKey = value
 			);
@@ -304,16 +272,16 @@ namespace mouahrarasModuleCollection.Utilities
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Shops - Geodes auto-process",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.GeodesAutoProcess.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Shops.GeodesAutoProcess.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Shops",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.BackTo")
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.Shops.BackTo")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.GeodesAutoProcess.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Shops.GeodesAutoProcess.Description")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
@@ -324,8 +292,8 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddNumberOption(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.GeodesAutoProcess.SpeedMultiplier.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Shops.GeodesAutoProcess.SpeedMultiplier.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Tooltip"),
 				getValue: () => ModEntry.Config.ShopsGeodesAutoProcessSpeedMultiplier,
 				setValue: value => ModEntry.Config.ShopsGeodesAutoProcessSpeedMultiplier = value,
 				min: 1,
@@ -337,7 +305,7 @@ namespace mouahrarasModuleCollection.Utilities
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Machines",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Machines.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Machines.Title")
 			);
 			// gmcm.AddPageLink(
 			// 	mod: ModEntry.ModManifest,
@@ -346,28 +314,28 @@ namespace mouahrarasModuleCollection.Utilities
 			// );
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Machines.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Machines.Description")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Machines - Safe replacement",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Machines.SafeReplacement.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Machines.SafeReplacement.Tooltip")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Tooltip")
 			);
 			// Machines - Safe replacement
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Machines - Safe replacement",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Machines.SafeReplacement.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Machines",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Machines.BackTo")
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.Machines.BackTo")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Machines.SafeReplacement.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Description")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
@@ -381,7 +349,7 @@ namespace mouahrarasModuleCollection.Utilities
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "User Interface",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Title")
 			);
 			// gmcm.AddPageLink(
 			// 	mod: ModEntry.ModManifest,
@@ -390,34 +358,34 @@ namespace mouahrarasModuleCollection.Utilities
 			// );
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Description")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "User Interface - Fast scrolling",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.FastScrolling.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.FastScrolling.Tooltip")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Tooltip")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "User Interface - Zoom",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.Tooltip")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Tooltip")
 			);
 			// User Interface - Fast scrolling
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "User Interface - Fast scrolling",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.FastScrolling.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "User Interface",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.BackTo")
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.BackTo")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.FastScrolling.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Description")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
@@ -428,8 +396,8 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddNumberOption(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.FastScrolling.SpeedMultiplier.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.FastScrolling.SpeedMultiplier.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.SpeedMultiplier.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.SpeedMultiplier.Tooltip"),
 				getValue: () => ModEntry.Config.UserInterfaceFastScrollingMultiplier,
 				setValue: value => ModEntry.Config.UserInterfaceFastScrollingMultiplier = value,
 				min: 1.0f,
@@ -438,8 +406,8 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.FastScrolling.ConsistentScrolling.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.FastScrolling.ConsistentScrolling.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.ConsistentScrolling.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.ConsistentScrolling.Tooltip"),
 				getValue: () => ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling,
 				setValue: value => ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling = value
 			);
@@ -447,16 +415,16 @@ namespace mouahrarasModuleCollection.Utilities
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "User Interface - Zoom",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "User Interface",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.BackTo")
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.BackTo")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Description")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
@@ -467,22 +435,22 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddKeybind(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.SecondaryZoomInKey.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.SecondaryZoomInKey.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomInKey.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomInKey.Tooltip"),
 				getValue: () => ModEntry.Config.UserInterfaceZoomInKey,
 				setValue: value => ModEntry.Config.UserInterfaceZoomInKey = value
 			);
 			gmcm.AddKeybind(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.SecondaryZoomOutKey.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip"),
 				getValue: () => ModEntry.Config.UserInterfaceZoomOutKey,
 				setValue: value => ModEntry.Config.UserInterfaceZoomOutKey = value
 			);
 			gmcm.AddNumberOption(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.SpeedMultiplier.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.SpeedMultiplier.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SpeedMultiplier.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SpeedMultiplier.Tooltip"),
 				getValue: () => ModEntry.Config.UserInterfaceZoomMultiplier,
 				setValue: value => ModEntry.Config.UserInterfaceZoomMultiplier = value,
 				min: 0.25f,
@@ -491,8 +459,8 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddNumberOption(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.MinimumZoomLevel.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.Zoom.MinimumZoomLevel.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.MinimumZoomLevel.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.MinimumZoomLevel.Tooltip"),
 				getValue: () => ModEntry.Config.UserInterfaceZoomMinimumZoomLevel,
 				setValue: value => ModEntry.Config.UserInterfaceZoomMinimumZoomLevel = value,
 				min: 0.0f,
@@ -504,7 +472,7 @@ namespace mouahrarasModuleCollection.Utilities
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Other",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Other.Title")
 			);
 			// gmcm.AddPageLink(
 			// 	mod: ModEntry.ModManifest,
@@ -513,32 +481,32 @@ namespace mouahrarasModuleCollection.Utilities
 			// );
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Other.Description")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Other - Festival end time",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.FestivalEndTime.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.FestivalEndTime.Tooltip")
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Other.FestivalEndTime.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Other.FestivalEndTime.Tooltip")
 			);
 			// Other - Festival end time
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
 				pageId: "Other - Festival end time",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.FestivalEndTime.Title")
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Other.FestivalEndTime.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Other",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.BackTo")
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.Other.BackTo")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.FestivalEndTime.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Other.FestivalEndTime.Description")
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.FestivalEndTime.AdditionalInformation")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Other.FestivalEndTime.AdditionalInformation")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
@@ -549,8 +517,8 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 			gmcm.AddNumberOption(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.FestivalEndTime.AdditionalTime.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.Other.FestivalEndTime.AdditionalTime.Tooltip"),
+				name: () => ModEntry.Helper.Translation.Get("GMCM.Other.FestivalEndTime.AdditionalTime.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Other.FestivalEndTime.AdditionalTime.Tooltip"),
 				getValue: () => ModEntry.Config.OtherFestivalEndTimeAdditionalTime / 100,
 				setValue: value => ModEntry.Config.OtherFestivalEndTimeAdditionalTime = value * 100,
 				min: 0,
