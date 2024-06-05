@@ -77,6 +77,8 @@
 	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.Description": "Ce module vous permet de faire défiler plus rapidement lors de la construction, du déplacement, de la peinture ou de la destruction de bâtiments, ainsi que lors de l'achat ou du déplacement d'animaux de ferme.",
 	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.SpeedMultiplier.Title": "Multiplicateur de vitesse de défilement",
 	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.SpeedMultiplier.Tooltip": "Un multiplicateur pour ajuster la vitesse de défilement.",
+	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.ConsistentScrolling.Title": "Défilement constant",
+	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.ConsistentScrolling.Tooltip": "Ajuste la vitesse de défilement en fonction du niveau de zoom pour maintenir une sensation de défilement constante.",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.Title": "Zoom",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.Tooltip": "Zoomez en avant et en arrière lors de la construction, du déplacement, de la peinture ou de la destruction de bâtiments, ainsi que lors de l'achat ou du déplacement d'animaux de ferme.",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.Description": "Ce module vous permet de zoomer en avant et en arrière lors de la construction, du déplacement, de la peinture ou de la destruction de bâtiments, ainsi que lors de l'achat ou du déplacement d'animaux de ferme.",

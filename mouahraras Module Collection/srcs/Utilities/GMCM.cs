@@ -15,15 +15,16 @@ namespace mouahrarasModuleCollection.Utilities
 		public bool	ShopsGeodesAutoProcess = true;
 		public int ShopsGeodesAutoProcessSpeedMultiplier = 2;
 		public bool MachinesSafeReplacement = true;
-		public bool	OtherFestivalEndTime = true;
-		public int	OtherFestivalEndTimeAdditionalTime = 200;
+		public bool	UserInterfaceFastScrolling = true;
+		public float UserInterfaceFastScrollingMultiplier = 3.0f;
+		public bool UserInterfaceFastScrollingConsistentScrolling = true;
 		public bool	UserInterfaceZoom = true;
 		public SButton UserInterfaceZoomInKey = SButton.RightTrigger;
 		public SButton UserInterfaceZoomOutKey = SButton.LeftTrigger;
 		public float UserInterfaceZoomMultiplier = 1.0f;
 		public float UserInterfaceZoomMinimumZoomLevel = 0.25f;
-		public bool	UserInterfaceFastScrolling = true;
-		public float UserInterfaceFastScrollingMultiplier = 3.0f;
+		public bool	OtherFestivalEndTime = true;
+		public int	OtherFestivalEndTimeAdditionalTime = 200;
 	}
 
 	internal class GMCMUtility
@@ -434,6 +435,13 @@ namespace mouahrarasModuleCollection.Utilities
 				min: 1.0f,
 				max: 8.0f,
 				interval: 0.25f
+			);
+			gmcm.AddBoolOption(
+				mod: ModEntry.ModManifest,
+				name: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.FastScrolling.ConsistentScrolling.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.TweaksAndFeatures.UserInterface.FastScrolling.ConsistentScrolling.Tooltip"),
+				getValue: () => ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling,
+				setValue: value => ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling = value
 			);
 			// User Interface - Zoom
 			gmcm.AddPage(

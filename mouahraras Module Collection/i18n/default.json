@@ -77,6 +77,8 @@
 	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.Description": "This module allows you to scroll faster when building, moving, painting or destroying buildings and when purchasing or moving farm animals.",
 	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.SpeedMultiplier.Title": "Scroll speed multiplier",
 	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.SpeedMultiplier.Tooltip": "A multiplier to adjust the scroll speed.",
+	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.ConsistentScrolling.Title": "Consistent scrolling",
+	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.ConsistentScrolling.Tooltip": "Adjusts the scroll speed based on the zoom level to keep the scrolling feeling consistent.",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.Title": "Zoom",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.Tooltip": "Zoom in and out when building, moving, painting or destroying buildings and when purchasing or moving farm animals.",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.Description": "This module allows you to zoom in and out when building, moving, painting or destroying buildings and when purchasing or moving farm animals.",

@@ -77,6 +77,8 @@
 	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.Description": "此模块允许您在建造、移动、绘画或破坏建筑物以及购买或移动农场动物时更快地滚动.",
 	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.SpeedMultiplier.Title": "滚动速度乘数.",
 	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.SpeedMultiplier.Tooltip": "调整滚动速度的乘数.",
+	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.ConsistentScrolling.Title": "Consistent scrolling",
+	"GMCM.TweaksAndFeatures.UserInterface.FastScrolling.ConsistentScrolling.Tooltip": "Adjusts the scroll speed based on the zoom level to keep the scrolling feeling consistent.",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.Title": "变焦",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.Tooltip": "在建造、移动、粉刷或毁坏建筑物以及购买或移动农场动物时放大和缩小.",
 	"GMCM.TweaksAndFeatures.UserInterface.Zoom.Description": "该模块允许您在建造、移动、粉刷或破坏建筑物以及购买或移动农场动物时进行放大和缩小.",

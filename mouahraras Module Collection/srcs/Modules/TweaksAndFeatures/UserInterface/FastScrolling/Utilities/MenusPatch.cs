@@ -1,7 +1,7 @@
-using System.Reflection;
 using Microsoft.Xna.Framework.Input;
 using StardewValley;
 using StardewValley.Menus;
+using mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.Zoom.Utilities;
 
 namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.FastScrolling.Utilities
 {
@@ -9,20 +9,11 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.FastScrolli
 	{
 		internal static void ReceiveKeyPressPostfix(IClickableMenu __instance, Keys key)
 		{
-			if (!ModEntry.Config.UserInterfaceFastScrolling)
-				return;
-			if (__instance is CarpenterMenu && (__instance as CarpenterMenu).freeze)
-				return;
-			if (__instance is PurchaseAnimalsMenu && (__instance as PurchaseAnimalsMenu).freeze)
-				return;
-			if (!__instance.overrideSnappyMenuCursorMovementBan())
-				return;
-			if (Game1.options.doesInputListContain(Game1.options.menuButton, key) && __instance.readyToClose() && Game1.locationRequest == null)
-				return;
-			if (Game1.options.SnappyMenus)
+			if (!ShouldProcess(__instance))
 				return;
 
-			int offset = 2 * (int)(ModEntry.Config.UserInterfaceFastScrollingMultiplier - 1) * 4;
+			float consistentScrollingMultiplier = ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling && ZoomUtility.ZoomLevel > 0 ? Game1.options.desiredBaseZoomLevel / ZoomUtility.ZoomLevel : 1f;
+			int offset = 2 * (int)((ModEntry.Config.UserInterfaceFastScrollingMultiplier - 1) * 4 * consistentScrollingMultiplier);
 
 			if (Game1.options.doesInputListContain(Game1.options.moveLeftButton, key))
 				Game1.panScreen(-offset, 0);
@@ -36,16 +27,13 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.FastScrolli
 
 		internal static void UpdatePostfix(IClickableMenu __instance)
 		{
-			if (!ModEntry.Config.UserInterfaceFastScrolling)
-				return;
-			if (!__instance.overrideSnappyMenuCursorMovementBan())
-				return;
-			if (Game1.IsFading())
+			if (!ShouldProcess(__instance))
 				return;
 
 			int x = Game1.getOldMouseX(ui_scale: false) + Game1.viewport.X;
 			int y = Game1.getOldMouseY(ui_scale: false) + Game1.viewport.Y;
-			int offset = 2 * (int)(ModEntry.Config.UserInterfaceFastScrollingMultiplier - 1) * 4;
+			float consistentScrollingMultiplier = ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling && ZoomUtility.ZoomLevel > 0 ? Game1.options.desiredBaseZoomLevel / ZoomUtility.ZoomLevel : 1f;
+			int offset = 2 * (int)((ModEntry.Config.UserInterfaceFastScrollingMultiplier - 1) * 4 * consistentScrollingMultiplier);
 
 			if (x - Game1.viewport.X < 64)
 				Game1.panScreen(-offset, 0);
@@ -55,6 +43,28 @@ namespace mouahrarasModuleCollection.TweaksAndFeatures.UserInterface.FastScrolli
 				Game1.panScreen(0, -offset);
 			else if (y - (Game1.viewport.Y + Game1.viewport.Height) >= -64)
 				Game1.panScreen(0, offset);
+		}
+
+		private static bool ShouldProcess(IClickableMenu __instance)
+		{
+			if (!ModEntry.Config.UserInterfaceFastScrolling)
+				return false;
+
+			CarpenterMenu carpenterMenu = __instance as CarpenterMenu;
+			PurchaseAnimalsMenu purchaseAnimalsMenu = __instance as PurchaseAnimalsMenu;
+			AnimalQueryMenu animalQueryMenu = __instance as AnimalQueryMenu;
+
+			if (carpenterMenu is null && purchaseAnimalsMenu is null && animalQueryMenu is null)
+				return false;
+			if (carpenterMenu is not null && carpenterMenu.freeze)
+				return false;
+			if (purchaseAnimalsMenu is not null && purchaseAnimalsMenu.freeze)
+				return false;
+			if (Game1.IsFading())
+				return false;
+			if (!__instance.shouldClampGamePadCursor() || !__instance.overrideSnappyMenuCursorMovementBan())
+				return false;
+			return true;
 		}
 	}
 }
