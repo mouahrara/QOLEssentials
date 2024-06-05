@@ -12,9 +12,6 @@ namespace mouahrarasModuleCollection.Handlers
 		{
 			// Initialize GMCM
 			GMCMUtility.Initialize();
-
-			// Load console commands
-			ConsoleCommandsUtility.Load();
 		}
 	}
 }
