@@ -84,6 +84,9 @@
 	"GMCM.UserInterface.Zoom.MinimumZoomLevel.Tooltip": "The minimum zoom level you can reach. This option helps prevent excessive zooming out, which can cause lag on very large maps.",
 
 	// GMCM - Sections - Other - Modules
+	"GMCM.Other.BetterPorchRepair.Title": "Better porch repair",
+	"GMCM.Other.BetterPorchRepair.Tooltip": "Completely repairs the farmhouse porch after its first upgrade, allowing you to walk on the previously broken area and place objects there.",
+	"GMCM.Other.BetterPorchRepair.Description": "This module completely repairs the farmhouse porch after its first upgrade, allowing you to walk on the previously broken area and place objects there.",
 	"GMCM.Other.FestivalEndTime.Title": "Festival end time",
 	"GMCM.Other.FestivalEndTime.Tooltip": "在节日结束的时候回家..",
 	"GMCM.Other.FestivalEndTime.Description": "这个模块允许你在节日结束的时候回家..",

@@ -84,6 +84,9 @@
 	"GMCM.UserInterface.Zoom.MinimumZoomLevel.Tooltip": "Le niveau de zoom minimum que vous pouvez atteindre. Cette option permet d'éviter un zoom arrière excessif, susceptible d'entraîner un ralentissement sur les cartes de très grande taille.",
 
 	// GMCM - Sections - Other - Modules
+	"GMCM.Other.BetterPorchRepair.Title": "Réparation du porche améliorée",
+	"GMCM.Other.BetterPorchRepair.Tooltip": "Répare complètement le porche de la maison de ferme après sa première amélioration, vous permettant de marcher sur la zone précédemment endommagée et d'y placer des objets.",
+	"GMCM.Other.BetterPorchRepair.Description": "Ce module répare complètement le porche de la maison de ferme après sa première amélioration, vous permettant de marcher sur la zone précédemment endommagée et d'y placer des objets.",
 	"GMCM.Other.FestivalEndTime.Title": "Heure de fin des festivals",
 	"GMCM.Other.FestivalEndTime.Tooltip": "Rentrer chez vous à l'heure à laquelle le festival est censé se terminer.",
 	"GMCM.Other.FestivalEndTime.Description": "Ce module vous permet de rentrer chez vous à l'heure à laquelle le festival est censé se terminer.",

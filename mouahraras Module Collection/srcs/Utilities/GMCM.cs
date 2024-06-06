@@ -1,4 +1,5 @@
 using StardewModdingAPI;
+using mouahrarasModuleCollection.Other.BetterPorchRepair.Utilities;
 
 namespace mouahrarasModuleCollection.Utilities
 {
@@ -23,6 +24,7 @@ namespace mouahrarasModuleCollection.Utilities
 		public SButton UserInterfaceZoomOutKey = SButton.LeftTrigger;
 		public float UserInterfaceZoomMultiplier = 1.0f;
 		public float UserInterfaceZoomMinimumZoomLevel = 0.25f;
+		public bool	OtherBetterPorchRepair = true;
 		public bool	OtherFestivalEndTime = true;
 		public int	OtherFestivalEndTimeAdditionalTime = 200;
 	}
@@ -488,6 +490,37 @@ namespace mouahrarasModuleCollection.Utilities
 				pageId: "Other - Festival end time",
 				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Other.FestivalEndTime.Title"),
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Other.FestivalEndTime.Tooltip")
+			);
+			gmcm.AddPageLink(
+				mod: ModEntry.ModManifest,
+				pageId: "Other - Better porch repair",
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Other.BetterPorchRepair.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Other.BetterPorchRepair.Tooltip")
+			);
+			// Other - Better porch repair
+			gmcm.AddPage(
+				mod: ModEntry.ModManifest,
+				pageId: "Other - Better porch repair",
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Other.BetterPorchRepair.Title")
+			);
+			gmcm.AddPageLink(
+				mod: ModEntry.ModManifest,
+				pageId: "Other",
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.Other.BackTo")
+			);
+			gmcm.AddParagraph(
+				mod: ModEntry.ModManifest,
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Other.BetterPorchRepair.Description")
+			);
+			gmcm.AddBoolOption(
+				mod: ModEntry.ModManifest,
+				name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
+				getValue: () => ModEntry.Config.OtherBetterPorchRepair,
+				setValue: value => {
+					ModEntry.Config.OtherBetterPorchRepair = value;
+					BetterPorchRepairUtility.InvalidateCache();
+				}
 			);
 			// Other - Festival end time
 			gmcm.AddPage(
