@@ -46,26 +46,25 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 			if (!AbigailGame.onStartMenu)
 				return;
 
-			const float scale = 3f;
-			Rectangle insertCoinSourceRectangle = new(0, 0, 108, 9);
-			Rectangle pressAnyButtonSourceRectangle = new(0, 10, 108, 9);
-			Rectangle loadingSourceRectangle = new(0, 20, 108, 9);
-			Rectangle credit0SourceRectangle = new(0, 30, 108, 9);
-			Rectangle credit1SourceRectangle = new(0, 40, 108, 9);
-			Rectangle freeSourceRectangle = new(0, 50, 108, 9);
+			Rectangle insertCoinSourceRectangle = new(0, 0, 324, 27);
+			Rectangle pressAnyButtonSourceRectangle = new(0, 30, 324, 27);
+			Rectangle loadingSourceRectangle = new(0, 60, 324, 27);
+			Rectangle credit0SourceRectangle = new(0, 90, 324, 27);
+			Rectangle credit1SourceRectangle = new(0, 120, 324, 27);
+			Rectangle freeSourceRectangle = new(0, 150, 324, 27);
 
 			b.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp);
 			if (Game1.currentLocation.Name.Equals("Saloon"))
 			{
 				if (PayToPlayUtility.OnInsertCoinMenu)
 				{
-					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - insertCoinSourceRectangle.Width * scale / 2, Game1.viewport.Height / 2 - insertCoinSourceRectangle.Height * scale / 2 + 8 * AbigailGame.baseTileSize), insertCoinSourceRectangle, Color.White * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 1f);
-					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(AbigailGame.topLeftScreenCoordinate.X + AbigailGame.baseTileSize, AbigailGame.topLeftScreenCoordinate.Y + 384 * 2 - credit0SourceRectangle.Height * scale - AbigailGame.baseTileSize), credit0SourceRectangle, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 1f);
+					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - insertCoinSourceRectangle.Width / 2, Game1.viewport.Height / 2 - insertCoinSourceRectangle.Height / 2 + 8 * AbigailGame.baseTileSize), insertCoinSourceRectangle, Color.White * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(AbigailGame.topLeftScreenCoordinate.X + AbigailGame.baseTileSize, AbigailGame.topLeftScreenCoordinate.Y + 384 * 2 - credit0SourceRectangle.Height - AbigailGame.baseTileSize), credit0SourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 				}
 				else
 				{
-					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - loadingSourceRectangle.Width * scale / 2, Game1.viewport.Height / 2 - loadingSourceRectangle.Height * scale / 2 + 8 * AbigailGame.baseTileSize), loadingSourceRectangle, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 1f);
-					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(AbigailGame.topLeftScreenCoordinate.X + AbigailGame.baseTileSize, AbigailGame.topLeftScreenCoordinate.Y + 384 * 2 - credit1SourceRectangle.Height * scale - AbigailGame.baseTileSize), credit1SourceRectangle, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 1f);
+					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - loadingSourceRectangle.Width / 2, Game1.viewport.Height / 2 - loadingSourceRectangle.Height / 2 + 8 * AbigailGame.baseTileSize), loadingSourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(AbigailGame.topLeftScreenCoordinate.X + AbigailGame.baseTileSize, AbigailGame.topLeftScreenCoordinate.Y + 384 * 2 - credit1SourceRectangle.Height - AbigailGame.baseTileSize), credit1SourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 				}
 				if (Game1.player.jotpkProgress.Value == null)
 					Game1.dayTimeMoneyBox.drawMoneyBox(b, Game1.dayTimeMoneyBox.xPositionOnScreen, 0);
@@ -74,13 +73,13 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 			{
 				if (PayToPlayUtility.OnInsertCoinMenu)
 				{
-					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - pressAnyButtonSourceRectangle.Width * scale / 2, Game1.viewport.Height / 2 - pressAnyButtonSourceRectangle.Height * scale / 2 + 8 * AbigailGame.baseTileSize), pressAnyButtonSourceRectangle, Color.White * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 1f);
+					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - pressAnyButtonSourceRectangle.Width / 2, Game1.viewport.Height / 2 - pressAnyButtonSourceRectangle.Height / 2 + 8 * AbigailGame.baseTileSize), pressAnyButtonSourceRectangle, Color.White * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 				}
 				else
 				{
-					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - loadingSourceRectangle.Width * scale / 2, Game1.viewport.Height / 2 - loadingSourceRectangle.Height * scale / 2 + 8 * AbigailGame.baseTileSize), loadingSourceRectangle, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 1f);
+					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - loadingSourceRectangle.Width / 2, Game1.viewport.Height / 2 - loadingSourceRectangle.Height / 2 + 8 * AbigailGame.baseTileSize), loadingSourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 				}
-				b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(AbigailGame.topLeftScreenCoordinate.X + AbigailGame.baseTileSize, AbigailGame.topLeftScreenCoordinate.Y + 384 * 2 - freeSourceRectangle.Height * scale - AbigailGame.baseTileSize), freeSourceRectangle, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 1f);
+				b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(AbigailGame.topLeftScreenCoordinate.X + AbigailGame.baseTileSize, AbigailGame.topLeftScreenCoordinate.Y + 384 * 2 - freeSourceRectangle.Height - AbigailGame.baseTileSize), freeSourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 			}
 			b.End();
 		}
