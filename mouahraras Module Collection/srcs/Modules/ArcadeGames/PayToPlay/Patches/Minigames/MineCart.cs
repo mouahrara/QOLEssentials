@@ -69,7 +69,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 			int gameMode = (int)typeof(MineCart).GetField("gameMode", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(__instance);
 
 			b.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp);
-			if (Game1.currentLocation.Name.Equals("Saloon"))
+			if (Game1.currentLocation is not null && Game1.currentLocation.Name.Equals("Saloon"))
 			{
 				if (PayToPlayUtility.OnInsertCoinMenu)
 				{
@@ -121,7 +121,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 
 			if (justTryToInsertCoin && !PayToPlayUtility.TriedToInsertCoin)
 			{
-				if (Game1.currentLocation.Name.Equals("Saloon"))
+				if (Game1.currentLocation is not null && Game1.currentLocation.Name.Equals("Saloon"))
 				{
 					if (Game1.player.Money < ModEntry.Config.ArcadeGamesPayToPlayCoinPerJKGame)
 					{

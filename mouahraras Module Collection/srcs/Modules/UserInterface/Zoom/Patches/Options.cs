@@ -20,7 +20,7 @@ namespace mouahrarasModuleCollection.UserInterface.Zoom.Patches
 
 		private static void ZoomLevelPostfix(ref float __result)
 		{
-			if (!Context.IsWorldReady || !ModEntry.Config.UserInterfaceZoom)
+			if (!Context.IsWorldReady || !ModEntry.Config.UserInterfaceZoom || Game1.currentLocation is null)
 				return;
 			if (ZoomUtility.AdditionalZoom == 0)
 				return;
