@@ -19,7 +19,7 @@ namespace mouahrarasModuleCollection.Other.FestivalEndTime.Patches
 			);
 		}
 
-		private static IEnumerable<CodeInstruction> ExitEventTranspiler(IEnumerable<CodeInstruction> instructions, ILGenerator iLGenerator)
+		private static IEnumerable<CodeInstruction> ExitEventTranspiler(IEnumerable<CodeInstruction> instructions)
 		{
 			try
 			{

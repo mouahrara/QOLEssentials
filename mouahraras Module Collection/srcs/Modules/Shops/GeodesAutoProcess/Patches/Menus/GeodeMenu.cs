@@ -10,7 +10,7 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 {
 	internal class GeodeMenuPatch
 	{
-		private const int 							region_stopButton = 4321;
+		private const int							region_stopButton = 4321;
 		internal static ClickableTextureComponent	stopButton;
 		private static int							i;
 
@@ -61,12 +61,12 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 
 			GeodesAutoProcessUtility.InitializeAfterOpeningGeodeMenu(__instance);
 
-			Vector2 position = ComputeStopButtonPosition(__instance);
-			const int width = 96;
-			const int height = 52;
+			int width = 30 + StopButtonUtility.GetStopButtonWidthOffset();
+			int height = 13;
+			Vector2 position = StopButtonUtility.GetStopButtonPosition(__instance, width, height);
 
 			__instance.geodeSpot.myID = GeodeMenu.region_geodeSpot;
-			stopButton = new ClickableTextureComponent(null, new Rectangle((int)position.X, (int)position.Y, width, height), null, null, Game1.mouseCursors, new Rectangle(441, 411, 24, 13), 4f)
+			stopButton = new ClickableTextureComponent(null, new Rectangle((int)position.X, (int)position.Y, width * 4, height * 4), null, null, Game1.mouseCursors, new Rectangle(441, 411, width, height), 4f)
 			{
 				myID = region_stopButton,
 				rightNeighborID = -1,
@@ -171,7 +171,10 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 			if (!ModEntry.Config.ShopsGeodesAutoProcess)
 				return;
 
-			stopButton.setPosition(ComputeStopButtonPosition(__instance));
+			int width = 30 + StopButtonUtility.GetStopButtonWidthOffset();
+			int height = 13;
+
+			stopButton.setPosition(StopButtonUtility.GetStopButtonPosition(__instance, width, height));
 		}
 
 		private static void ReadyToClosePostfix(ref bool __result)
@@ -180,7 +183,9 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 				return;
 
 			if (GeodesAutoProcessUtility.IsProcessing())
+			{
 				__result = false;
+			}
 		}
 
 		private static void EmergencyShutDownPostfix()
@@ -189,14 +194,6 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 				return;
 
 			GeodesAutoProcessUtility.CleanBeforeClosingGeodeMenu();
-		}
-
-		private static Vector2 ComputeStopButtonPosition(GeodeMenu __instance)
-		{
-			int x = __instance.xPositionOnScreen + IClickableMenu.spaceToClearSideBorder + IClickableMenu.borderWidth / 2 + 648;
-			int y = __instance.yPositionOnScreen + IClickableMenu.spaceToClearTopBorder + (ModEntry.Helper.Translation.Locale.Equals("ko-kr") ? 284 : 240);
-
-			return new Vector2(x, y);
 		}
 	}
 }
