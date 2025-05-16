@@ -19,9 +19,7 @@ namespace mouahrarasModuleCollection.Other.BetterPorchRepair.Patches
 
 		private static void IsCollidingPositionPostfix(GameLocation __instance, Rectangle position, ref bool __result)
 		{
-			if (!ModEntry.Config.OtherBetterPorchRepair)
-				return;
-			if (__instance is not Farm farm || __result)
+			if (!ModEntry.Config.OtherBetterPorchRepair || __instance is not Farm farm || __result)
 				return;
 
 			Building farmhouse = farm.GetMainFarmHouse();

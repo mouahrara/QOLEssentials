@@ -1,7 +1,9 @@
 using System;
+using System.Reflection;
 using HarmonyLib;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Menus;
 using mouahrarasModuleCollection.Shops.GeodesAutoProcess.Utilities;
@@ -16,6 +18,13 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 
 		internal static void Apply(Harmony harmony)
 		{
+			if (Constants.TargetPlatform == GamePlatform.Android)
+			{
+				harmony.Patch(
+					original: AccessTools.Method(typeof(GeodeMenu), nameof(GeodeMenu.draw), new Type[] { typeof(SpriteBatch) }),
+					postfix: new HarmonyMethod(typeof(GeodeMenuPatch), nameof(DrawPostfixDescriptionText))
+				);
+			}
 			harmony.Patch(
 				original: AccessTools.Constructor(typeof(GeodeMenu)),
 				postfix: new HarmonyMethod(typeof(GeodeMenuPatch), nameof(GeodeMenuPostfix))
@@ -30,10 +39,7 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 			);
 			harmony.Patch(
 				original: AccessTools.Method(typeof(GeodeMenu), nameof(GeodeMenu.receiveLeftClick), new Type[] { typeof(int), typeof(int), typeof(bool) }),
-				prefix: new HarmonyMethod(typeof(GeodeMenuPatch), nameof(ReceiveLeftClickPrefix))
-			);
-			harmony.Patch(
-				original: AccessTools.Method(typeof(GeodeMenu), nameof(GeodeMenu.receiveLeftClick), new Type[] { typeof(int), typeof(int), typeof(bool) }),
+				prefix: new HarmonyMethod(typeof(GeodeMenuPatch), nameof(ReceiveLeftClickPrefix)),
 				postfix: new HarmonyMethod(typeof(GeodeMenuPatch), nameof(ReceiveLeftClickPostfix))
 			);
 			harmony.Patch(
@@ -52,6 +58,16 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 				original: AccessTools.Method(typeof(GeodeMenu), nameof(GeodeMenu.emergencyShutDown)),
 				postfix: new HarmonyMethod(typeof(GeodeMenuPatch), nameof(EmergencyShutDownPostfix))
 			);
+		}
+
+		private static void DrawPostfixDescriptionText(GeodeMenu __instance, SpriteBatch b)
+		{
+			if (__instance.alertTimer > 0)
+			{
+				Rectangle infoBox = (Rectangle)typeof(GeodeMenu).GetField("infoBox", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(__instance);
+
+				typeof(Utility).GetMethod("drawMultiLineTextWithShadow", BindingFlags.Public | BindingFlags.Static).Invoke(null, new object[] { b, __instance.descriptionText, Game1.smallFont, new Vector2(infoBox.X + 32, infoBox.Y + 32), infoBox.Width - 64, infoBox.Height - 64, Game1.textColor, true, true, true, true, false, false, 1f });
+			}
 		}
 
 		private static void GeodeMenuPostfix(GeodeMenu __instance)
@@ -75,26 +91,25 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 			};
 			__instance.trashCan.myID = GeodeMenu.region_trashCan;
 			__instance.okButton.myID = GeodeMenu.region_okButton;
-
 			__instance.geodeSpot.leftNeighborID = -1;
 			__instance.geodeSpot.rightNeighborID = stopButton.myID;
 			stopButton.leftNeighborID = __instance.geodeSpot.myID;
 			stopButton.rightNeighborID = __instance.trashCan.myID;
 			__instance.trashCan.leftNeighborID = stopButton.myID;
 			__instance.trashCan.rightNeighborID = -1;
-
 			__instance.trashCan.upNeighborID = -1;
 			__instance.trashCan.downNeighborID = __instance.okButton.myID;
 			__instance.okButton.upNeighborID = __instance.trashCan.myID;
 			__instance.okButton.downNeighborID = -1;
-
-			if (__instance.inventory.inventory != null && __instance.inventory.inventory.Count >= 12)
+			if (__instance.inventory.inventory is not null && __instance.inventory.inventory.Count >= 12)
 			{
 				stopButton.downNeighborID = 0;
 				for (int i = 9; i < 12; i++)
 				{
-					if (__instance.inventory.inventory[i] != null)
+					if (__instance.inventory.inventory[i] is not null)
+					{
 						__instance.inventory.inventory[i].upNeighborID = stopButton.myID;
+					}
 				}
 			}
 		}
@@ -118,16 +133,14 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 
 		private static bool ReceiveLeftClickPrefix(GeodeMenu __instance, int x, int y)
 		{
-			if (!ModEntry.Config.ShopsGeodesAutoProcess)
-				return true;
-			if (__instance.waitingForServerResponse)
-				return true;
-			if (!__instance.geodeSpot.containsPoint(x, y))
+			if (!ModEntry.Config.ShopsGeodesAutoProcess || __instance.waitingForServerResponse || !__instance.geodeSpot.containsPoint(x, y))
 				return true;
 
-			if (__instance.heldItem != null && Utility.IsGeode(__instance.heldItem) && Game1.player.Money >= 25 && __instance.geodeAnimationTimer <= 0)
+			Item heldItem = Constants.TargetPlatform == GamePlatform.Android ? (Item)typeof(MenuWithInventory).GetField("heldItem").GetValue(__instance) : __instance.heldItem;
+
+			if (heldItem is not null && Utility.IsGeode(heldItem) && Game1.player.Money >= 25 && __instance.geodeAnimationTimer <= 0)
 			{
-				if (Game1.player.freeSpotsInInventory() > 1 || (Game1.player.freeSpotsInInventory() == 1 && __instance.heldItem.Stack == 1))
+				if (!GeodesAutoProcessUtility.IsInventoryFullForGeodeProcessing(Game1.player, heldItem))
 				{
 					GeodesAutoProcessUtility.StartGeodeProcessing();
 					return false;
@@ -138,22 +151,18 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 
 		private static void ReceiveLeftClickPostfix(GeodeMenu __instance, int x, int y)
 		{
-			if (!ModEntry.Config.ShopsGeodesAutoProcess)
-				return;
-			if (__instance.waitingForServerResponse)
-				return;
-			if (!GeodesAutoProcessUtility.IsProcessing())
+			if (!ModEntry.Config.ShopsGeodesAutoProcess || __instance.waitingForServerResponse || !GeodesAutoProcessUtility.IsProcessing())
 				return;
 
 			if (stopButton.containsPoint(x, y))
+			{
 				GeodesAutoProcessUtility.EndGeodeProcessing();
+			}
 		}
 
 		private static bool Updateprefix(GeodeMenu __instance, GameTime time)
 		{
-			if (!ModEntry.Config.ShopsGeodesAutoProcess)
-				return true;
-			if (__instance.geodeAnimationTimer <= 0)
+			if (!ModEntry.Config.ShopsGeodesAutoProcess || __instance.geodeAnimationTimer <= 0)
 				return true;
 
 			if (i < ModEntry.Config.ShopsGeodesAutoProcessSpeedMultiplier)

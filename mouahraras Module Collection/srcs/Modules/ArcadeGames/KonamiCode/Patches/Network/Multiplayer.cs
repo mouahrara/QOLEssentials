@@ -20,9 +20,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return true;
 
-			if (messageKey.Equals("PrairieKing") || messageKey.Equals("JunimoKart"))
-				return false;
-			return true;
+			return messageKey != "PrairieKing" && messageKey != "JunimoKart";
 		}
 	}
 }

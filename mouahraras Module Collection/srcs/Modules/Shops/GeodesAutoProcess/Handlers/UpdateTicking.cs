@@ -14,7 +14,9 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Handlers
 				return;
 
 			if (GeodesAutoProcessUtility.IsProcessing() && GeodesAutoProcessUtility.GeodeMenu.geodeAnimationTimer <= 0)
+			{
 				GeodesAutoProcessUtility.CrackGeodeSecure();
+			}
 		}
 	}
 }

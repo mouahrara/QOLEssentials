@@ -1,6 +1,7 @@
 ﻿using System;
 using HarmonyLib;
 using StardewModdingAPI;
+using mouahrarasModuleCollection.Shops.BetterAnimalPurchase.Handlers;
 using mouahrarasModuleCollection.Shops.BetterAnimalPurchase.Patches;
 
 namespace mouahrarasModuleCollection.Modules
@@ -13,6 +14,7 @@ namespace mouahrarasModuleCollection.Modules
 			try
 			{
 				// Apply menus patches
+				IClickableMenuPatch.Apply(harmony);
 				PurchaseAnimalsMenuPatch.Apply(harmony);
 			}
 			catch (Exception e)
@@ -20,6 +22,9 @@ namespace mouahrarasModuleCollection.Modules
 				ModEntry.Monitor.Log($"Issue with Harmony patching of the {typeof(BetterAnimalPurchaseModule)} module: {e}", LogLevel.Error);
 				return;
 			}
+
+			// Subscribe to events
+			ModEntry.Helper.Events.Input.ButtonPressed += ButtonPressedHandler.Apply;
 		}
 	}
 }

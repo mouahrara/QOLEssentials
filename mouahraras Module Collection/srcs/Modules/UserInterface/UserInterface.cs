@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using StardewModdingAPI;
 using mouahrarasModuleCollection.Modules;
 
 namespace mouahrarasModuleCollection.Sections
@@ -8,8 +9,11 @@ namespace mouahrarasModuleCollection.Sections
 		internal static void Apply(Harmony harmony)
 		{
 			// Apply modules
-			FastScrollingModule.Apply(harmony);
-			ZoomModule.Apply(harmony);
+			if (Constants.TargetPlatform != GamePlatform.Android)
+			{
+				FastScrollingModule.Apply(harmony);
+				ZoomModule.Apply(harmony);
+			}
 		}
 	}
 }

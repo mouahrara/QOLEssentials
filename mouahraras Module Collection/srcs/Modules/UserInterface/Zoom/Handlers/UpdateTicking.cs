@@ -12,21 +12,21 @@ namespace mouahrarasModuleCollection.UserInterface.Zoom.Handlers
 		/// <param name="e">The event data.</param>
 		internal static void Apply(object sender, UpdateTickingEventArgs e)
 		{
-			if (!MenusPatchUtility.ShouldProcess(Game1.activeClickableMenu))
-				return;
-
-			bool isZoomInKeyDown = ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomInKey);
-			bool isZoomOutKeyDown = ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomOutKey);
-
-			if (!isZoomInKeyDown || !isZoomOutKeyDown)
+			if (MenusPatchUtility.ShouldProcess(Game1.activeClickableMenu))
 			{
-				if (isZoomInKeyDown)
+				bool isZoomInKeyDown = ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomInKey);
+				bool isZoomOutKeyDown = ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomOutKey);
+
+				if (!isZoomInKeyDown || !isZoomOutKeyDown)
 				{
-					ZoomUtility.AddZoomLevel(120);
-				}
-				else if (isZoomOutKeyDown)
-				{
-					ZoomUtility.AddZoomLevel(-120);
+					if (isZoomInKeyDown)
+					{
+						ZoomUtility.AddZoomLevel(120);
+					}
+					else if (isZoomOutKeyDown)
+					{
+						ZoomUtility.AddZoomLevel(-120);
+					}
 				}
 			}
 		}

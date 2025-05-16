@@ -13,34 +13,31 @@ namespace mouahrarasModuleCollection.Other.BetterPorchRepair.Utilities
 	{
 		internal static void RepairPorch(AssetRequestedEventArgs e)
 		{
-			if (ModEntry.Config is null || !ModEntry.Config.OtherBetterPorchRepair)
+			if (!Context.IsWorldReady || !ModEntry.Config.OtherBetterPorchRepair)
 				return;
 
 			if (e.Name.IsEquivalentTo("Data/Buildings"))
 			{
-				if (Context.IsWorldReady)
+				Farm farm = Game1.getFarm();
+
+				if (farm is not null)
 				{
-					Farm farm = Game1.getFarm();
+					Building farmhouse = farm.GetMainFarmHouse();
 
-					if (farm is not null)
+					if (farmhouse is not null)
 					{
-						Building farmhouse = farm.GetMainFarmHouse();
+						FarmHouse farmhouseIndoors = farmhouse.GetIndoors() as FarmHouse;
 
-						if (farmhouse is not null)
+						if (farmhouseIndoors is not null && farmhouseIndoors.upgradeLevel > 0)
 						{
-							FarmHouse farmhouseIndoors = farmhouse.GetIndoors() as FarmHouse;
-
-							if (farmhouseIndoors is not null && farmhouseIndoors.upgradeLevel > 0)
+							e.Edit(asset =>
 							{
-								e.Edit(asset =>
-								{
-									IDictionary<string, BuildingData> data = asset.AsDictionary<string, BuildingData>().Data;
-									string[] array = data["Farmhouse"].CollisionMap.Trim().Split('\n', StringSplitOptions.TrimEntries);
+								IDictionary<string, BuildingData> data = asset.AsDictionary<string, BuildingData>().Data;
+								string[] array = data["Farmhouse"].CollisionMap.Trim().Split('\n', StringSplitOptions.TrimEntries);
 
-									array[^2] = string.Concat("O", array[^2].AsSpan(1));
-									data["Farmhouse"].CollisionMap = data["Farmhouse"].CollisionMap = string.Join('\n', array);
-								});
-							}
+								array[^2] = string.Concat("O", array[^2].AsSpan(1));
+								data["Farmhouse"].CollisionMap = data["Farmhouse"].CollisionMap = string.Join('\n', array);
+							});
 						}
 					}
 				}

@@ -1,6 +1,8 @@
+using System.Reflection;
+using Microsoft.Xna.Framework;
+using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Menus;
-using Microsoft.Xna.Framework;
 
 namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Utilities
 {
@@ -8,10 +10,21 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Utilities
 	{
 		internal static Vector2 GetStopButtonPosition(GeodeMenu __instance, int width, int height)
 		{
-			int x = __instance.xPositionOnScreen + IClickableMenu.spaceToClearSideBorder + IClickableMenu.borderWidth / 2 + 692 - width * 4 / 2;
-			int y = __instance.yPositionOnScreen + IClickableMenu.spaceToClearTopBorder + 262 + GetStopButtonYOffset() - height * 4 / 2;
+			if (Constants.TargetPlatform == GamePlatform.Android)
+			{
+				Rectangle infoBox = (Rectangle)typeof(GeodeMenu).GetField("infoBox", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(__instance);
+				int x = infoBox.X + infoBox.Width / 2 - width * 4 / 2;
+				int y = infoBox.Y + infoBox.Height - 64 - height * 4 / 2;
 
-			return new Vector2(x, y);
+				return new Vector2(x, y);
+			}
+			else
+			{
+				int x = __instance.xPositionOnScreen + IClickableMenu.spaceToClearSideBorder + IClickableMenu.borderWidth / 2 + 692 - width * 4 / 2;
+				int y = __instance.yPositionOnScreen + IClickableMenu.spaceToClearTopBorder + 262 + GetStopButtonYOffset() - height * 4 / 2;
+
+				return new Vector2(x, y);
+			}
 		}
 
 		internal static int GetStopButtonWidthOffset()

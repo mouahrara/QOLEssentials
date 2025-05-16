@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
 using StardewValley.Minigames;
 using mouahrarasModuleCollection.ArcadeGames.PayToPlay.Utilities;
+using mouahrarasModuleCollection.Utilities;
 
 namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 {
@@ -46,9 +47,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 
 		private static void DrawPostfix(MineCart __instance, SpriteBatch b)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlay)
-				return;
-			if (__instance.gameState != MineCart.GameStates.Title)
+			if (!ModEntry.Config.ArcadeGamesPayToPlay || __instance.gameState != MineCart.GameStates.Title)
 				return;
 
 			float scale = __instance.GetPixelScale() / 5f;
@@ -74,28 +73,36 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 				if (PayToPlayUtility.OnInsertCoinMenu)
 				{
 					if (gameMode == 3)
+					{
 						b.DrawString(Game1.dialogueFont, insertCoinText, new Vector2(Game1.viewport.Width / 2 - insertCoinDimension.X / 2, 3 * Game1.viewport.Height / 4 - insertCoinDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
+					}
 					b.DrawString(Game1.dialogueFont, credit0Text, new Vector2((Game1.viewport.Width - screenWidth) / 2 + __instance.tileSize, (Game1.viewport.Height - screenHeight) / 2 + screenHeight - credit0Dimension.Y - __instance.tileSize), Utility.GetPrismaticColor(), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
 				}
 				else
 				{
 					if (gameMode == 3)
+					{
 						b.DrawString(Game1.dialogueFont, loadingText, new Vector2(Game1.viewport.Width / 2 - loadingDimension.X / 2, 3 * Game1.viewport.Height / 4 - loadingDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
+					}
 					b.DrawString(Game1.dialogueFont, credit1Text, new Vector2((Game1.viewport.Width - screenWidth) / 2 + __instance.tileSize, (Game1.viewport.Height - screenHeight) / 2 + screenHeight - credit1Dimension.Y - __instance.tileSize), Utility.GetPrismaticColor(), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
 				}
-				Game1.dayTimeMoneyBox.drawMoneyBox(b, Game1.dayTimeMoneyBox.xPositionOnScreen, 0);
+				GamePlatformUtility.DrawMoneyBox(b);
 			}
 			else
 			{
 				if (PayToPlayUtility.OnInsertCoinMenu)
 				{
 					if (gameMode == 3)
+					{
 						b.DrawString(Game1.dialogueFont, pressAnyButtonText, new Vector2(Game1.viewport.Width / 2 - pressAnyButtonDimension.X / 2, 3 * Game1.viewport.Height / 4 - pressAnyButtonDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
+					}
 				}
 				else
 				{
 					if (gameMode == 3)
+					{
 						b.DrawString(Game1.dialogueFont, loadingText, new Vector2(Game1.viewport.Width / 2 - loadingDimension.X / 2, 3 * Game1.viewport.Height / 4 - loadingDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
+					}
 				}
 				b.DrawString(Game1.dialogueFont, freeText, new Vector2((Game1.viewport.Width - screenWidth) / 2 + __instance.tileSize, (Game1.viewport.Height - screenHeight) / 2 + screenHeight - freeDimension.Y - __instance.tileSize), Utility.GetPrismaticColor(), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
 			}
@@ -104,20 +111,10 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 
 		private static bool UpdateInputPrefix(MineCart __instance)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlay)
-				return true;
-			if (__instance.gameState != MineCart.GameStates.Title || !PayToPlayUtility.OnInsertCoinMenu)
-				return true;
-			if (__instance.pauseBeforeTitleFadeOutTimer != 0f || (float)typeof(MineCart).GetField("screenDarkness", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(__instance) != 0f || __instance.fadeDelta > 0f)
+			if (!ModEntry.Config.ArcadeGamesPayToPlay || __instance.gameState != MineCart.GameStates.Title || !PayToPlayUtility.OnInsertCoinMenu || __instance.pauseBeforeTitleFadeOutTimer != 0f || (float)typeof(MineCart).GetField("screenDarkness", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(__instance) != 0f || __instance.fadeDelta > 0f)
 				return true;
 
-			bool justTryToInsertCoin = Game1.input.GetMouseState().LeftButton == ButtonState.Pressed
-				|| Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.useToolButton)
-				|| Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton)
-				|| Game1.input.GetKeyboardState().IsKeyDown(Keys.Space)
-				|| Game1.input.GetKeyboardState().IsKeyDown(Keys.LeftShift)
-				|| Game1.input.GetGamePadState().IsButtonDown(Buttons.A)
-				|| Game1.input.GetGamePadState().IsButtonDown(Buttons.B);
+			bool justTryToInsertCoin = Game1.input.GetMouseState().LeftButton == ButtonState.Pressed || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.useToolButton) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton) || Game1.input.GetKeyboardState().IsKeyDown(Keys.Space) || Game1.input.GetKeyboardState().IsKeyDown(Keys.LeftShift) || Game1.input.GetGamePadState().IsButtonDown(Buttons.A) || Game1.input.GetGamePadState().IsButtonDown(Buttons.B);
 
 			if (justTryToInsertCoin && !PayToPlayUtility.TriedToInsertCoin)
 			{
@@ -158,8 +155,10 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 			if (!ModEntry.Config.ArcadeGamesPayToPlay)
 				return;
 
-			if (__result == true)
+			if (__result)
+			{
 				PayToPlayUtility.Reset();
+			}
 		}
 	}
 }

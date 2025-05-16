@@ -16,16 +16,10 @@ namespace mouahrarasModuleCollection.Machines.SafeReplacement.Patches
 
 		private static bool PerformObjectDropInActionPrefix(Object __instance, Item dropInItem, bool probe, Farmer who, ref bool __result)
 		{
-			if (!ModEntry.Config.MachinesSafeReplacement)
-				return true;
-			if (__instance.isTemporarilyInvisible)
-				return true;
-			if (dropInItem is not Object)
-				return true;
-			if (!__instance.name.Equals("Crystalarium"))
+			if (!ModEntry.Config.MachinesSafeReplacement || __instance.isTemporarilyInvisible || dropInItem is not Object || !__instance.name.Equals("Crystalarium"))
 				return true;
 
-			if ((dropInItem.HasContextTag("category_gem") || dropInItem.HasContextTag("category_minerals")) && !dropInItem.HasContextTag("crystalarium_banned") && (__instance.heldObject.Value == null || __instance.heldObject.Value.QualifiedItemId != dropInItem.QualifiedItemId) && (__instance.heldObject.Value == null || __instance.MinutesUntilReady > 0))
+			if ((dropInItem.HasContextTag("category_gem") || dropInItem.HasContextTag("category_minerals")) && !dropInItem.HasContextTag("crystalarium_banned") && (__instance.heldObject.Value is null || __instance.heldObject.Value.QualifiedItemId != dropInItem.QualifiedItemId) && (__instance.heldObject.Value is null || __instance.MinutesUntilReady > 0))
 			{
 				if (!probe)
 				{

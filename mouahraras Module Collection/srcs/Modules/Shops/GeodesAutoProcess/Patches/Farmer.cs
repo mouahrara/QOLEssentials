@@ -18,10 +18,9 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 
 		private static bool HoldUpItemThenMessagePrefix(Item item)
 		{
-			if (!ModEntry.Config.ShopsGeodesAutoProcess)
+			if (!ModEntry.Config.ShopsGeodesAutoProcess || Game1.activeClickableMenu is not GeodeMenu)
 				return true;
-			if (Game1.activeClickableMenu == null || Game1.activeClickableMenu.GetType() != typeof(GeodeMenu))
-				return true;
+
 			GeodesAutoProcessUtility.FoundArtifact = item;
 			return false;
 		}

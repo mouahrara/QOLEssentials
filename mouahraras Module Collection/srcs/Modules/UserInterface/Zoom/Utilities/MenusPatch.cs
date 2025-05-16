@@ -45,21 +45,7 @@ namespace mouahrarasModuleCollection.UserInterface.Zoom.Utilities
 			if (!ModEntry.Config.UserInterfaceZoom)
 				return false;
 
-			CarpenterMenu carpenterMenu = __instance as CarpenterMenu;
-			PurchaseAnimalsMenu purchaseAnimalsMenu = __instance as PurchaseAnimalsMenu;
-			AnimalQueryMenu animalQueryMenu = __instance as AnimalQueryMenu;
-
-			if (carpenterMenu is null && purchaseAnimalsMenu is null && animalQueryMenu is null)
-				return false;
-			if (carpenterMenu is not null && carpenterMenu.freeze)
-				return false;
-			if (purchaseAnimalsMenu is not null && purchaseAnimalsMenu.freeze)
-				return false;
-			if (Game1.IsFading())
-				return false;
-			if (!__instance.shouldClampGamePadCursor() || !__instance.overrideSnappyMenuCursorMovementBan())
-				return false;
-			return true;
+			return (__instance is CarpenterMenu or PurchaseAnimalsMenu or AnimalQueryMenu) && ((__instance as CarpenterMenu)?.freeze != true) && ((__instance as PurchaseAnimalsMenu)?.freeze != true) && !Game1.IsFading() && __instance.shouldClampGamePadCursor() && __instance.overrideSnappyMenuCursorMovementBan();
 		}
 	}
 }

@@ -28,46 +28,35 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 
 		private static void PopulateClickableComponentListPostfix(IClickableMenu __instance)
 		{
-			if (!Context.IsWorldReady || !ModEntry.Config.ShopsGeodesAutoProcess)
+			if (!Context.IsWorldReady || !ModEntry.Config.ShopsGeodesAutoProcess || __instance is not GeodeMenu)
 				return;
 
-			if (__instance.GetType() == typeof(GeodeMenu))
-			{
-				__instance.allClickableComponents.Add(GeodeMenuPatch.stopButton);
-			}
+			__instance.allClickableComponents.Add(GeodeMenuPatch.stopButton);
 		}
 
 		private static bool ReceiveKeyPressPrefix(IClickableMenu __instance, Keys key)
 		{
-			if (!Context.IsWorldReady || !ModEntry.Config.ShopsGeodesAutoProcess)
-				return true;
-			if (key == 0)
+			if (!Context.IsWorldReady || !ModEntry.Config.ShopsGeodesAutoProcess || key == 0 || __instance is not GeodeMenu geodeMenu)
 				return true;
 
-			if (__instance.GetType() == typeof(GeodeMenu))
+			if (Game1.options.doesInputListContain(Game1.options.menuButton, key) && !geodeMenu.readyToClose())
 			{
-				if (Game1.options.doesInputListContain(Game1.options.menuButton, key) && !(__instance as GeodeMenu).readyToClose())
-				{
-					GeodesAutoProcessUtility.EndGeodeProcessing();
-					return false;
-				}
+				GeodesAutoProcessUtility.EndGeodeProcessing();
+				return false;
 			}
 			return true;
 		}
 
 		private static void ExitThisMenuPostfix(IClickableMenu __instance)
 		{
-			if (!Context.IsWorldReady || !ModEntry.Config.ShopsGeodesAutoProcess)
+			if (!Context.IsWorldReady || !ModEntry.Config.ShopsGeodesAutoProcess || __instance is not GeodeMenu)
 				return;
 
-			if (__instance.GetType() == typeof(GeodeMenu))
+			if (GeodesAutoProcessUtility.FoundArtifact is not null)
 			{
-				if (GeodesAutoProcessUtility.FoundArtifact != null)
-				{
-					Game1.player.holdUpItemThenMessage(GeodesAutoProcessUtility.FoundArtifact);
-				}
-				GeodesAutoProcessUtility.CleanBeforeClosingGeodeMenu();
+				Game1.player.holdUpItemThenMessage(GeodesAutoProcessUtility.FoundArtifact);
 			}
+			GeodesAutoProcessUtility.CleanBeforeClosingGeodeMenu();
 		}
 	}
 }

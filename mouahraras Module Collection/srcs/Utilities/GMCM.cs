@@ -72,11 +72,14 @@ namespace mouahrarasModuleCollection.Utilities
 				pageId: "Shops",
 				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Shops.Title")
 			);
-			gmcm.AddPageLink(
-				mod: ModEntry.ModManifest,
-				pageId: "User Interface",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.Title")
-			);
+			if (Constants.TargetPlatform != GamePlatform.Android)
+			{
+				gmcm.AddPageLink(
+					mod: ModEntry.ModManifest,
+					pageId: "User Interface",
+					text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.Title")
+				);
+			}
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Other",
@@ -98,12 +101,15 @@ namespace mouahrarasModuleCollection.Utilities
 				mod: ModEntry.ModManifest,
 				text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.Description")
 			);
-			gmcm.AddPageLink(
-				mod: ModEntry.ModManifest,
-				pageId: "Arcade games - Konami code",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Tooltip")
-			);
+			if (Constants.TargetPlatform != GamePlatform.Android)
+			{
+				gmcm.AddPageLink(
+					mod: ModEntry.ModManifest,
+					pageId: "Arcade games - Konami code",
+					text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Tooltip")
+				);
+			}
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
 				pageId: "Arcade games - Non-realistic leaderboard",
@@ -117,31 +123,34 @@ namespace mouahrarasModuleCollection.Utilities
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.Tooltip")
 			);
 			// Arcade games - Konami code
-			gmcm.AddPage(
-				mod: ModEntry.ModManifest,
-				pageId: "Arcade games - Konami code",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Title")
-			);
-			gmcm.AddPageLink(
-				mod: ModEntry.ModManifest,
-				pageId: "Arcade games",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.BackTo")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Description")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.AdditionalInformation")
-			);
-			gmcm.AddBoolOption(
-				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
-				getValue: () => ModEntry.Config.ArcadeGamesPayToPlayKonamiCode,
-				setValue: value => ModEntry.Config.ArcadeGamesPayToPlayKonamiCode = value
-			);
+			if (Constants.TargetPlatform != GamePlatform.Android)
+			{
+				gmcm.AddPage(
+					mod: ModEntry.ModManifest,
+					pageId: "Arcade games - Konami code",
+					pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Title")
+				);
+				gmcm.AddPageLink(
+					mod: ModEntry.ModManifest,
+					pageId: "Arcade games",
+					text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.BackTo")
+				);
+				gmcm.AddParagraph(
+					mod: ModEntry.ModManifest,
+					text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Description")
+				);
+				gmcm.AddParagraph(
+					mod: ModEntry.ModManifest,
+					text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.AdditionalInformation")
+				);
+				gmcm.AddBoolOption(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
+					getValue: () => ModEntry.Config.ArcadeGamesPayToPlayKonamiCode,
+					setValue: value => ModEntry.Config.ArcadeGamesPayToPlayKonamiCode = value
+				);
+			}
 			// Arcade games - Non-realistic leaderboard
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
@@ -348,127 +357,130 @@ namespace mouahrarasModuleCollection.Utilities
 			);
 
 			// User Interface
-			gmcm.AddPage(
-				mod: ModEntry.ModManifest,
-				pageId: "User Interface",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Title")
-			);
-			// gmcm.AddPageLink(
-			// 	mod: ModEntry.ModManifest,
-			// 	pageId: ModEntry.ModManifest.UniqueID,
-			// 	text: () => "@ " + "Back to mouahrara's Module Collection"
-			// );
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Description")
-			);
-			gmcm.AddPageLink(
-				mod: ModEntry.ModManifest,
-				pageId: "User Interface - Fast scrolling",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Tooltip")
-			);
-			gmcm.AddPageLink(
-				mod: ModEntry.ModManifest,
-				pageId: "User Interface - Zoom",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Tooltip")
-			);
-			// User Interface - Fast scrolling
-			gmcm.AddPage(
-				mod: ModEntry.ModManifest,
-				pageId: "User Interface - Fast scrolling",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Title")
-			);
-			gmcm.AddPageLink(
-				mod: ModEntry.ModManifest,
-				pageId: "User Interface",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.BackTo")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Description")
-			);
-			gmcm.AddBoolOption(
-				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
-				getValue: () => ModEntry.Config.UserInterfaceFastScrolling,
-				setValue: value => ModEntry.Config.UserInterfaceFastScrolling = value
-			);
-			gmcm.AddNumberOption(
-				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.SpeedMultiplier.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.SpeedMultiplier.Tooltip"),
-				getValue: () => ModEntry.Config.UserInterfaceFastScrollingMultiplier,
-				setValue: value => ModEntry.Config.UserInterfaceFastScrollingMultiplier = value,
-				min: 1.0f,
-				max: 8.0f,
-				interval: 0.25f
-			);
-			gmcm.AddBoolOption(
-				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.ConsistentScrolling.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.ConsistentScrolling.Tooltip"),
-				getValue: () => ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling,
-				setValue: value => ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling = value
-			);
-			// User Interface - Zoom
-			gmcm.AddPage(
-				mod: ModEntry.ModManifest,
-				pageId: "User Interface - Zoom",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Title")
-			);
-			gmcm.AddPageLink(
-				mod: ModEntry.ModManifest,
-				pageId: "User Interface",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.BackTo")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Description")
-			);
-			gmcm.AddBoolOption(
-				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
-				getValue: () => ModEntry.Config.UserInterfaceZoom,
-				setValue: value => ModEntry.Config.UserInterfaceZoom = value
-			);
-			gmcm.AddKeybind(
-				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomInKey.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomInKey.Tooltip"),
-				getValue: () => ModEntry.Config.UserInterfaceZoomInKey,
-				setValue: value => ModEntry.Config.UserInterfaceZoomInKey = value
-			);
-			gmcm.AddKeybind(
-				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip"),
-				getValue: () => ModEntry.Config.UserInterfaceZoomOutKey,
-				setValue: value => ModEntry.Config.UserInterfaceZoomOutKey = value
-			);
-			gmcm.AddNumberOption(
-				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SpeedMultiplier.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SpeedMultiplier.Tooltip"),
-				getValue: () => ModEntry.Config.UserInterfaceZoomMultiplier,
-				setValue: value => ModEntry.Config.UserInterfaceZoomMultiplier = value,
-				min: 0.25f,
-				max: 4.0f,
-				interval: 0.25f
-			);
-			gmcm.AddNumberOption(
-				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.MinimumZoomLevel.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.MinimumZoomLevel.Tooltip"),
-				getValue: () => ModEntry.Config.UserInterfaceZoomMinimumZoomLevel,
-				setValue: value => ModEntry.Config.UserInterfaceZoomMinimumZoomLevel = value,
-				min: 0.0f,
-				max: 0.75f,
-				interval: 0.05f
-			);
+			if (Constants.TargetPlatform != GamePlatform.Android)
+			{
+				gmcm.AddPage(
+					mod: ModEntry.ModManifest,
+					pageId: "User Interface",
+					pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Title")
+				);
+				// gmcm.AddPageLink(
+				// 	mod: ModEntry.ModManifest,
+				// 	pageId: ModEntry.ModManifest.UniqueID,
+				// 	text: () => "@ " + "Back to mouahrara's Module Collection"
+				// );
+				gmcm.AddParagraph(
+					mod: ModEntry.ModManifest,
+					text: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Description")
+				);
+				gmcm.AddPageLink(
+					mod: ModEntry.ModManifest,
+					pageId: "User Interface - Fast scrolling",
+					text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Tooltip")
+				);
+				gmcm.AddPageLink(
+					mod: ModEntry.ModManifest,
+					pageId: "User Interface - Zoom",
+					text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Tooltip")
+				);
+				// User Interface - Fast scrolling
+				gmcm.AddPage(
+					mod: ModEntry.ModManifest,
+					pageId: "User Interface - Fast scrolling",
+					pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Title")
+				);
+				gmcm.AddPageLink(
+					mod: ModEntry.ModManifest,
+					pageId: "User Interface",
+					text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.BackTo")
+				);
+				gmcm.AddParagraph(
+					mod: ModEntry.ModManifest,
+					text: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.Description")
+				);
+				gmcm.AddBoolOption(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
+					getValue: () => ModEntry.Config.UserInterfaceFastScrolling,
+					setValue: value => ModEntry.Config.UserInterfaceFastScrolling = value
+				);
+				gmcm.AddNumberOption(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.SpeedMultiplier.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.SpeedMultiplier.Tooltip"),
+					getValue: () => ModEntry.Config.UserInterfaceFastScrollingMultiplier,
+					setValue: value => ModEntry.Config.UserInterfaceFastScrollingMultiplier = value,
+					min: 1.0f,
+					max: 8.0f,
+					interval: 0.25f
+				);
+				gmcm.AddBoolOption(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.ConsistentScrolling.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.ConsistentScrolling.Tooltip"),
+					getValue: () => ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling,
+					setValue: value => ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling = value
+				);
+				// User Interface - Zoom
+				gmcm.AddPage(
+					mod: ModEntry.ModManifest,
+					pageId: "User Interface - Zoom",
+					pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Title")
+				);
+				gmcm.AddPageLink(
+					mod: ModEntry.ModManifest,
+					pageId: "User Interface",
+					text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.UserInterface.BackTo")
+				);
+				gmcm.AddParagraph(
+					mod: ModEntry.ModManifest,
+					text: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.Description")
+				);
+				gmcm.AddBoolOption(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
+					getValue: () => ModEntry.Config.UserInterfaceZoom,
+					setValue: value => ModEntry.Config.UserInterfaceZoom = value
+				);
+				gmcm.AddKeybind(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomInKey.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomInKey.Tooltip"),
+					getValue: () => ModEntry.Config.UserInterfaceZoomInKey,
+					setValue: value => ModEntry.Config.UserInterfaceZoomInKey = value
+				);
+				gmcm.AddKeybind(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip"),
+					getValue: () => ModEntry.Config.UserInterfaceZoomOutKey,
+					setValue: value => ModEntry.Config.UserInterfaceZoomOutKey = value
+				);
+				gmcm.AddNumberOption(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SpeedMultiplier.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SpeedMultiplier.Tooltip"),
+					getValue: () => ModEntry.Config.UserInterfaceZoomMultiplier,
+					setValue: value => ModEntry.Config.UserInterfaceZoomMultiplier = value,
+					min: 0.25f,
+					max: 4.0f,
+					interval: 0.25f
+				);
+				gmcm.AddNumberOption(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.MinimumZoomLevel.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.MinimumZoomLevel.Tooltip"),
+					getValue: () => ModEntry.Config.UserInterfaceZoomMinimumZoomLevel,
+					setValue: value => ModEntry.Config.UserInterfaceZoomMinimumZoomLevel = value,
+					min: 0.0f,
+					max: 0.75f,
+					interval: 0.05f
+				);
+			}
 
 			// Other
 			gmcm.AddPage(

@@ -1,5 +1,6 @@
 using System;
 using HarmonyLib;
+using StardewModdingAPI;
 using StardewValley.Menus;
 using mouahrarasModuleCollection.Shops.GeodesAutoProcess.Utilities;
 
@@ -17,12 +18,20 @@ namespace mouahrarasModuleCollection.Shops.GeodesAutoProcess.Patches
 
 		private static bool ReceiveLeftClickPrefix(MenuWithInventory __instance, int x, int y)
 		{
-			if (!ModEntry.Config.ShopsGeodesAutoProcess)
+			if (!ModEntry.Config.ShopsGeodesAutoProcess || __instance is not GeodeMenu geodeMenu)
 				return true;
 
-			if (__instance.GetType() == typeof(GeodeMenu))
+			if (Constants.TargetPlatform == GamePlatform.Android)
 			{
-				if (__instance.okButton != null && __instance.okButton.containsPoint(x, y) && !(__instance as GeodeMenu).readyToClose())
+				if (__instance.upperRightCloseButton is not null && __instance.upperRightCloseButton.containsPoint(x, y) && !geodeMenu.readyToClose())
+				{
+					GeodesAutoProcessUtility.EndGeodeProcessing();
+					return false;
+				}
+			}
+			else
+			{
+				if (__instance.okButton is not null && __instance.okButton.containsPoint(x, y) && !geodeMenu.readyToClose())
 				{
 					GeodesAutoProcessUtility.EndGeodeProcessing();
 					return false;

@@ -4,27 +4,48 @@ using HarmonyLib;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
+using StardewModdingAPI;
 using StardewValley;
+using StardewValley.Menus;
 using StardewValley.Minigames;
 using mouahrarasModuleCollection.ArcadeGames.PayToPlay.Managers;
 using mouahrarasModuleCollection.ArcadeGames.PayToPlay.Utilities;
+using mouahrarasModuleCollection.Utilities;
 
 namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 {
 	internal class AbigailGamePatch
 	{
+		internal static ClickableTextureComponent	buttonExit;
+
 		internal static void Apply(Harmony harmony)
 		{
+			if (Constants.TargetPlatform == GamePlatform.Android)
+			{
+				harmony.Patch(
+					original: AccessTools.Constructor(typeof(AbigailGame), new Type[] { typeof(NPC) }),
+					postfix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(AbigailGamePostfix))
+				);
+				harmony.Patch(
+					original: AccessTools.Constructor(typeof(AbigailGame), new Type[] { typeof(int), typeof(int), typeof(int), typeof(int), typeof(int), typeof(int), typeof(bool), typeof(int) }),
+					postfix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(AbigailGamePostfix))
+				);
+				harmony.Patch(
+					original: AccessTools.Method(typeof(AbigailGame), nameof(AbigailGame.draw), new Type[] { typeof(SpriteBatch) }),
+					postfix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(DrawPostfixButtonExit))
+				);
+				harmony.Patch(
+					original: AccessTools.Method(typeof(AbigailGame), nameof(AbigailGame.receiveLeftClick), new Type[] { typeof(int), typeof(int), typeof(bool) }),
+					postfix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(ReceiveLeftClickPostfix))
+				);
+			}
 			harmony.Patch(
 				original: AccessTools.Method(typeof(AbigailGame), nameof(AbigailGame.draw), new Type[] { typeof(SpriteBatch) }),
 				postfix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(DrawPostfix))
 			);
 			harmony.Patch(
 				original: AccessTools.Method(typeof(AbigailGame), nameof(AbigailGame.tick), new Type[] { typeof(GameTime) }),
-				prefix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(TickPrefix))
-			);
-			harmony.Patch(
-				original: AccessTools.Method(typeof(AbigailGame), nameof(AbigailGame.tick), new Type[] { typeof(GameTime) }),
+				prefix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(TickPrefix)),
 				postfix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(TickPostfix))
 			);
 			harmony.Patch(
@@ -37,13 +58,37 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 			);
 		}
 
+		private static void AbigailGamePostfix()
+		{
+			buttonExit = new ClickableTextureComponent("Cancel", new Rectangle(-100, -100, 80, 80), null, null, (Texture2D)typeof(Game1).GetField("mobileSpriteSheet", BindingFlags.Public | BindingFlags.Static).GetValue(null), new Rectangle(20, 0, 20, 20), 5f);
+		}
+
+		private static void ReceiveLeftClickPostfix(AbigailGame __instance, int x, int y)
+		{
+			if (buttonExit.containsPoint(x, y))
+			{
+				__instance.quit = true;
+			}
+		}
+
+		private static void DrawPostfixButtonExit(SpriteBatch b)
+		{
+			if (!ModEntry.Config.ArcadeGamesPayToPlay || AbigailGame.playingWithAbigail || !AbigailGame.onStartMenu)
+				return;
+
+			b.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
+			if (buttonExit is not null)
+			{
+				buttonExit.bounds.X = Game1.viewport.Width - (int)typeof(Game1).GetField("xEdge", BindingFlags.Public | BindingFlags.Static).GetValue(null) - 112;
+				buttonExit.bounds.Y = Game1.viewport.Height - 112;
+				buttonExit.draw(b, Color.White, 0.001f);
+			}
+			b.End();
+		}
+
 		private static void DrawPostfix(SpriteBatch b)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlay)
-				return;
-			if (AbigailGame.playingWithAbigail)
-				return;
-			if (!AbigailGame.onStartMenu)
+			if (!ModEntry.Config.ArcadeGamesPayToPlay || AbigailGame.playingWithAbigail || !AbigailGame.onStartMenu)
 				return;
 
 			Rectangle insertCoinSourceRectangle = new(0, 0, 324, 27);
@@ -66,8 +111,10 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - loadingSourceRectangle.Width / 2, Game1.viewport.Height / 2 - loadingSourceRectangle.Height / 2 + 8 * AbigailGame.baseTileSize), loadingSourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(AbigailGame.topLeftScreenCoordinate.X + AbigailGame.baseTileSize, AbigailGame.topLeftScreenCoordinate.Y + 384 * 2 - credit1SourceRectangle.Height - AbigailGame.baseTileSize), credit1SourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 				}
-				if (Game1.player.jotpkProgress.Value == null)
-					Game1.dayTimeMoneyBox.drawMoneyBox(b, Game1.dayTimeMoneyBox.xPositionOnScreen, 0);
+				if (Game1.player.jotpkProgress.Value is null)
+				{
+					GamePlatformUtility.DrawMoneyBox(b);
+				}
 			}
 			else
 			{
@@ -86,23 +133,25 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 
 		private static bool TickPrefix(AbigailGame __instance)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlay)
+			if (!ModEntry.Config.ArcadeGamesPayToPlay || AbigailGame.playingWithAbigail)
 				return true;
-			if (AbigailGame.playingWithAbigail)
-				return true;
+
 			RestartIfRequired(__instance);
-			if (Game1.player.jotpkProgress.Value != null)
+			if (Game1.player.jotpkProgress.Value is not null)
 			{
 				PayToPlayUtility.OnInsertCoinMenu = false;
 				return true;
 			}
 			if (!AbigailGame.onStartMenu || !PayToPlayUtility.OnInsertCoinMenu)
+			{
 				return true;
-
+			}
 			AbigailGame.startTimer = int.MaxValue;
 			InsertCoinMenuMusic();
-			if (Game1.IsChatting || Game1.textEntry != null)
+			if (Game1.IsChatting || Game1.textEntry is not null || __instance.quit)
+			{
 				return true;
+			}
 			InsertCoinMenuInputs();
 			return true;
 		}
@@ -119,11 +168,11 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 
 		private static void InsertCoinMenuMusic()
 		{
-			if (Game1.soundBank != null)
+			if (Game1.soundBank is not null)
 			{
 				ICue overworldSong = (ICue)typeof(AbigailGame).GetField("overworldSong", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
 
-				if (overworldSong == null || !overworldSong.IsPlaying)
+				if (overworldSong is null || !overworldSong.IsPlaying)
 				{
 					overworldSong = Game1.soundBank.GetCue("Cowboy_OVERWORLD");
 					overworldSong.Play();
@@ -136,13 +185,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 
 		private static void InsertCoinMenuInputs()
 		{
-			bool justTryToInsertCoin = Game1.input.GetMouseState().LeftButton == ButtonState.Pressed
-				|| Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.useToolButton)
-				|| Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton)
-				|| Game1.input.GetKeyboardState().IsKeyDown(Keys.Space)
-				|| Game1.input.GetKeyboardState().IsKeyDown(Keys.LeftShift)
-				|| Game1.input.GetGamePadState().IsButtonDown(Buttons.A)
-				|| Game1.input.GetGamePadState().IsButtonDown(Buttons.B);
+			bool justTryToInsertCoin = Game1.input.GetMouseState().LeftButton == ButtonState.Pressed || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.useToolButton) || Game1.isOneOfTheseKeysDown(Game1.input.GetKeyboardState(), Game1.options.actionButton) || Game1.input.GetKeyboardState().IsKeyDown(Keys.Space) || Game1.input.GetKeyboardState().IsKeyDown(Keys.LeftShift) || Game1.input.GetGamePadState().IsButtonDown(Buttons.A) || Game1.input.GetGamePadState().IsButtonDown(Buttons.B);
 
 			if (justTryToInsertCoin && !PayToPlayUtility.TriedToInsertCoin)
 			{
@@ -173,35 +216,35 @@ namespace mouahrarasModuleCollection.ArcadeGames.PayToPlay.Patches
 
 		private static void TickPostfix(bool __result)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlay)
-				return;
-			if (AbigailGame.playingWithAbigail)
+			if (!ModEntry.Config.ArcadeGamesPayToPlay || AbigailGame.playingWithAbigail)
 				return;
 
-			if (__result == true)
+			if (__result)
+			{
 				PayToPlayUtility.Reset();
+			}
 		}
 
 		private static void ReceiveKeyPressPostfix(AbigailGame __instance, Keys k)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlay)
-				return;
-			if (AbigailGame.playingWithAbigail)
+			if (!ModEntry.Config.ArcadeGamesPayToPlay || AbigailGame.playingWithAbigail)
 				return;
 
 			if (Game1.input.GetGamePadState().IsButtonDown(Buttons.Back) || k.Equals(Keys.Escape))
+			{
 				__instance.quit = true;
+			}
 		}
 
 		private static void ForceQuitPostfix(bool __result)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlay)
-				return;
-			if (AbigailGame.playingWithAbigail)
+			if (!ModEntry.Config.ArcadeGamesPayToPlay || AbigailGame.playingWithAbigail)
 				return;
 
-			if (__result == true)
+			if (__result)
+			{
 				PayToPlayUtility.Reset();
+			}
 		}
 	}
 }

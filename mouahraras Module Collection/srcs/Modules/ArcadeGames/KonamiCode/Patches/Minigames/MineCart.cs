@@ -33,11 +33,8 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 			);
 			harmony.Patch(
 				original: AccessTools.Method(typeof(MineCart), nameof(MineCart.Die)),
-				prefix: new HarmonyMethod(typeof(MineCartPatch), nameof(DiePrefix))
-			);
-			harmony.Patch(
-				original: AccessTools.Method(typeof(MineCart), nameof(MineCart.Die)),
-				postfix: new HarmonyMethod(typeof(MineCartPatch), nameof(DiePostfix))
+				prefix: new HarmonyMethod(typeof(MineCartPatch), nameof(DiePrefixPostfix)),
+				postfix: new HarmonyMethod(typeof(MineCartPatch), nameof(DiePrefixPostfix))
 			);
 			harmony.Patch(
 				original: AccessTools.Method(typeof(MineCart), nameof(MineCart.QuitGame)),
@@ -53,6 +50,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			typeof(MineCart).GetField("livesLeft", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(__instance, 5);
 		}
 
@@ -60,6 +58,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			typeof(MineCart).GetField("livesLeft", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(__instance, 5);
 		}
 
@@ -70,13 +69,16 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 
 			KonamiCodeUtility.ReceiveKeyPressPostfix(k);
 			if (KonamiCodeUtility.InfiniteLivesMode)
+			{
 				typeof(MineCart).GetField("livesLeft", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(__instance, 5);;
+			}
 		}
 
 		private static void UpdateFruitsSummaryPostfix(MineCart __instance)
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			typeof(MineCart).GetField("livesLeft", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(__instance, 5);
 		}
 
@@ -84,21 +86,15 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			typeof(MineCart).GetField("livesLeft", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(__instance, 5);
 		}
 
-		private static bool DiePrefix(MineCart __instance)
-		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
-				return true;
-			typeof(MineCart).GetField("livesLeft", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(__instance, 5);
-			return true;
-		}
-
-		private static void DiePostfix(MineCart __instance)
+		private static void DiePrefixPostfix(MineCart __instance)
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			typeof(MineCart).GetField("livesLeft", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(__instance, 5);
 		}
 
@@ -106,6 +102,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			KonamiCodeUtility.Reset();
 		}
 
@@ -114,8 +111,10 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
 
-			if (__result == true)
+			if (__result)
+			{
 				KonamiCodeUtility.Reset();
+			}
 		}
 	}
 }

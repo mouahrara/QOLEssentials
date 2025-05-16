@@ -17,9 +17,7 @@ namespace mouahrarasModuleCollection.Machines.SafeReplacement.Patches
 
 		private static void CheckActionPostfix()
 		{
-			if (!ModEntry.Config.MachinesSafeReplacement)
-				return;
-			if (SafeReplacementUtility.ObjectToRecover == null)
+			if (!ModEntry.Config.MachinesSafeReplacement || SafeReplacementUtility.ObjectToRecover is null)
 				return;
 
 			Game1.player.addItemToInventory(SafeReplacementUtility.ObjectToRecover);

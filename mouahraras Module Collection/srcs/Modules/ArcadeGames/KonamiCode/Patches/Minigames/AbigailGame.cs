@@ -41,11 +41,8 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 			);
 			harmony.Patch(
 				original: AccessTools.Method(typeof(AbigailGame), nameof(AbigailGame.playerDie)),
-				prefix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(PlayerDiePrefix))
-			);
-			harmony.Patch(
-				original: AccessTools.Method(typeof(AbigailGame), nameof(AbigailGame.playerDie)),
-				postfix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(PlayerDiePostfix))
+				prefix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(PlayerDiePrefixPostfix)),
+				postfix: new HarmonyMethod(typeof(AbigailGamePatch), nameof(PlayerDiePrefixPostfix))
 			);
 			harmony.Patch(
 				original: AccessTools.Method(typeof(AbigailGame), nameof(AbigailGame.forceQuit)),
@@ -57,6 +54,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			__instance.lives = 99;
 		}
 
@@ -64,6 +62,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			__instance.lives = 99;
 		}
 
@@ -71,6 +70,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return true;
+
 			return false;
 		}
 
@@ -78,13 +78,16 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 		{
 			KonamiCodeUtility.ReceiveKeyPressPostfix(k);
 			if (KonamiCodeUtility.InfiniteLivesMode)
+			{
 				__instance.lives = 99;
+			}
 		}
 
 		private static void GetPowerUpPostfix(AbigailGame __instance)
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			__instance.lives = 99;
 		}
 
@@ -92,6 +95,7 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			__instance.lives = 99;
 		}
 
@@ -100,24 +104,21 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
 
-			if (__result == false)
+			if (!__result)
+			{
 				__instance.lives = 99;
+			}
 			else
+			{
 				KonamiCodeUtility.Reset();
+			}
 		}
 
-		private static bool PlayerDiePrefix(AbigailGame __instance)
-		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
-				return true;
-			__instance.lives = 99;
-			return true;
-		}
-
-		private static void PlayerDiePostfix(AbigailGame __instance)
+		private static void PlayerDiePrefixPostfix(AbigailGame __instance)
 		{
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
+
 			__instance.lives = 99;
 		}
 
@@ -126,8 +127,10 @@ namespace mouahrarasModuleCollection.ArcadeGames.KonamiCode.Patches
 			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
 
-			if (__result == true)
+			if (__result)
+			{
 				KonamiCodeUtility.Reset();
+			}
 		}
 	}
 }
