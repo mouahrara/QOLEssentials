@@ -16,8 +16,8 @@ namespace mouahrarasModuleCollection.Modules
 				AbigailGamePatch.Apply(harmony);
 				MineCartPatch.Apply(harmony);
 
-				// Apply Game1 patches
-				Game1Patch.Apply(harmony);
+				// Apply Stats patches
+				StatsPatch.Apply(harmony);
 
 				// Apply network patches
 				MultiplayerPatch.Apply(harmony);
