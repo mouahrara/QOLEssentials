@@ -61,7 +61,7 @@ namespace QOLEssentials.Shops.BetterAnimalPurchase.Utilities
 		internal static void SetVariantButtonBounds(FarmAnimal farmAnimal = null)
 		{
 			farmAnimal ??= Game1.activeClickableMenu is PurchaseAnimalsMenu purchaseAnimalsMenu ? purchaseAnimalsMenu.animalBeingPurchased : null;
-			if (farmAnimal is not null)
+			if (farmAnimal is not null && PurchaseAnimalsMenuPatch.PreviousVariantButton is not null && PurchaseAnimalsMenuPatch.NextVariantButton is not null)
 			{
 				string s = Game1.content.LoadString("Strings\\StringsFromCSFiles:PurchaseAnimalsMenu.cs.11355", farmAnimal.displayHouse, farmAnimal.displayType);
 

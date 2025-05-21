@@ -24,7 +24,7 @@ namespace QOLEssentials.Shops.BetterAnimalPurchase.Patches
 			if (!Context.IsWorldReady || !ModEntry.Config.ShopsBetterAnimalPurchase)
 				return;
 
-			if (__instance is PurchaseAnimalsMenu)
+			if (__instance is PurchaseAnimalsMenu && PurchaseAnimalsMenuPatch.PreviousVariantButton is not null && PurchaseAnimalsMenuPatch.NextVariantButton is not null)
 			{
 				__instance.allClickableComponents.Add(PurchaseAnimalsMenuPatch.PreviousVariantButton);
 				__instance.allClickableComponents.Add(PurchaseAnimalsMenuPatch.NextVariantButton);
@@ -33,6 +33,9 @@ namespace QOLEssentials.Shops.BetterAnimalPurchase.Patches
 
 		private static void GameWindowSizeChangedPostfix()
 		{
+			if (!Context.IsWorldReady || !ModEntry.Config.ShopsBetterAnimalPurchase)
+				return;
+
 			AlternatePurchaseTypesUtility.SetVariantButtonBounds();
 		}
 	}
