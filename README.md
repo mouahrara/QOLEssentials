@@ -57,7 +57,7 @@ https://github.com/mouahrara/QOLEssentials/assets/131559634/f01b4bd0-aead-4ca0-8
 | Better porch repair | Completely repairs the farmhouse porch after its first upgrade, allowing you to walk on the previously broken area and place objects there. | <ul><li>Enabled</li></ul>                                                        |                                                                                                                                                                                                                                                                                                                                                          |
 
 ## Accessibility
-Chinese (thanks to **Awassakura** and **wsphm**), English, French and Korean (thanks to **asas84562**) translations are included in the base mod, and contributions are welcome. To contribute, please submit a pull request on the [GitHub repository](https://github.com/mouahrara/QOLEssentials/pulls).
+Chinese (thanks to **Awassakura** and **wsphm**), English, French, Korean (thanks to **asas84562**) and Portuguese (thanks to **NARCOAZAZAL**) translations are included in the base mod, and contributions are welcome. To contribute, please submit a pull request on the [GitHub repository](https://github.com/mouahrara/QOLEssentials/pulls).
 
 ## Compatibility
 QOL Essentials is compatible with Stardew Valley 1.6.0+ on Linux/Mac/Windows/Android, both single-player and multiplayer.

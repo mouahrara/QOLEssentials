@@ -1,0 +1,96 @@
+﻿{
+	// Jogos de Arcade - Pague-para-jogar
+	"ArcadeGames.PayToPlay.JunimoKart_InsertCoin": "INSIRA MOEDA",
+	"ArcadeGames.PayToPlay.JunimoKart_PressAnyButton": "PRESSIONE QUALQUER TECLA",
+	"ArcadeGames.PayToPlay.JunimoKart_Loading": "CARREGANDO...",
+	"ArcadeGames.PayToPlay.JunimoKart_Credit0": "CRÉDITO: 0",
+	"ArcadeGames.PayToPlay.JunimoKart_Credit1": "CRÉDITO: 1",
+	"ArcadeGames.PayToPlay.JunimoKart_Free": "GRÁTIS",
+
+	// GMCM - Módulos
+	"GMCM.Modules.Enabled.Title": "Habilitado",
+	"GMCM.Modules.Enabled.Tooltip": "Se o módulo está habilitado.",
+
+	// GMCM - Seções
+	"GMCM.ArcadeGames.Title": "Jogos de Arcade",
+	"GMCM.ArcadeGames.Description": "Esta seção adiciona ajustes e recursos menores aos jogos de arcade.",
+	"GMCM.ArcadeGames.BackTo": "Voltar para Jogos de Arcade",
+	"GMCM.Machines.Title": "Máquinas",
+	"GMCM.Machines.Description": "Esta seção adiciona ajustes e recursos menores às máquinas.",
+	"GMCM.Machines.BackTo": "Voltar para Máquinas",
+	"GMCM.Shops.Title": "Lojas",
+	"GMCM.Shops.Description": "Esta seção adiciona ajustes e recursos menores às lojas.",
+	"GMCM.Shops.BackTo": "Voltar para Lojas",
+	"GMCM.UserInterface.Title": "Interface do Usuário",
+	"GMCM.UserInterface.Description": "Esta seção adiciona ajustes e recursos menores à interface do usuário.",
+	"GMCM.UserInterface.BackTo": "Voltar para Interface do Usuário",
+	"GMCM.Other.Title": "Outros",
+	"GMCM.Other.Description": "Esta seção adiciona ajustes e recursos menores a outros elementos do jogo.",
+	"GMCM.Other.BackTo": "Voltar para Outros",
+
+	// GMCM - Seções - Jogos de Arcade - Módulos
+	"GMCM.ArcadeGames.KonamiCode.Title": "Código Konami",
+	"GMCM.ArcadeGames.KonamiCode.Tooltip": "Digite o código secreto para obter vidas infinitas.",
+	"GMCM.ArcadeGames.KonamiCode.Description": "Este módulo permite que você insira o código Konami para obter vidas infinitas.",
+	"GMCM.ArcadeGames.KonamiCode.AdditionalInformation": "/!\\ No modo de vidas infinitas, conquistas e recompensas especiais por vencer jogos de arcade estão desativadas.",
+	"GMCM.ArcadeGames.NonRealisticLeaderboard.Title": "Ranking Não Realista",
+	"GMCM.ArcadeGames.NonRealisticLeaderboard.Tooltip": "Oculta múltiplas pontuações altas do mesmo jogador no ranking.",
+	"GMCM.ArcadeGames.NonRealisticLeaderboard.Description": "Este módulo oculta múltiplas pontuações altas do mesmo jogador no ranking.",
+	"GMCM.ArcadeGames.PayToPlay.Title": "Pague-para-jogar",
+	"GMCM.ArcadeGames.PayToPlay.Tooltip": "Pague para jogar jogos de arcade.",
+	"GMCM.ArcadeGames.PayToPlay.Description": "Este módulo exige que você pague para jogar jogos de arcade.",
+	"GMCM.ArcadeGames.PayToPlay.CoinPerJotPKGame.Title": "Moedas por jogo de JotPK",
+	"GMCM.ArcadeGames.PayToPlay.CoinPerJotPKGame.Tooltip": "O número de moedas de ouro ($) necessárias para jogar uma partida de Journey of the Prairie King (JotPK).",
+	"GMCM.ArcadeGames.PayToPlay.CoinPerJKGame.Title": "Moedas por jogo de JK",
+	"GMCM.ArcadeGames.PayToPlay.CoinPerJKGame.Tooltip": "O número de moedas de ouro ($) necessárias para jogar uma partida de Junimo Kart (JK).",
+
+	// GMCM - Seções - Máquinas - Módulos
+	"GMCM.Machines.SafeReplacement.Title": "Substituição Segura",
+	"GMCM.Machines.SafeReplacement.Tooltip": "Recupera automaticamente o conteúdo de um cristalário ao inserir um novo",
+	"GMCM.Machines.SafeReplacement.Description": "Este módulo recupera automaticamente o conteúdo de um cristalário ao inserir um novo.",
+
+	// GMCM - Seções - Lojas - Módulos
+	"GMCM.Shops.BetterAnimalPurchase.Title": "Compra de Animais Melhorada",
+	"GMCM.Shops.BetterAnimalPurchase.Tooltip": "Compre vários animais em sequência e escolha a variedade deles.",
+	"GMCM.Shops.BetterAnimalPurchase.Description": "Este módulo permite que você compre vários animais em sequência e escolha a variedade deles.",
+	"GMCM.Shops.BetterAnimalPurchase.SecondaryPreviousKey.Title": "Tecla anterior secundária",
+	"GMCM.Shops.BetterAnimalPurchase.SecondaryPreviousKey.Tooltip": "Uma tecla secundária, além da tecla de seta para a esquerda no teclado, para selecionar a variedade anterior do animal.",
+	"GMCM.Shops.BetterAnimalPurchase.SecondaryNextKey.Title": "Tecla próxima secundária",
+	"GMCM.Shops.BetterAnimalPurchase.SecondaryNextKey.Tooltip": "Uma tecla secundária, além da tecla de seta para a direita no teclado, para selecionar a próxima variedade do animal.",
+	"GMCM.Shops.GeodesAutoProcess.Title": "Processamento Automático de Geodes",
+	"GMCM.Shops.GeodesAutoProcess.Tooltip": "Processa muitos geodes automaticamente e rapidamente.",
+	"GMCM.Shops.GeodesAutoProcess.Description": "Este módulo permite processar muitos geodes automaticamente e rapidamente.",
+	"GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Title": "Multiplicador de Velocidade do Processamento",
+	"GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Tooltip": "Um multiplicador para ajustar a velocidade do processamento.",
+
+	// GMCM - Seções - Interface do Usuário - Módulos
+	"GMCM.UserInterface.FastScrolling.Title": "Rolagem Rápida",
+	"GMCM.UserInterface.FastScrolling.Tooltip": "Role mais rápido ao construir, mover, pintar ou destruir edifícios e ao comprar ou mover animais da fazenda.",
+	"GMCM.UserInterface.FastScrolling.Description": "Este módulo permite rolar mais rápido ao construir, mover, pintar ou destruir edifícios e ao comprar ou mover animais da fazenda.",
+	"GMCM.UserInterface.FastScrolling.SpeedMultiplier.Title": "Multiplicador de Velocidade de Rolagem",
+	"GMCM.UserInterface.FastScrolling.SpeedMultiplier.Tooltip": "Um multiplicador para ajustar a velocidade de rolagem.",
+	"GMCM.UserInterface.FastScrolling.ConsistentScrolling.Title": "Rolagem Consistente",
+	"GMCM.UserInterface.FastScrolling.ConsistentScrolling.Tooltip": "Ajusta a velocidade de rolagem com base no nível de zoom para manter uma sensação consistente.",
+	"GMCM.UserInterface.Zoom.Title": "Zoom",
+	"GMCM.UserInterface.Zoom.Tooltip": "Ajuste o zoom ao construir, mover, pintar ou destruir edifícios e ao comprar ou mover animais da fazenda.",
+	"GMCM.UserInterface.Zoom.Description": "Este módulo permite ajustar o zoom ao construir, mover, pintar ou destruir edifícios e ao comprar ou mover animais da fazenda.",
+	"GMCM.UserInterface.Zoom.SecondaryZoomInKey.Title": "Tecla secundária de zoom-in",
+	"GMCM.UserInterface.Zoom.SecondaryZoomInKey.Tooltip": "Uma tecla secundária, além da rotação para cima do mouse, para dar zoom-in.",
+	"GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Title": "Tecla secundária de zoom-out",
+	"GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip": "Uma tecla secundária, além da rotação para baixo do mouse, para dar zoom-out.",
+	"GMCM.UserInterface.Zoom.SpeedMultiplier.Title": "Multiplicador de Velocidade de Zoom",
+	"GMCM.UserInterface.Zoom.SpeedMultiplier.Tooltip": "Um multiplicador para ajustar a velocidade de zoom.",
+	"GMCM.UserInterface.Zoom.MinimumZoomLevel.Title": "Nível Mínimo de Zoom",
+	"GMCM.UserInterface.Zoom.MinimumZoomLevel.Tooltip": "O nível mínimo de zoom que você pode alcançar. Esta opção ajuda a evitar zoom excessivo, o que pode causar lentidão em mapas muito grandes.",
+
+	// GMCM - Seções - Outros - Módulos
+	"GMCM.Other.BetterPorchRepair.Title": "Reparo Melhorado da Varanda",
+	"GMCM.Other.BetterPorchRepair.Tooltip": "Repara completamente a varanda da casa após a primeira atualização, permitindo que você caminhe na área anteriormente quebrada e coloque objetos lá.",
+	"GMCM.Other.BetterPorchRepair.Description": "Este módulo repara completamente a varanda da casa após a primeira atualização, permitindo que você caminhe na área anteriormente quebrada e coloque objetos lá.",
+	"GMCM.Other.FestivalEndTime.Title": "Hora de Fim do Festival",
+	"GMCM.Other.FestivalEndTime.Tooltip": "Voltar para casa na hora em que o festival deve terminar.",
+	"GMCM.Other.FestivalEndTime.Description": "Este módulo permite que você volte para casa na hora em que o festival deve terminar.",
+	"GMCM.Other.FestivalEndTime.AdditionalInformation": "A hora de término do festival é determinada pelo mínimo entre 1h e a soma do tempo de chegada e a duração do festival.\n\nA fórmula é: min(1h, TempoChegada + DuraçãoFestival).\n\nPor exemplo, o tempo de chegada do Festival dos Ovos é 14h. Considerando a duração padrão de 2 horas, a hora de término do festival é 16h.",
+	"GMCM.Other.FestivalEndTime.AdditionalTime.Title": "Duração (em horas)",
+	"GMCM.Other.FestivalEndTime.AdditionalTime.Tooltip": "A duração do festival, a ser adicionada ao tempo de chegada para obter a hora de término do festival."
+}

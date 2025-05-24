@@ -13,6 +13,7 @@ namespace QOLEssentials.ArcadeGames.PayToPlay.Managers
 			{
 				LocalizedContentManager.LanguageCode.fr => "assets/ArcadeGames/PayToPlay/JourneyOfThePrairieKing.fr-FR.png",
 				LocalizedContentManager.LanguageCode.ko => "assets/ArcadeGames/PayToPlay/JourneyOfThePrairieKing.ko-KR.png",
+				LocalizedContentManager.LanguageCode.pt => "assets/ArcadeGames/PayToPlay/JourneyOfThePrairieKing.pt-BR.png",
 				LocalizedContentManager.LanguageCode.zh => "assets/ArcadeGames/PayToPlay/JourneyOfThePrairieKing.zh-CN.png",
 				_ => "assets/ArcadeGames/PayToPlay/JourneyOfThePrairieKing.png"
 			};
