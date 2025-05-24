@@ -1,7 +1,7 @@
 {
 	"Name": "QOL Essentials",
 	"Author": "mouahrara",
-	"Version": "2.1.1",
+	"Version": "2.1.2",
 	"Description": "A collection of quality-of-life improvements and minor functional adjustments.",
 	"UniqueID": "mouahrara.QOLEssentials",
 	"EntryDll": "QOLEssentials.dll",
