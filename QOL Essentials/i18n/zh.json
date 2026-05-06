@@ -29,6 +29,11 @@
 	"GMCM.Other.BackTo": "返回其他",
 
 	// GMCM - Sections - Arcade games - Modules
+	// "GMCM.ArcadeGames.FullScreen.Title": "Full screen",
+	// "GMCM.ArcadeGames.FullScreen.Tooltip": "Displays arcade games in full screen.",
+	// "GMCM.ArcadeGames.FullScreen.Description": "This module displays arcade games in full screen.",
+	// "GMCM.ArcadeGames.FullScreen.FillRatio.Title": "Fill percentage",
+	// "GMCM.ArcadeGames.FullScreen.FillRatio.Tooltip": "Percentage of the screen occupied by arcade games.",
 	"GMCM.ArcadeGames.KonamiCode.Title": "作弊代码",
 	"GMCM.ArcadeGames.KonamiCode.Tooltip": "输入代码获得无限生命.",
 	"GMCM.ArcadeGames.KonamiCode.Description": "这个模块允许你输入作弊代码来获得无限的生命.",
@@ -60,15 +65,15 @@
 	"GMCM.Shops.GeodesAutoProcess.Title": "晶球自动处理",
 	"GMCM.Shops.GeodesAutoProcess.Tooltip": "自动快速处理大量晶球。",
 	"GMCM.Shops.GeodesAutoProcess.Description": "此模块允许您自动快速处理大量晶球。",
-	"GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Title": "处理速度倍率",
-	"GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Tooltip": "用于调整处理速度的倍率。",
+	"GMCM.Shops.GeodesAutoProcess.ProcessSpeedMultiplier.Title": "处理速度倍率",
+	"GMCM.Shops.GeodesAutoProcess.ProcessSpeedMultiplier.Tooltip": "用于调整处理速度的倍率。",
 
 	// GMCM - Sections - User Interface - Modules
 	"GMCM.UserInterface.FastScrolling.Title": "快速滚动",
 	"GMCM.UserInterface.FastScrolling.Tooltip": "在建造、移动、粉刷或拆除建筑以及购买或移动农场动物时加快滚动速度。",
 	"GMCM.UserInterface.FastScrolling.Description": "此模块允许您在建造、移动、粉刷或拆除建筑以及购买或移动农场动物时快速滚动。",
-	"GMCM.UserInterface.FastScrolling.SpeedMultiplier.Title": "滚动速度调节",
-	"GMCM.UserInterface.FastScrolling.SpeedMultiplier.Tooltip": "通过此调节器，您可以自定义滚动速度，以适应您的操作习惯。",
+	"GMCM.UserInterface.FastScrolling.ScrollSpeedMultiplier.Title": "滚动速度调节",
+	"GMCM.UserInterface.FastScrolling.ScrollSpeedMultiplier.Tooltip": "通过此调节器，您可以自定义滚动速度，以适应您的操作习惯。",
 	"GMCM.UserInterface.FastScrolling.ConsistentScrolling.Title": "一致性滚动",
 	"GMCM.UserInterface.FastScrolling.ConsistentScrolling.Tooltip": "根据缩放级别调整滚动速度，以保持滚动感觉的一致性。",
 	"GMCM.UserInterface.Zoom.Title": "缩放",
@@ -78,8 +83,8 @@
 	"GMCM.UserInterface.Zoom.SecondaryZoomInKey.Tooltip": "除了鼠标滚轮上滚，您还可以使用此备用按键来放大视图。",
 	"GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Title": "备用缩小快捷键",
 	"GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip": "除了鼠标滚轮下滚，您还可以使用此备用按键来缩小视图。",
-	"GMCM.UserInterface.Zoom.SpeedMultiplier.Title": "缩放速度调节",
-	"GMCM.UserInterface.Zoom.SpeedMultiplier.Tooltip": "通过此调节器，您可以自定义缩放速度，以便快速调整至您所需的视图大小。",
+	"GMCM.UserInterface.Zoom.ZoomSpeedMultiplier.Title": "缩放速度调节",
+	"GMCM.UserInterface.Zoom.ZoomSpeedMultiplier.Tooltip": "通过此调节器，您可以自定义缩放速度，以便快速调整至您所需的视图大小。",
 	"GMCM.UserInterface.Zoom.MinimumZoomLevel.Title": "最小缩放限制",
 	"GMCM.UserInterface.Zoom.MinimumZoomLevel.Tooltip": "设置您可达到的最小缩放级别，以避免因过度缩小导致地图过大而引发的画面延迟。",
 

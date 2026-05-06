@@ -20,11 +20,11 @@ namespace QOLEssentials.Shops.BetterAnimalPurchase.Handlers
 
 			if (purchaseAnimalsMenu.onFarm && !purchaseAnimalsMenu.namingAnimal)
 			{
-				if (e.Button == SButton.Left || e.Button == ModEntry.Config.ShopsBetterAnimalPurchasePreviousKey)
+				if (e.Button == SButton.Left || e.Button == ModEntry.Config.ShopsBetterAnimalPurchaseSecondaryPreviousKey)
 				{
 					AlternatePurchaseTypesUtility.SelectPreviousVariant(purchaseAnimalsMenu);
 				}
-				else if (e.Button == SButton.Right || e.Button == ModEntry.Config.ShopsBetterAnimalPurchaseNextKey)
+				else if (e.Button == SButton.Right || e.Button == ModEntry.Config.ShopsBetterAnimalPurchaseSecondaryNextKey)
 				{
 					AlternatePurchaseTypesUtility.SelectNextVariant(purchaseAnimalsMenu);
 				}

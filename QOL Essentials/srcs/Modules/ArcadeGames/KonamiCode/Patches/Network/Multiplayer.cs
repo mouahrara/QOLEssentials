@@ -17,7 +17,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Patches
 
 		private static bool GlobalChatInfoMessagePrefix(string messageKey)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return true;
 
 			return messageKey != "PrairieKing" && messageKey != "JunimoKart";

@@ -21,7 +21,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Patches
 
 		private static bool IncrementPrefix(string key)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return true;
 
 			return key != "completedPrairieKing" && key != "completedPrairieKingWithoutDying" && key != "completedJunimoKart";

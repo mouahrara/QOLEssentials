@@ -41,7 +41,7 @@ namespace QOLEssentials.UserInterface.Zoom.Utilities
 			float min = ModEntry.Config.UserInterfaceZoomMinimumZoomLevel;
 			float max = Game1.options.desiredBaseZoomLevel;
 			int newAdditionalZoom = AdditionalZoom + direction;
-			float newZoomLevel = Game1.options.desiredBaseZoomLevel - (-newAdditionalZoom * ModEntry.Config.UserInterfaceZoomMultiplier / 8000f);
+			float newZoomLevel = Game1.options.desiredBaseZoomLevel - (-newAdditionalZoom * ModEntry.Config.UserInterfaceZoomZoomSpeedMultiplier / 8000f);
 
 			if (direction < 0 && (ZoomLevelMinReached || newZoomLevel < min))
 			{
@@ -53,7 +53,7 @@ namespace QOLEssentials.UserInterface.Zoom.Utilities
 			}
 			if (newZoomLevel == min || newZoomLevel == max)
 			{
-				newAdditionalZoom = (int)Math.Round((newZoomLevel - Game1.options.desiredBaseZoomLevel) * 8000f / ModEntry.Config.UserInterfaceZoomMultiplier);
+				newAdditionalZoom = (int)Math.Round((newZoomLevel - Game1.options.desiredBaseZoomLevel) * 8000f / ModEntry.Config.UserInterfaceZoomZoomSpeedMultiplier);
 			}
 			ZoomLevel = newZoomLevel;
 			AdditionalZoom = newAdditionalZoom;

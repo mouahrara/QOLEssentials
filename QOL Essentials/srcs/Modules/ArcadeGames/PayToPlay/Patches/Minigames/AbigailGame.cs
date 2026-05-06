@@ -11,6 +11,7 @@ using StardewValley.Minigames;
 using QOLEssentials.ArcadeGames.PayToPlay.Managers;
 using QOLEssentials.ArcadeGames.PayToPlay.Utilities;
 using QOLEssentials.Utilities;
+using FullScreenAbigailGamePatch = QOLEssentials.ArcadeGames.FullScreen.Patches.AbigailGamePatch;
 
 namespace QOLEssentials.ArcadeGames.PayToPlay.Patches
 {
@@ -97,38 +98,69 @@ namespace QOLEssentials.ArcadeGames.PayToPlay.Patches
 			Rectangle credit0SourceRectangle = new(0, 90, 324, 27);
 			Rectangle credit1SourceRectangle = new(0, 120, 324, 27);
 			Rectangle freeSourceRectangle = new(0, 150, 324, 27);
+			float viewportWidth = Game1.viewport.Width;
+			float viewportHeight = Game1.viewport.Height;
+			Matrix? transformMatrix = null;
+			bool isCurrentLocationSaloon = Game1.currentLocation is not null && Game1.currentLocation.Name.Equals("Saloon");
 
-			b.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp);
-			if (Game1.currentLocation is not null && Game1.currentLocation.Name.Equals("Saloon"))
+			if (Constants.TargetPlatform != GamePlatform.Android && ModEntry.Config.ArcadeGamesFullScreen)
+			{
+				float drawScale = FullScreenAbigailGamePatch.PixelScale / 2f;
+				float translationX = FullScreenAbigailGamePatch.NewTopLeft.X - AbigailGame.topLeftScreenCoordinate.X * drawScale;
+				float translationY = FullScreenAbigailGamePatch.NewTopLeft.Y - AbigailGame.topLeftScreenCoordinate.Y * drawScale;
+
+				viewportWidth = Game1.game1.localMultiplayerWindow.Width / Game1.options.zoomLevel;
+				viewportHeight = Game1.game1.localMultiplayerWindow.Height / Game1.options.zoomLevel;
+				transformMatrix = Matrix.CreateScale(drawScale) * Matrix.CreateTranslation(translationX, translationY, 0f);
+			}
+			b.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, transformMatrix);
+			if (isCurrentLocationSaloon)
 			{
 				if (PayToPlayUtility.OnInsertCoinMenu)
 				{
-					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - insertCoinSourceRectangle.Width / 2, Game1.viewport.Height / 2 - insertCoinSourceRectangle.Height / 2 + 8 * AbigailGame.baseTileSize), insertCoinSourceRectangle, Color.White * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+					b.Draw(AssetManager.JourneyOfThePrairieKing, GetCenteredPosition(viewportWidth, viewportHeight, insertCoinSourceRectangle, transformMatrix), insertCoinSourceRectangle, Color.White * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(AbigailGame.topLeftScreenCoordinate.X + AbigailGame.baseTileSize, AbigailGame.topLeftScreenCoordinate.Y + 384 * 2 - credit0SourceRectangle.Height - AbigailGame.baseTileSize), credit0SourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 				}
 				else
 				{
-					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - loadingSourceRectangle.Width / 2, Game1.viewport.Height / 2 - loadingSourceRectangle.Height / 2 + 8 * AbigailGame.baseTileSize), loadingSourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+					b.Draw(AssetManager.JourneyOfThePrairieKing, GetCenteredPosition(viewportWidth, viewportHeight, loadingSourceRectangle, transformMatrix), loadingSourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(AbigailGame.topLeftScreenCoordinate.X + AbigailGame.baseTileSize, AbigailGame.topLeftScreenCoordinate.Y + 384 * 2 - credit1SourceRectangle.Height - AbigailGame.baseTileSize), credit1SourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
-				}
-				if (Game1.player.jotpkProgress.Value is null)
-				{
-					GamePlatformUtility.DrawMoneyBox(b);
 				}
 			}
 			else
 			{
 				if (PayToPlayUtility.OnInsertCoinMenu)
 				{
-					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - pressAnyButtonSourceRectangle.Width / 2, Game1.viewport.Height / 2 - pressAnyButtonSourceRectangle.Height / 2 + 8 * AbigailGame.baseTileSize), pressAnyButtonSourceRectangle, Color.White * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+					b.Draw(AssetManager.JourneyOfThePrairieKing, GetCenteredPosition(viewportWidth, viewportHeight, pressAnyButtonSourceRectangle, transformMatrix), pressAnyButtonSourceRectangle, Color.White * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 				}
 				else
 				{
-					b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(Game1.viewport.Width / 2 - loadingSourceRectangle.Width / 2, Game1.viewport.Height / 2 - loadingSourceRectangle.Height / 2 + 8 * AbigailGame.baseTileSize), loadingSourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+					b.Draw(AssetManager.JourneyOfThePrairieKing, GetCenteredPosition(viewportWidth, viewportHeight, loadingSourceRectangle, transformMatrix), loadingSourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 				}
 				b.Draw(AssetManager.JourneyOfThePrairieKing, new Vector2(AbigailGame.topLeftScreenCoordinate.X + AbigailGame.baseTileSize, AbigailGame.topLeftScreenCoordinate.Y + 384 * 2 - freeSourceRectangle.Height - AbigailGame.baseTileSize), freeSourceRectangle, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 			}
 			b.End();
+			if (isCurrentLocationSaloon && Game1.player.jotpkProgress.Value is null)
+			{
+				Game1.PushUIMode();
+				b.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp);
+				GamePlatformUtility.DrawMoneyBox(b);
+				b.End();
+				Game1.PopUIMode();
+			}
+		}
+
+		private static Vector2 GetCenteredPosition(float viewportWidth, float viewportHeight, Rectangle source, Matrix? transformMatrix)
+		{
+			float screenX = viewportWidth / 2f - source.Width / 2f;
+			float screenY = viewportHeight / 2f - source.Height / 2f + 8f * AbigailGame.baseTileSize;
+
+			if (transformMatrix is null)
+				return new Vector2(screenX, screenY);
+
+			float drawScale = transformMatrix.Value.M11;
+
+			return new Vector2((viewportWidth / 2f - source.Width * drawScale / 2f - transformMatrix.Value.M41) / drawScale, (viewportHeight / 2f - source.Height * drawScale / 2f + 8f * AbigailGame.baseTileSize * drawScale - transformMatrix.Value.M42) / drawScale);
 		}
 
 		private static bool TickPrefix(AbigailGame __instance)

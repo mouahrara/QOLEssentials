@@ -5,28 +5,30 @@ namespace QOLEssentials.Utilities
 {
 	public sealed class ModConfig
 	{
-		public bool	ArcadeGamesPayToPlay = true;
-		public int	ArcadeGamesPayToPlayCoinPerJotPKGame = 1;
-		public int	ArcadeGamesPayToPlayCoinPerJKGame = 1;
-		public bool	ArcadeGamesPayToPlayKonamiCode = true;
-		public bool	ArcadeGamesPayToPlayNonRealisticLeaderboard = true;
-		public bool	ShopsBetterAnimalPurchase = true;
-		public SButton ShopsBetterAnimalPurchasePreviousKey = SButton.LeftShoulder;
-		public SButton ShopsBetterAnimalPurchaseNextKey = SButton.RightShoulder;
-		public bool	ShopsGeodesAutoProcess = true;
-		public int ShopsGeodesAutoProcessSpeedMultiplier = 2;
-		public bool MachinesSafeReplacement = true;
-		public bool	UserInterfaceFastScrolling = true;
-		public float UserInterfaceFastScrollingMultiplier = 3.0f;
-		public bool UserInterfaceFastScrollingConsistentScrolling = true;
-		public bool	UserInterfaceZoom = true;
-		public SButton UserInterfaceZoomInKey = SButton.RightTrigger;
-		public SButton UserInterfaceZoomOutKey = SButton.LeftTrigger;
-		public float UserInterfaceZoomMultiplier = 1.0f;
-		public float UserInterfaceZoomMinimumZoomLevel = 0.25f;
-		public bool	OtherBetterPorchRepair = true;
-		public bool	OtherFestivalEndTime = true;
-		public int	OtherFestivalEndTimeAdditionalTime = 200;
+		public bool		ArcadeGamesFullScreen = true;
+		public float	ArcadeGamesFullScreenFillRatio = 1.0f;
+		public bool		ArcadeGamesPayToPlay = true;
+		public int		ArcadeGamesPayToPlayCoinPerJotPKGame = 1;
+		public int		ArcadeGamesPayToPlayCoinPerJKGame = 1;
+		public bool		ArcadeGamesKonamiCode = true;
+		public bool		ArcadeGamesNonRealisticLeaderboard = true;
+		public bool		MachinesSafeReplacement = true;
+		public bool		ShopsBetterAnimalPurchase = true;
+		public SButton	ShopsBetterAnimalPurchaseSecondaryPreviousKey = SButton.LeftShoulder;
+		public SButton	ShopsBetterAnimalPurchaseSecondaryNextKey = SButton.RightShoulder;
+		public bool		ShopsGeodesAutoProcess = true;
+		public int		ShopsGeodesAutoProcessProcessSpeedMultiplier = 2;
+		public bool		UserInterfaceFastScrolling = true;
+		public float	UserInterfaceFastScrollingScrollSpeedMultiplier = 3.0f;
+		public bool		UserInterfaceFastScrollingConsistentScrolling = true;
+		public bool		UserInterfaceZoom = true;
+		public SButton	UserInterfaceZoomSecondaryZoomInKey = SButton.RightTrigger;
+		public SButton	UserInterfaceZoomSecondaryZoomOutKey = SButton.LeftTrigger;
+		public float	UserInterfaceZoomZoomSpeedMultiplier = 1.0f;
+		public float	UserInterfaceZoomMinimumZoomLevel = 0.25f;
+		public bool		OtherBetterPorchRepair = true;
+		public bool		OtherFestivalEndTime = true;
+		public int		OtherFestivalEndTimeAdditionalTime = 200;
 	}
 
 	internal class GMCMUtility
@@ -105,6 +107,12 @@ namespace QOLEssentials.Utilities
 			{
 				gmcm.AddPageLink(
 					mod: ModEntry.ModManifest,
+					pageId: "Arcade games - Full screen",
+					text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.FullScreen.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.FullScreen.Tooltip")
+				);
+				gmcm.AddPageLink(
+					mod: ModEntry.ModManifest,
 					pageId: "Arcade games - Konami code",
 					text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Title"),
 					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.KonamiCode.Tooltip")
@@ -122,9 +130,41 @@ namespace QOLEssentials.Utilities
 				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.Title"),
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.PayToPlay.Tooltip")
 			);
-			// Arcade games - Konami code
 			if (Constants.TargetPlatform != GamePlatform.Android)
 			{
+				// Arcade games - Full screen
+				gmcm.AddPage(
+					mod: ModEntry.ModManifest,
+					pageId: "Arcade games - Full screen",
+					pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.FullScreen.Title")
+				);
+				gmcm.AddPageLink(
+					mod: ModEntry.ModManifest,
+					pageId: "Arcade games",
+					text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.BackTo")
+				);
+				gmcm.AddParagraph(
+					mod: ModEntry.ModManifest,
+					text: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.FullScreen.Description")
+				);
+				gmcm.AddBoolOption(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
+					getValue: () => ModEntry.Config.ArcadeGamesFullScreen,
+					setValue: value => ModEntry.Config.ArcadeGamesFullScreen = value
+				);
+				gmcm.AddNumberOption(
+					mod: ModEntry.ModManifest,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.FullScreen.FillRatio.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.ArcadeGames.FullScreen.FillRatio.Tooltip"),
+					getValue: () => ModEntry.Config.ArcadeGamesFullScreenFillRatio * 100f,
+					setValue: value => ModEntry.Config.ArcadeGamesFullScreenFillRatio = value / 100f,
+					min: 50f,
+					max: 100f,
+					interval: 5f
+				);
+				// Arcade games - Konami code
 				gmcm.AddPage(
 					mod: ModEntry.ModManifest,
 					pageId: "Arcade games - Konami code",
@@ -147,8 +187,8 @@ namespace QOLEssentials.Utilities
 					mod: ModEntry.ModManifest,
 					name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
 					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
-					getValue: () => ModEntry.Config.ArcadeGamesPayToPlayKonamiCode,
-					setValue: value => ModEntry.Config.ArcadeGamesPayToPlayKonamiCode = value
+					getValue: () => ModEntry.Config.ArcadeGamesKonamiCode,
+					setValue: value => ModEntry.Config.ArcadeGamesKonamiCode = value
 				);
 			}
 			// Arcade games - Non-realistic leaderboard
@@ -170,8 +210,8 @@ namespace QOLEssentials.Utilities
 				mod: ModEntry.ModManifest,
 				name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
-				getValue: () => ModEntry.Config.ArcadeGamesPayToPlayNonRealisticLeaderboard,
-				setValue: value => ModEntry.Config.ArcadeGamesPayToPlayNonRealisticLeaderboard = value
+				getValue: () => ModEntry.Config.ArcadeGamesNonRealisticLeaderboard,
+				setValue: value => ModEntry.Config.ArcadeGamesNonRealisticLeaderboard = value
 			);
 			// Arcade games - Pay-to-play
 			gmcm.AddPage(
@@ -214,6 +254,50 @@ namespace QOLEssentials.Utilities
 				min: 1,
 				max: 5,
 				interval: 1
+			);
+
+			// Machines
+			gmcm.AddPage(
+				mod: ModEntry.ModManifest,
+				pageId: "Machines",
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Machines.Title")
+			);
+			// gmcm.AddPageLink(
+			// 	mod: ModEntry.ModManifest,
+			// 	pageId: ModEntry.ModManifest.UniqueID,
+			// 	text: () => "@ " + "Back to QOL Essentials"
+			// );
+			gmcm.AddParagraph(
+				mod: ModEntry.ModManifest,
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Machines.Description")
+			);
+			gmcm.AddPageLink(
+				mod: ModEntry.ModManifest,
+				pageId: "Machines - Safe replacement",
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Tooltip")
+			);
+			// Machines - Safe replacement
+			gmcm.AddPage(
+				mod: ModEntry.ModManifest,
+				pageId: "Machines - Safe replacement",
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Title")
+			);
+			gmcm.AddPageLink(
+				mod: ModEntry.ModManifest,
+				pageId: "Machines",
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.Machines.BackTo")
+			);
+			gmcm.AddParagraph(
+				mod: ModEntry.ModManifest,
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Description")
+			);
+			gmcm.AddBoolOption(
+				mod: ModEntry.ModManifest,
+				name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
+				getValue: () => ModEntry.Config.MachinesSafeReplacement,
+				setValue: value => ModEntry.Config.MachinesSafeReplacement = value
 			);
 
 			// Shops
@@ -269,15 +353,15 @@ namespace QOLEssentials.Utilities
 				mod: ModEntry.ModManifest,
 				name: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.SecondaryPreviousKey.Title"),
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.SecondaryPreviousKey.Tooltip"),
-				getValue: () => ModEntry.Config.ShopsBetterAnimalPurchasePreviousKey,
-				setValue: value => ModEntry.Config.ShopsBetterAnimalPurchasePreviousKey = value
+				getValue: () => ModEntry.Config.ShopsBetterAnimalPurchaseSecondaryPreviousKey,
+				setValue: value => ModEntry.Config.ShopsBetterAnimalPurchaseSecondaryPreviousKey = value
 			);
 			gmcm.AddKeybind(
 				mod: ModEntry.ModManifest,
 				name: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.SecondaryNextKey.Title"),
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Shops.BetterAnimalPurchase.SecondaryNextKey.Tooltip"),
-				getValue: () => ModEntry.Config.ShopsBetterAnimalPurchaseNextKey,
-				setValue: value => ModEntry.Config.ShopsBetterAnimalPurchaseNextKey = value
+				getValue: () => ModEntry.Config.ShopsBetterAnimalPurchaseSecondaryNextKey,
+				setValue: value => ModEntry.Config.ShopsBetterAnimalPurchaseSecondaryNextKey = value
 			);
 			// Shops - Geodes auto-process
 			gmcm.AddPage(
@@ -303,57 +387,13 @@ namespace QOLEssentials.Utilities
 			);
 			gmcm.AddNumberOption(
 				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Tooltip"),
-				getValue: () => ModEntry.Config.ShopsGeodesAutoProcessSpeedMultiplier,
-				setValue: value => ModEntry.Config.ShopsGeodesAutoProcessSpeedMultiplier = value,
+				name: () => ModEntry.Helper.Translation.Get("GMCM.Shops.GeodesAutoProcess.ProcessSpeedMultiplier.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Shops.GeodesAutoProcess.ProcessSpeedMultiplier.Tooltip"),
+				getValue: () => ModEntry.Config.ShopsGeodesAutoProcessProcessSpeedMultiplier,
+				setValue: value => ModEntry.Config.ShopsGeodesAutoProcessProcessSpeedMultiplier = value,
 				min: 1,
 				max: 20,
 				interval: 1
-			);
-
-			// Machines
-			gmcm.AddPage(
-				mod: ModEntry.ModManifest,
-				pageId: "Machines",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Machines.Title")
-			);
-			// gmcm.AddPageLink(
-			// 	mod: ModEntry.ModManifest,
-			// 	pageId: ModEntry.ModManifest.UniqueID,
-			// 	text: () => "@ " + "Back to QOL Essentials"
-			// );
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.Machines.Description")
-			);
-			gmcm.AddPageLink(
-				mod: ModEntry.ModManifest,
-				pageId: "Machines - Safe replacement",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Tooltip")
-			);
-			// Machines - Safe replacement
-			gmcm.AddPage(
-				mod: ModEntry.ModManifest,
-				pageId: "Machines - Safe replacement",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Title")
-			);
-			gmcm.AddPageLink(
-				mod: ModEntry.ModManifest,
-				pageId: "Machines",
-				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.Machines.BackTo")
-			);
-			gmcm.AddParagraph(
-				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Description")
-			);
-			gmcm.AddBoolOption(
-				mod: ModEntry.ModManifest,
-				name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
-				getValue: () => ModEntry.Config.MachinesSafeReplacement,
-				setValue: value => ModEntry.Config.MachinesSafeReplacement = value
 			);
 
 			// User Interface
@@ -409,10 +449,10 @@ namespace QOLEssentials.Utilities
 				);
 				gmcm.AddNumberOption(
 					mod: ModEntry.ModManifest,
-					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.SpeedMultiplier.Title"),
-					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.SpeedMultiplier.Tooltip"),
-					getValue: () => ModEntry.Config.UserInterfaceFastScrollingMultiplier,
-					setValue: value => ModEntry.Config.UserInterfaceFastScrollingMultiplier = value,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.ScrollSpeedMultiplier.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.FastScrolling.ScrollSpeedMultiplier.Tooltip"),
+					getValue: () => ModEntry.Config.UserInterfaceFastScrollingScrollSpeedMultiplier,
+					setValue: value => ModEntry.Config.UserInterfaceFastScrollingScrollSpeedMultiplier = value,
 					min: 1.0f,
 					max: 8.0f,
 					interval: 0.25f
@@ -450,22 +490,22 @@ namespace QOLEssentials.Utilities
 					mod: ModEntry.ModManifest,
 					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomInKey.Title"),
 					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomInKey.Tooltip"),
-					getValue: () => ModEntry.Config.UserInterfaceZoomInKey,
-					setValue: value => ModEntry.Config.UserInterfaceZoomInKey = value
+					getValue: () => ModEntry.Config.UserInterfaceZoomSecondaryZoomInKey,
+					setValue: value => ModEntry.Config.UserInterfaceZoomSecondaryZoomInKey = value
 				);
 				gmcm.AddKeybind(
 					mod: ModEntry.ModManifest,
 					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Title"),
 					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip"),
-					getValue: () => ModEntry.Config.UserInterfaceZoomOutKey,
-					setValue: value => ModEntry.Config.UserInterfaceZoomOutKey = value
+					getValue: () => ModEntry.Config.UserInterfaceZoomSecondaryZoomOutKey,
+					setValue: value => ModEntry.Config.UserInterfaceZoomSecondaryZoomOutKey = value
 				);
 				gmcm.AddNumberOption(
 					mod: ModEntry.ModManifest,
-					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SpeedMultiplier.Title"),
-					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.SpeedMultiplier.Tooltip"),
-					getValue: () => ModEntry.Config.UserInterfaceZoomMultiplier,
-					setValue: value => ModEntry.Config.UserInterfaceZoomMultiplier = value,
+					name: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.ZoomSpeedMultiplier.Title"),
+					tooltip: () => ModEntry.Helper.Translation.Get("GMCM.UserInterface.Zoom.ZoomSpeedMultiplier.Tooltip"),
+					getValue: () => ModEntry.Config.UserInterfaceZoomZoomSpeedMultiplier,
+					setValue: value => ModEntry.Config.UserInterfaceZoomZoomSpeedMultiplier = value,
 					min: 0.25f,
 					max: 4.0f,
 					interval: 0.25f

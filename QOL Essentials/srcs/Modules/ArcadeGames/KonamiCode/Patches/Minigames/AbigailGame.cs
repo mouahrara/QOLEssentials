@@ -52,7 +52,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Patches
 
 		private static void ResetPostfix(AbigailGame __instance)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
 
 			__instance.lives = 99;
@@ -60,7 +60,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Patches
 
 		private static void UnloadPostfix(AbigailGame __instance)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
 
 			__instance.lives = 99;
@@ -68,7 +68,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Patches
 
 		private static bool SaveGamePrefix()
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return true;
 
 			return false;
@@ -85,7 +85,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Patches
 
 		private static void GetPowerUpPostfix(AbigailGame __instance)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
 
 			__instance.lives = 99;
@@ -93,7 +93,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Patches
 
 		private static void UsePowerupPostfix(AbigailGame __instance)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
 
 			__instance.lives = 99;
@@ -101,7 +101,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Patches
 
 		private static void TickPostfix(AbigailGame __instance, bool __result)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
 
 			if (!__result)
@@ -116,7 +116,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Patches
 
 		private static void PlayerDiePrefixPostfix(AbigailGame __instance)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
 
 			__instance.lives = 99;
@@ -124,7 +124,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Patches
 
 		private static void ForceQuitPostfix(bool __result)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || !KonamiCodeUtility.InfiniteLivesMode)
 				return;
 
 			if (__result)

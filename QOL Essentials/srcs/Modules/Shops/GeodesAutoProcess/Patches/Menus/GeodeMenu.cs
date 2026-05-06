@@ -165,7 +165,7 @@ namespace QOLEssentials.Shops.GeodesAutoProcess.Patches
 			if (!ModEntry.Config.ShopsGeodesAutoProcess || __instance.geodeAnimationTimer <= 0)
 				return true;
 
-			if (i < ModEntry.Config.ShopsGeodesAutoProcessSpeedMultiplier)
+			if (i < ModEntry.Config.ShopsGeodesAutoProcessProcessSpeedMultiplier)
 			{
 				i++;
 				__instance.update(time);

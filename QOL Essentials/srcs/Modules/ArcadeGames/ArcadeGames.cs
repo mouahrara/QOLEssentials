@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using StardewModdingAPI;
 using QOLEssentials.Modules;
 
 namespace QOLEssentials.Sections
@@ -8,7 +9,11 @@ namespace QOLEssentials.Sections
 		internal static void Apply(Harmony harmony)
 		{
 			// Apply modules
-			KonamiCodeModule.Apply(harmony);
+			if (Constants.TargetPlatform != GamePlatform.Android)
+			{
+				FullScreenModule.Apply(harmony);
+				KonamiCodeModule.Apply(harmony);
+			}
 			NonRealisticLeaderboardModule.Apply(harmony);
 			PayToPlayModule.Apply(harmony);
 		}

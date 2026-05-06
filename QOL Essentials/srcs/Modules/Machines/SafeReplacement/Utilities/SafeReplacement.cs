@@ -5,7 +5,7 @@ namespace QOLEssentials.Machines.SafeReplacement.Utilities
 {
 	internal class SafeReplacementUtility
 	{
-		private static readonly PerScreen<Item> objectToRecover = new(() => null);
+		private static readonly PerScreen<Item>	objectToRecover = new(() => null);
 
 		internal static void Reset()
 		{

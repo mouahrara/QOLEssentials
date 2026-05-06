@@ -66,15 +66,16 @@ namespace QOLEssentials.ArcadeGames.PayToPlay.Patches
 			Vector2 credit1Dimension = Game1.dialogueFont.MeasureString(credit1Text) * scale;
 			Vector2 freeDimension = Game1.dialogueFont.MeasureString(freeText) * scale;
 			int gameMode = (int)typeof(MineCart).GetField("gameMode", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(__instance);
+			bool isCurrentLocationSaloon = Game1.currentLocation is not null && Game1.currentLocation.Name.Equals("Saloon");
 
-			b.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp);
-			if (Game1.currentLocation is not null && Game1.currentLocation.Name.Equals("Saloon"))
+			b.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.LinearClamp);
+			if (isCurrentLocationSaloon)
 			{
 				if (PayToPlayUtility.OnInsertCoinMenu)
 				{
 					if (gameMode == 3)
 					{
-						b.DrawString(Game1.dialogueFont, insertCoinText, new Vector2(Game1.viewport.Width / 2 - insertCoinDimension.X / 2, 3 * Game1.viewport.Height / 4 - insertCoinDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
+						b.DrawString(Game1.dialogueFont, insertCoinText, new Vector2(Game1.viewport.Width / 2 - insertCoinDimension.X / 2, __instance.upperLeft.Y + screenHeight * 3f / 4f - insertCoinDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
 					}
 					b.DrawString(Game1.dialogueFont, credit0Text, new Vector2((Game1.viewport.Width - screenWidth) / 2 + __instance.tileSize, (Game1.viewport.Height - screenHeight) / 2 + screenHeight - credit0Dimension.Y - __instance.tileSize), Utility.GetPrismaticColor(), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
 				}
@@ -82,11 +83,10 @@ namespace QOLEssentials.ArcadeGames.PayToPlay.Patches
 				{
 					if (gameMode == 3)
 					{
-						b.DrawString(Game1.dialogueFont, loadingText, new Vector2(Game1.viewport.Width / 2 - loadingDimension.X / 2, 3 * Game1.viewport.Height / 4 - loadingDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
+						b.DrawString(Game1.dialogueFont, loadingText, new Vector2(Game1.viewport.Width / 2 - loadingDimension.X / 2, __instance.upperLeft.Y + screenHeight * 3f / 4f - loadingDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
 					}
 					b.DrawString(Game1.dialogueFont, credit1Text, new Vector2((Game1.viewport.Width - screenWidth) / 2 + __instance.tileSize, (Game1.viewport.Height - screenHeight) / 2 + screenHeight - credit1Dimension.Y - __instance.tileSize), Utility.GetPrismaticColor(), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
 				}
-				GamePlatformUtility.DrawMoneyBox(b);
 			}
 			else
 			{
@@ -94,19 +94,27 @@ namespace QOLEssentials.ArcadeGames.PayToPlay.Patches
 				{
 					if (gameMode == 3)
 					{
-						b.DrawString(Game1.dialogueFont, pressAnyButtonText, new Vector2(Game1.viewport.Width / 2 - pressAnyButtonDimension.X / 2, 3 * Game1.viewport.Height / 4 - pressAnyButtonDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
+						b.DrawString(Game1.dialogueFont, pressAnyButtonText, new Vector2(Game1.viewport.Width / 2 - pressAnyButtonDimension.X / 2, __instance.upperLeft.Y + screenHeight * 3f / 4f - pressAnyButtonDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
 					}
 				}
 				else
 				{
 					if (gameMode == 3)
 					{
-						b.DrawString(Game1.dialogueFont, loadingText, new Vector2(Game1.viewport.Width / 2 - loadingDimension.X / 2, 3 * Game1.viewport.Height / 4 - loadingDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
+						b.DrawString(Game1.dialogueFont, loadingText, new Vector2(Game1.viewport.Width / 2 - loadingDimension.X / 2, __instance.upperLeft.Y + screenHeight * 3f / 4f - loadingDimension.Y / 2), Utility.GetPrismaticColor() * (Game1.currentGameTime.TotalGameTime.Seconds % 2 == 0 ? 0.5f : 1f), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
 					}
 				}
 				b.DrawString(Game1.dialogueFont, freeText, new Vector2((Game1.viewport.Width - screenWidth) / 2 + __instance.tileSize, (Game1.viewport.Height - screenHeight) / 2 + screenHeight - freeDimension.Y - __instance.tileSize), Utility.GetPrismaticColor(), 0f, Vector2.Zero, scale, SpriteEffects.None, 0.199f);
 			}
 			b.End();
+			if (isCurrentLocationSaloon)
+			{
+				Game1.PushUIMode();
+				b.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp);
+				GamePlatformUtility.DrawMoneyBox(b);
+				b.End();
+				Game1.PopUIMode();
+			}
 		}
 
 		private static bool UpdateInputPrefix(MineCart __instance)

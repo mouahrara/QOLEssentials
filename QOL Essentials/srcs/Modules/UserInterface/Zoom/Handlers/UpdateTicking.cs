@@ -14,8 +14,8 @@ namespace QOLEssentials.UserInterface.Zoom.Handlers
 		{
 			if (MenusPatchUtility.ShouldProcess(Game1.activeClickableMenu))
 			{
-				bool isZoomInKeyDown = ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomInKey);
-				bool isZoomOutKeyDown = ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomOutKey);
+				bool isZoomInKeyDown = ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomSecondaryZoomInKey);
+				bool isZoomOutKeyDown = ModEntry.Helper.Input.IsDown(ModEntry.Config.UserInterfaceZoomSecondaryZoomOutKey);
 
 				if (!isZoomInKeyDown || !isZoomOutKeyDown)
 				{

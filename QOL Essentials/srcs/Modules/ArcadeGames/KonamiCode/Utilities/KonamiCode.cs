@@ -29,7 +29,7 @@ namespace QOLEssentials.ArcadeGames.KonamiCode.Utilities
 
 		internal static void ReceiveKeyPressPostfix(Keys k)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayKonamiCode || InfiniteLivesMode)
+			if (!ModEntry.Config.ArcadeGamesKonamiCode || InfiniteLivesMode)
 				return;
 
 			if (Step == 0 && (k.Equals(Keys.Up) || k.Equals(Keys.W)))

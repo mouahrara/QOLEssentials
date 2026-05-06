@@ -25,7 +25,7 @@ namespace QOLEssentials.ArcadeGames.NonRealisticLeaderboard.Patches
 
 		private static bool GetScoresPrefix(NetLeaderboards __instance, ref List<KeyValuePair<string, int>> __result)
 		{
-			if (!ModEntry.Config.ArcadeGamesPayToPlayNonRealisticLeaderboard || !IsCalledFromMineCart() || !Game1.player.team.junimoKartScores.entries.Any())
+			if (!ModEntry.Config.ArcadeGamesNonRealisticLeaderboard || !IsCalledFromMineCart() || !Game1.player.team.junimoKartScores.entries.Any())
 				return true;
 
 			__result = new()

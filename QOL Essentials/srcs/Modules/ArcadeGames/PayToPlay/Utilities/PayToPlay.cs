@@ -4,8 +4,8 @@ namespace QOLEssentials.ArcadeGames.PayToPlay.Utilities
 {
 	internal class PayToPlayUtility
 	{
-		private static readonly PerScreen<bool> onInsertCoinMenu = new(() => true);
-		private static readonly PerScreen<bool> triedToInsertCoin = new(() => true);
+		private static readonly PerScreen<bool>	onInsertCoinMenu = new(() => true);
+		private static readonly PerScreen<bool>	triedToInsertCoin = new(() => true);
 
 		internal static void Reset()
 		{

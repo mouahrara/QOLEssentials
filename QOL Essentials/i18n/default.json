@@ -29,6 +29,11 @@
 	"GMCM.Other.BackTo": "Back to Other",
 
 	// GMCM - Sections - Arcade games - Modules
+	"GMCM.ArcadeGames.FullScreen.Title": "Full screen",
+	"GMCM.ArcadeGames.FullScreen.Tooltip": "Displays arcade games in full screen.",
+	"GMCM.ArcadeGames.FullScreen.Description": "This module displays arcade games in full screen.",
+	"GMCM.ArcadeGames.FullScreen.FillRatio.Title": "Fill percentage",
+	"GMCM.ArcadeGames.FullScreen.FillRatio.Tooltip": "Percentage of the screen occupied by arcade games.",
 	"GMCM.ArcadeGames.KonamiCode.Title": "Konami code",
 	"GMCM.ArcadeGames.KonamiCode.Tooltip": "Enter the secret code to get infinite lives.",
 	"GMCM.ArcadeGames.KonamiCode.Description": "This module allows you to enter the Konami code to get infinite lives.",
@@ -60,15 +65,15 @@
 	"GMCM.Shops.GeodesAutoProcess.Title": "Geodes auto-process",
 	"GMCM.Shops.GeodesAutoProcess.Tooltip": "Automatically and quickly process many geodes.",
 	"GMCM.Shops.GeodesAutoProcess.Description": "This module allows you to automatically and quickly process many geodes.",
-	"GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Title": "Process speed multiplier",
-	"GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Tooltip": "A multiplier to adjust the process speed.",
+	"GMCM.Shops.GeodesAutoProcess.ProcessSpeedMultiplier.Title": "Process speed multiplier",
+	"GMCM.Shops.GeodesAutoProcess.ProcessSpeedMultiplier.Tooltip": "A multiplier to adjust the process speed.",
 
 	// GMCM - Sections - User Interface - Modules
 	"GMCM.UserInterface.FastScrolling.Title": "Fast scrolling",
 	"GMCM.UserInterface.FastScrolling.Tooltip": "Scroll faster when building, moving, painting or destroying buildings and when purchasing or moving farm animals.",
 	"GMCM.UserInterface.FastScrolling.Description": "This module allows you to scroll faster when building, moving, painting or destroying buildings and when purchasing or moving farm animals.",
-	"GMCM.UserInterface.FastScrolling.SpeedMultiplier.Title": "Scroll speed multiplier",
-	"GMCM.UserInterface.FastScrolling.SpeedMultiplier.Tooltip": "A multiplier to adjust the scroll speed.",
+	"GMCM.UserInterface.FastScrolling.ScrollSpeedMultiplier.Title": "Scroll speed multiplier",
+	"GMCM.UserInterface.FastScrolling.ScrollSpeedMultiplier.Tooltip": "A multiplier to adjust the scroll speed.",
 	"GMCM.UserInterface.FastScrolling.ConsistentScrolling.Title": "Consistent scrolling",
 	"GMCM.UserInterface.FastScrolling.ConsistentScrolling.Tooltip": "Adjusts the scroll speed based on the zoom level to keep the scrolling feeling consistent.",
 	"GMCM.UserInterface.Zoom.Title": "Zoom",
@@ -78,8 +83,8 @@
 	"GMCM.UserInterface.Zoom.SecondaryZoomInKey.Tooltip": "A secondary key, in addition to mouse scroll up, for zooming in.",
 	"GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Title": "Secondary zoom-out key",
 	"GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip": "A secondary key, in addition to mouse scroll down, for zooming out.",
-	"GMCM.UserInterface.Zoom.SpeedMultiplier.Title": "Zoom speed multiplier",
-	"GMCM.UserInterface.Zoom.SpeedMultiplier.Tooltip": "A multiplier to adjust the zoom speed.",
+	"GMCM.UserInterface.Zoom.ZoomSpeedMultiplier.Title": "Zoom speed multiplier",
+	"GMCM.UserInterface.Zoom.ZoomSpeedMultiplier.Tooltip": "A multiplier to adjust the zoom speed.",
 	"GMCM.UserInterface.Zoom.MinimumZoomLevel.Title": "Minimum zoom level",
 	"GMCM.UserInterface.Zoom.MinimumZoomLevel.Tooltip": "The minimum zoom level you can reach. This option helps prevent excessive zooming out, which can cause lag on very large maps.",
 

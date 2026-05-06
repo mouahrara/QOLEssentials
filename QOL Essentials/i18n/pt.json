@@ -12,6 +12,11 @@
 	"GMCM.Modules.Enabled.Tooltip": "Se o módulo está habilitado.",
 
 	// GMCM - Seções
+	// "GMCM.ArcadeGames.FullScreen.Title": "Full screen",
+	// "GMCM.ArcadeGames.FullScreen.Tooltip": "Displays arcade games in full screen.",
+	// "GMCM.ArcadeGames.FullScreen.Description": "This module displays arcade games in full screen.",
+	// "GMCM.ArcadeGames.FullScreen.FillRatio.Title": "Fill percentage",
+	// "GMCM.ArcadeGames.FullScreen.FillRatio.Tooltip": "Percentage of the screen occupied by arcade games.",
 	"GMCM.ArcadeGames.Title": "Jogos de Arcade",
 	"GMCM.ArcadeGames.Description": "Esta seção adiciona ajustes e recursos menores aos jogos de arcade.",
 	"GMCM.ArcadeGames.BackTo": "Voltar para Jogos de Arcade",
@@ -60,15 +65,15 @@
 	"GMCM.Shops.GeodesAutoProcess.Title": "Processamento Automático de Geodes",
 	"GMCM.Shops.GeodesAutoProcess.Tooltip": "Processa muitos geodes automaticamente e rapidamente.",
 	"GMCM.Shops.GeodesAutoProcess.Description": "Este módulo permite processar muitos geodes automaticamente e rapidamente.",
-	"GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Title": "Multiplicador de Velocidade do Processamento",
-	"GMCM.Shops.GeodesAutoProcess.SpeedMultiplier.Tooltip": "Um multiplicador para ajustar a velocidade do processamento.",
+	"GMCM.Shops.GeodesAutoProcess.ProcessSpeedMultiplier.Title": "Multiplicador de Velocidade do Processamento",
+	"GMCM.Shops.GeodesAutoProcess.ProcessSpeedMultiplier.Tooltip": "Um multiplicador para ajustar a velocidade do processamento.",
 
 	// GMCM - Seções - Interface do Usuário - Módulos
 	"GMCM.UserInterface.FastScrolling.Title": "Rolagem Rápida",
 	"GMCM.UserInterface.FastScrolling.Tooltip": "Role mais rápido ao construir, mover, pintar ou destruir edifícios e ao comprar ou mover animais da fazenda.",
 	"GMCM.UserInterface.FastScrolling.Description": "Este módulo permite rolar mais rápido ao construir, mover, pintar ou destruir edifícios e ao comprar ou mover animais da fazenda.",
-	"GMCM.UserInterface.FastScrolling.SpeedMultiplier.Title": "Multiplicador de Velocidade de Rolagem",
-	"GMCM.UserInterface.FastScrolling.SpeedMultiplier.Tooltip": "Um multiplicador para ajustar a velocidade de rolagem.",
+	"GMCM.UserInterface.FastScrolling.ScrollSpeedMultiplier.Title": "Multiplicador de Velocidade de Rolagem",
+	"GMCM.UserInterface.FastScrolling.ScrollSpeedMultiplier.Tooltip": "Um multiplicador para ajustar a velocidade de rolagem.",
 	"GMCM.UserInterface.FastScrolling.ConsistentScrolling.Title": "Rolagem Consistente",
 	"GMCM.UserInterface.FastScrolling.ConsistentScrolling.Tooltip": "Ajusta a velocidade de rolagem com base no nível de zoom para manter uma sensação consistente.",
 	"GMCM.UserInterface.Zoom.Title": "Zoom",
@@ -78,8 +83,8 @@
 	"GMCM.UserInterface.Zoom.SecondaryZoomInKey.Tooltip": "Uma tecla secundária, além da rotação para cima do mouse, para dar zoom-in.",
 	"GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Title": "Tecla secundária de zoom-out",
 	"GMCM.UserInterface.Zoom.SecondaryZoomOutKey.Tooltip": "Uma tecla secundária, além da rotação para baixo do mouse, para dar zoom-out.",
-	"GMCM.UserInterface.Zoom.SpeedMultiplier.Title": "Multiplicador de Velocidade de Zoom",
-	"GMCM.UserInterface.Zoom.SpeedMultiplier.Tooltip": "Um multiplicador para ajustar a velocidade de zoom.",
+	"GMCM.UserInterface.Zoom.ZoomSpeedMultiplier.Title": "Multiplicador de Velocidade de Zoom",
+	"GMCM.UserInterface.Zoom.ZoomSpeedMultiplier.Tooltip": "Um multiplicador para ajustar a velocidade de zoom.",
 	"GMCM.UserInterface.Zoom.MinimumZoomLevel.Title": "Nível Mínimo de Zoom",
 	"GMCM.UserInterface.Zoom.MinimumZoomLevel.Tooltip": "O nível mínimo de zoom que você pode alcançar. Esta opção ajuda a evitar zoom excessivo, o que pode causar lentidão em mapas muito grandes.",
 
