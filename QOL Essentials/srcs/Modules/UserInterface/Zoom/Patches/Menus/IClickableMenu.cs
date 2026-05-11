@@ -1,6 +1,5 @@
 ﻿using System;
 using HarmonyLib;
-using StardewValley;
 using StardewValley.Menus;
 using QOLEssentials.UserInterface.Zoom.Utilities;
 
@@ -13,6 +12,10 @@ namespace QOLEssentials.UserInterface.Zoom.Patches
 			harmony.Patch(
 				original: AccessTools.Method(typeof(IClickableMenu), nameof(IClickableMenu.receiveScrollWheelAction), new Type[] { typeof(int) }),
 				postfix: new HarmonyMethod(typeof(IClickableMenuPatch), nameof(ReceiveScrollWheelActionPostfix))
+			);
+			harmony.Patch(
+				original: AccessTools.Method(typeof(IClickableMenu), nameof(IClickableMenu.gameWindowSizeChanged)),
+				postfix: new HarmonyMethod(typeof(MenusPatchUtility), nameof(MenusPatchUtility.GameWindowSizeChangedPostfix))
 			);
 		}
 

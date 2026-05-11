@@ -1,4 +1,4 @@
-using StardewModdingAPI.Utilities;
+using System;
 using StardewValley;
 using StardewValley.Menus;
 using QOLEssentials.UserInterface.Zoom.Handlers;
@@ -7,19 +7,12 @@ namespace QOLEssentials.UserInterface.Zoom.Utilities
 {
 	internal class MenusPatchUtility
 	{
-		private static readonly PerScreen<int>	afterResetTicks = new(() => -1);
-
-		internal static int AfterResetTicks
-		{
-			get => afterResetTicks.Value;
-			set => afterResetTicks.Value = value;
-		}
-
 		internal static void EnterFarmViewPostfix()
 		{
 			if (!ModEntry.Config.UserInterfaceZoom)
 				return;
 
+			ZoomUtility.SetZoomLevel(Game1.options.baseZoomLevel, true);
 			ModEntry.Helper.Events.GameLoop.UpdateTicking -= UpdateTickingHandler.Apply;
 			ModEntry.Helper.Events.GameLoop.UpdateTicking += UpdateTickingHandler.Apply;
 		}
@@ -38,6 +31,22 @@ namespace QOLEssentials.UserInterface.Zoom.Utilities
 			{
 				ZoomUtility.Reset();
 			}
+		}
+
+		internal static void GameWindowSizeChangedPostfix(IClickableMenu __instance)
+		{
+			if (!ModEntry.Config.UserInterfaceZoom || (__instance is not CarpenterMenu && __instance is not PurchaseAnimalsMenu && __instance is not AnimalQueryMenu) || !__instance.shouldClampGamePadCursor())
+				return;
+
+			float mapBasedMin = Game1.currentLocation is not null ? Math.Max((float)Game1.game1.localMultiplayerWindow.Width / Game1.currentLocation.Map.DisplayWidth, (float) Game1.game1.localMultiplayerWindow.Height / Game1.currentLocation.Map.DisplayHeight) / Game1.game1.zoomModifier : ModEntry.Config.UserInterfaceZoomMinimumZoomLevel;
+			float min = Math.Max(ModEntry.Config.UserInterfaceZoomMinimumZoomLevel, mapBasedMin);
+
+			if (Game1.options.baseZoomLevel < min)
+			{
+				ZoomUtility.SetZoomLevel(min, false);
+				ZoomUtility.RefreshViewportSize();
+			}
+			Game1.clampViewportToGameMap();
 		}
 
 		internal static bool ShouldProcess(IClickableMenu __instance)

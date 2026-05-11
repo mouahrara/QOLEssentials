@@ -20,6 +20,10 @@ namespace QOLEssentials.UserInterface.Zoom.Patches
 				original: AccessTools.Method(typeof(CarpenterMenu), nameof(CarpenterMenu.returnToCarpentryMenuAfterSuccessfulBuild)),
 				postfix: new HarmonyMethod(typeof(MenusPatchUtility), nameof(MenusPatchUtility.LeaveFarmViewPostfix))
 			);
+			harmony.Patch(
+				original: AccessTools.Method(typeof(CarpenterMenu), nameof(CarpenterMenu.gameWindowSizeChanged)),
+				postfix: new HarmonyMethod(typeof(MenusPatchUtility), nameof(MenusPatchUtility.GameWindowSizeChangedPostfix))
+			);
 		}
 	}
 }

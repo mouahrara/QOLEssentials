@@ -11,7 +11,7 @@ namespace QOLEssentials.UserInterface.FastScrolling.Utilities
 		{
 			if (ShouldProcess(__instance))
 			{
-				float consistentScrollingMultiplier = ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling && ZoomUtility.ZoomLevel > 0 ? Game1.options.desiredBaseZoomLevel / ZoomUtility.ZoomLevel : 1f;
+				float consistentScrollingMultiplier = ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling ? ZoomUtility.OldBaseZoomLevel / Game1.options.baseZoomLevel : 1f;
 				int offset = 2 * (int)((ModEntry.Config.UserInterfaceFastScrollingScrollSpeedMultiplier - 1) * 4 * consistentScrollingMultiplier);
 
 				if (Game1.options.doesInputListContain(Game1.options.moveLeftButton, key))
@@ -39,7 +39,7 @@ namespace QOLEssentials.UserInterface.FastScrolling.Utilities
 			{
 				int x = Game1.getOldMouseX(ui_scale: false) + Game1.viewport.X;
 				int y = Game1.getOldMouseY(ui_scale: false) + Game1.viewport.Y;
-				float consistentScrollingMultiplier = ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling && ZoomUtility.ZoomLevel > 0 ? Game1.options.desiredBaseZoomLevel / ZoomUtility.ZoomLevel : 1f;
+				float consistentScrollingMultiplier = ModEntry.Config.UserInterfaceFastScrollingConsistentScrolling ? ZoomUtility.OldBaseZoomLevel / Game1.options.baseZoomLevel : 1f;
 				int offset = 2 * (int)((ModEntry.Config.UserInterfaceFastScrollingScrollSpeedMultiplier - 1) * 4 * consistentScrollingMultiplier);
 
 				if (x - Game1.viewport.X < 64)
