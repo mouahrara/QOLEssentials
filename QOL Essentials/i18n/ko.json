@@ -50,9 +50,9 @@
 	"GMCM.ArcadeGames.PayToPlay.CoinPerJKGame.Tooltip": "주니모 카트 게임을 플레이하는 데 필요한 금화 ($) 수입니다.",
 
 	// GMCM - Sections - Machines - Modules
-	"GMCM.Machines.SafeReplacement.Title": "안전 교체",
-	"GMCM.Machines.SafeReplacement.Tooltip": "보석 복제기에 새 보석을 삽입할 때 자동으로 보석 복제기의 내용물을 검색합니다",
-	"GMCM.Machines.SafeReplacement.Description": "모드 사용시 보석을 삽입할 때 자동으로 보석의 내용을 검색합니다.",
+	// "GMCM.Machines.FastReplacement.Title": "Fast replacement",
+	// "GMCM.Machines.FastReplacement.Tooltip": "Replace the in-progress recipe of any machine without losing its consumed items",
+	// "GMCM.Machines.FastReplacement.Description": "This module allows replacing the in-progress recipe of any machine without losing its consumed items.",
 
 	// GMCM - TweaksAndFeatures - Shops - Modules
 	"GMCM.Shops.BetterAnimalPurchase.Title": "편리한 동물 구매",

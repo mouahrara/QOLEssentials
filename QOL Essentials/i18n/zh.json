@@ -50,9 +50,9 @@
 	"GMCM.ArcadeGames.PayToPlay.CoinPerJKGame.Tooltip": "玩祝你魔赛车（JK）游戏所需的金币数（$）.",
 
 	// GMCM - Sections - Machines - Modules
-	"GMCM.Machines.SafeReplacement.Title": "安全替换",
-	"GMCM.Machines.SafeReplacement.Tooltip": "在宝石复制机插入新的宝石时自动取出原有内容",
-	"GMCM.Machines.SafeReplacement.Description": "此模块会在您向宝石复制机种插入新的宝石时自动取出其中的内容。",
+	// "GMCM.Machines.FastReplacement.Title": "Fast replacement",
+	// "GMCM.Machines.FastReplacement.Tooltip": "Replace the in-progress recipe of any machine without losing its consumed items",
+	// "GMCM.Machines.FastReplacement.Description": "This module allows replacing the in-progress recipe of any machine without losing its consumed items.",
 
 	// GMCM - TweaksAndFeatures - Shops - Modules
 	"GMCM.Shops.BetterAnimalPurchase.Title": "改善购买动物",

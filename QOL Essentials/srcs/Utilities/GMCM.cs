@@ -12,7 +12,7 @@ namespace QOLEssentials.Utilities
 		public int		ArcadeGamesPayToPlayCoinPerJKGame = 1;
 		public bool		ArcadeGamesKonamiCode = true;
 		public bool		ArcadeGamesNonRealisticLeaderboard = true;
-		public bool		MachinesSafeReplacement = true;
+		public bool		MachinesFastReplacement = true;
 		public bool		ShopsBetterAnimalPurchase = true;
 		public SButton	ShopsBetterAnimalPurchaseSecondaryPreviousKey = SButton.LeftShoulder;
 		public SButton	ShopsBetterAnimalPurchaseSecondaryNextKey = SButton.RightShoulder;
@@ -273,15 +273,15 @@ namespace QOLEssentials.Utilities
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
-				pageId: "Machines - Safe replacement",
-				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Title"),
-				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Tooltip")
+				pageId: "Machines - Fast replacement",
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Machines.FastReplacement.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Machines.FastReplacement.Tooltip")
 			);
-			// Machines - Safe replacement
+			// Machines - Fast replacement
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
-				pageId: "Machines - Safe replacement",
-				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Title")
+				pageId: "Machines - Fast replacement",
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Machines.FastReplacement.Title")
 			);
 			gmcm.AddPageLink(
 				mod: ModEntry.ModManifest,
@@ -290,14 +290,14 @@ namespace QOLEssentials.Utilities
 			);
 			gmcm.AddParagraph(
 				mod: ModEntry.ModManifest,
-				text: () => ModEntry.Helper.Translation.Get("GMCM.Machines.SafeReplacement.Description")
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Machines.FastReplacement.Description")
 			);
 			gmcm.AddBoolOption(
 				mod: ModEntry.ModManifest,
 				name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
-				getValue: () => ModEntry.Config.MachinesSafeReplacement,
-				setValue: value => ModEntry.Config.MachinesSafeReplacement = value
+				getValue: () => ModEntry.Config.MachinesFastReplacement,
+				setValue: value => ModEntry.Config.MachinesFastReplacement = value
 			);
 
 			// Shops

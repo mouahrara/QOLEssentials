@@ -8,7 +8,7 @@ namespace QOLEssentials.Sections
 		internal static void Apply(Harmony harmony)
 		{
 			// Apply modules
-			SafeReplacementModule.Apply(harmony);
+			FastReplacementModule.Apply(harmony);
 		}
 	}
 }

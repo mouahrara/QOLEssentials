@@ -50,9 +50,9 @@
 	"GMCM.ArcadeGames.PayToPlay.CoinPerJKGame.Tooltip": "Le nombre de pièces d'or ($) nécessaires pour jouer à une partie de Junimo Kart (JK).",
 
 	// GMCM - Sections - Machines - Modules
-	"GMCM.Machines.SafeReplacement.Title": "Remplacement sécurisé",
-	"GMCM.Machines.SafeReplacement.Tooltip": "Récupère automatiquement le contenu d'un cristalarium lorsque vous en insérez un nouveau",
-	"GMCM.Machines.SafeReplacement.Description": "Ce module récupère automatiquement le contenu d'un cristalarium lorsque vous en insérez un nouveau.",
+	"GMCM.Machines.FastReplacement.Title": "Remplacement rapide",
+	"GMCM.Machines.FastReplacement.Tooltip": "Remplace la recette en cours de n'importe quelle machine sans perdre les objets consommés",
+	"GMCM.Machines.FastReplacement.Description": "Ce module permet de remplacer la recette en cours de n'importe quelle machine sans perdre les objets consommés.",
 
 	// GMCM - Sections - Shops - Modules
 	"GMCM.Shops.BetterAnimalPurchase.Title": "Achat d'animaux amélioré",
