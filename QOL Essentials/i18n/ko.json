@@ -53,6 +53,9 @@
 	// "GMCM.Machines.FastReplacement.Title": "Fast replacement",
 	// "GMCM.Machines.FastReplacement.Tooltip": "Replace the in-progress recipe of any machine without losing its consumed items",
 	// "GMCM.Machines.FastReplacement.Description": "This module allows replacing the in-progress recipe of any machine without losing its consumed items.",
+	// "GMCM.Machines.ResourceRecovery.Title": "Resource recovery",
+	// "GMCM.Machines.ResourceRecovery.Tooltip": "Recover the items being processed when a machine is destroyed",
+	// "GMCM.Machines.ResourceRecovery.Description": "This module makes a machine drop the items it was processing when it is destroyed.",
 
 	// GMCM - TweaksAndFeatures - Shops - Modules
 	"GMCM.Shops.BetterAnimalPurchase.Title": "편리한 동물 구매",

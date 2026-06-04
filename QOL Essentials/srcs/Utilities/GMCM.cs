@@ -13,6 +13,7 @@ namespace QOLEssentials.Utilities
 		public bool		ArcadeGamesKonamiCode = true;
 		public bool		ArcadeGamesNonRealisticLeaderboard = true;
 		public bool		MachinesFastReplacement = true;
+		public bool		MachinesResourceRecovery = true;
 		public bool		ShopsBetterAnimalPurchase = true;
 		public SButton	ShopsBetterAnimalPurchaseSecondaryPreviousKey = SButton.LeftShoulder;
 		public SButton	ShopsBetterAnimalPurchaseSecondaryNextKey = SButton.RightShoulder;
@@ -277,6 +278,12 @@ namespace QOLEssentials.Utilities
 				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Machines.FastReplacement.Title"),
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Machines.FastReplacement.Tooltip")
 			);
+			gmcm.AddPageLink(
+				mod: ModEntry.ModManifest,
+				pageId: "Machines - Resource recovery",
+				text: () => "> " + ModEntry.Helper.Translation.Get("GMCM.Machines.ResourceRecovery.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Machines.ResourceRecovery.Tooltip")
+			);
 			// Machines - Fast replacement
 			gmcm.AddPage(
 				mod: ModEntry.ModManifest,
@@ -298,6 +305,28 @@ namespace QOLEssentials.Utilities
 				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
 				getValue: () => ModEntry.Config.MachinesFastReplacement,
 				setValue: value => ModEntry.Config.MachinesFastReplacement = value
+			);
+			// Machines - Resource recovery
+			gmcm.AddPage(
+				mod: ModEntry.ModManifest,
+				pageId: "Machines - Resource recovery",
+				pageTitle: () => ModEntry.Helper.Translation.Get("GMCM.Machines.ResourceRecovery.Title")
+			);
+			gmcm.AddPageLink(
+				mod: ModEntry.ModManifest,
+				pageId: "Machines",
+				text: () => "@ " + ModEntry.Helper.Translation.Get("GMCM.Machines.BackTo")
+			);
+			gmcm.AddParagraph(
+				mod: ModEntry.ModManifest,
+				text: () => ModEntry.Helper.Translation.Get("GMCM.Machines.ResourceRecovery.Description")
+			);
+			gmcm.AddBoolOption(
+				mod: ModEntry.ModManifest,
+				name: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Title"),
+				tooltip: () => ModEntry.Helper.Translation.Get("GMCM.Modules.Enabled.Tooltip"),
+				getValue: () => ModEntry.Config.MachinesResourceRecovery,
+				setValue: value => ModEntry.Config.MachinesResourceRecovery = value
 			);
 
 			// Shops

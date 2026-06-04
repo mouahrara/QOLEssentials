@@ -9,6 +9,7 @@ namespace QOLEssentials.Sections
 		{
 			// Apply modules
 			FastReplacementModule.Apply(harmony);
+			ResourceRecoveryModule.Apply(harmony);
 		}
 	}
 }

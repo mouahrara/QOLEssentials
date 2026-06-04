@@ -53,6 +53,9 @@
 	"GMCM.Machines.FastReplacement.Title": "Remplacement rapide",
 	"GMCM.Machines.FastReplacement.Tooltip": "Remplace la recette en cours de n'importe quelle machine sans perdre les objets consommés",
 	"GMCM.Machines.FastReplacement.Description": "Ce module permet de remplacer la recette en cours de n'importe quelle machine sans perdre les objets consommés.",
+	"GMCM.Machines.ResourceRecovery.Title": "Récupération des ressources",
+	"GMCM.Machines.ResourceRecovery.Tooltip": "Récupère les objets en cours de traitement lorsqu'une machine est détruite",
+	"GMCM.Machines.ResourceRecovery.Description": "Ce module fait en sorte qu'une machine lâche les objets qu'elle était en train de traiter lorsqu'elle est détruite.",
 
 	// GMCM - Sections - Shops - Modules
 	"GMCM.Shops.BetterAnimalPurchase.Title": "Achat d'animaux amélioré",
