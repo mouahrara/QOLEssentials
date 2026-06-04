@@ -11,27 +11,29 @@ The QOL Essentials mod is a collection of quality-of-life improvements and minor
 
 - #### Arcade games
 
-https://github.com/mouahrara/QOLEssentials/assets/131559634/ab6445ef-422e-446f-acb3-c2db22f7fb87
+[ArcadeGames-Demo-01.webm](https://github.com/user-attachments/assets/ff520251-c755-474e-a6cd-cfec542144eb)
 
 | Module                    | Functionality                                                       | GMCM options                                                                     | Additional Information                                                                                                                                       |
 |---------------------------|---------------------------------------------------------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Full screen               | Displays arcade games in full screen.                               | <ul><li>Enabled</li><li>Fill percentage</li></ul>                                | **Note**: This module is not available on Android.                                                                                                           |
 | Konami code               | Allows you to enter the Konami code to get infinite lives.          | <ul><li>Enabled</li></ul>                                                        | In infinite lives mode, achievements and special rewards for beating arcade games are disabled. <br/><br/>**Note**: This module is not available on Android. |
-| Non-realistic leaderboard | Hides multiple high scores of the same player from the leaderboard. | <ul><li>Enabled</li></ul>	                                                     |                                                                                                                                                              |
+| Non-realistic leaderboard | Hides multiple high scores of the same player from the leaderboard. | <ul><li>Enabled</li></ul>                                                        |                                                                                                                                                              |
 | Pay-to-play               | Requires you to pay to play arcade games.                           | <ul><li>Enabled</li><li>Coins per JotPK game</li><li>Coins per JK game</li></ul> |                                                                                                                                                              |
 
 - #### Machines
 
-https://github.com/mouahrara/QOLEssentials/assets/131559634/79d90415-d70e-4e57-ab54-acbfe73525e6
+[Machines-Demo-01.webm](https://github.com/user-attachments/assets/4f369a76-7928-4190-a240-bc3b93699929)
 
-| Module           | Functionality                                                                    | GMCM options              |
-|------------------|----------------------------------------------------------------------------------|---------------------------|
-| Safe replacement | Automatically retrieves the content of a crystalarium when you insert a new one. | <ul><li>Enabled</li></ul> |
+| Module            | Functionality                                                                                  | GMCM options              |
+|-------------------|------------------------------------------------------------------------------------------------|---------------------------|
+| Fast replacement  | Allows you to replace the in-progress recipe of any machine without losing its consumed items. | <ul><li>Enabled</li></ul> |
+| Resource recovery | Recovers the items a machine was processing when it is destroyed.                              | <ul><li>Enabled</li></ul> |
 
 - #### Shops
 
-https://github.com/mouahrara/QOLEssentials/assets/131559634/add5ed20-b685-4106-b4e3-c76308399d8d
+[Shops-Demo-01.webm](https://github.com/user-attachments/assets/f75e2ba3-1ecb-469b-a9d6-e7a776775918)
 
-https://github.com/mouahrara/QOLEssentials/assets/131559634/594ed452-cab8-4d83-a87b-bce4818cbb1e
+[Shops-Demo-02.webm](https://github.com/user-attachments/assets/046b79f1-25fe-4021-8474-3d42cbb505f2)
 
 | Module                 | Functionality                                                             | GMCM options                                                                        |
 |------------------------|---------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
@@ -40,7 +42,7 @@ https://github.com/mouahrara/QOLEssentials/assets/131559634/594ed452-cab8-4d83-a
 
 - #### User Interface
 
-https://github.com/mouahrara/QOLEssentials/assets/131559634/b18f9426-7f22-4689-a453-60ecd19f5295
+[ UserInterface-Demo-01.webm](https://github.com/user-attachments/assets/c076a651-91d7-44d8-8edf-9845cf7683d4)
 
 | Module         | Functionality                                                                                                                     | GMCM options                                                                                                                                    |  Additional Information                            |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
@@ -49,7 +51,7 @@ https://github.com/mouahrara/QOLEssentials/assets/131559634/b18f9426-7f22-4689-a
 
 - #### Other
 
-https://github.com/mouahrara/QOLEssentials/assets/131559634/f01b4bd0-aead-4ca0-8529-c14a395e91fa
+[Other-Demo-01.webm](https://github.com/user-attachments/assets/3521dafc-1f48-4436-9ba7-1b6c1a3dc540)
 
 | Module              | Functionality                                                                                                                               | GMCM options                                                                     | Additional Information                                                                                                                                                                                                                                                                                                                                   |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
