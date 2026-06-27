@@ -12,7 +12,7 @@ namespace QOLEssentials.Modules
 			// Load Harmony patches
 			try
 			{
-				// Apply locations patches
+				// Apply events patches
 				EventPatch.Apply(harmony);
 			}
 			catch (Exception e)

@@ -17,7 +17,7 @@ namespace QOLEssentials.Modules
 				MenuWithInventoryPatch.Apply(harmony);
 				GeodeMenuPatch.Apply(harmony);
 
-				// Apply objects patches
+				// Apply farmer patches
 				FarmerPatch.Apply(harmony);
 			}
 			catch (Exception e)

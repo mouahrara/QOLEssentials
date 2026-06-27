@@ -12,7 +12,7 @@ namespace QOLEssentials.Modules
 			// Load Harmony patches
 			try
 			{
-				// Apply locations patches
+				// Apply minigames patches
 				NetLeaderboardsPatch.Apply(harmony);
 			}
 			catch (Exception e)

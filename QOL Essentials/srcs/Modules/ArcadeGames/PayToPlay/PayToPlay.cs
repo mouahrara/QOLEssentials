@@ -13,7 +13,7 @@ namespace QOLEssentials.Modules
 			// Load Harmony patches
 			try
 			{
-				// Apply locations patches
+				// Apply minigames patches
 				AbigailGamePatch.Apply(harmony);
 				MineCartPatch.Apply(harmony);
 			}

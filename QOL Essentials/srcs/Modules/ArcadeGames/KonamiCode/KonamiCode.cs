@@ -16,7 +16,7 @@ namespace QOLEssentials.Modules
 				AbigailGamePatch.Apply(harmony);
 				MineCartPatch.Apply(harmony);
 
-				// Apply Stats patches
+				// Apply stats patches
 				StatsPatch.Apply(harmony);
 
 				// Apply network patches

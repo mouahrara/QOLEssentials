@@ -15,6 +15,9 @@ namespace QOLEssentials.Modules
 			{
 				// Apply locations patches
 				GameLocationPatch.Apply(harmony);
+
+				// Apply mobile patches
+				AStarGraphPatch.Apply(harmony);
 			}
 			catch (Exception e)
 			{
